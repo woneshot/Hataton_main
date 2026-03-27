@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://0ej7cjkqqui8"]
+
+[ext_resource type="PackedScene" uid="uid://dusb7i2qgk24s" path="res://models/ёлка (2).fbx" id="1_45qo8"]
+
+[node name="Spruce" type="Node3D" unique_id=1468090612]
+
+[node name="ёлка (2)" parent="." unique_id=1777725402 instance=ExtResource("1_45qo8")]

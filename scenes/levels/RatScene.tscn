@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dxrfavi2pjo5s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6n4xi"]
+size = Vector3(0.8, 1.8, 0.8)
+
+[node name="RatScene" type="Node3D" unique_id=588379504]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1094589439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8111119)
+size = Vector3(100, 0.01, 100)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=880393326]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.6587346, 0)
+mesh = SubResource("BoxMesh_6n4xi")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1473191210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.736347, 18.878277, 0)
+radius = 30.0
+height = 40.0
+sides = 20
