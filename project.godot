@@ -14,6 +14,11 @@ config/name="Test228"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Events="*uid://ig0vqhoxtbp3"
+AudioManager="*uid://btlsofy3o3pfu"
+
 [display]
 
 window/stretch/mode="viewport"
