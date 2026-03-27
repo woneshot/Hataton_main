@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cutnmp0xg5fx1"]
+
+[ext_resource type="PackedScene" uid="uid://b53yeqwldgpey" path="res://models/Поганка.fbx" id="1_6d371"]
+
+[node name="Poganka" type="Node3D" unique_id=1880157394]
+
+[node name="Поганка" parent="." unique_id=349465108 instance=ExtResource("1_6d371")]

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b8lxnovkqkwqu"]
+
+[ext_resource type="PackedScene" uid="uid://dtemj3c0khijs" path="res://models/камень_маленький.fbx" id="1_3bb8o"]
+
+[node name="RockSmall" type="Node3D" unique_id=934146003]
+
+[node name="камень_маленький" parent="." unique_id=1399031130 instance=ExtResource("1_3bb8o")]
