@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://doxyjut5wn535"]
+
+[ext_resource type="PackedScene" uid="uid://cqm5708dlaook" path="res://scenes/prefabs/PickupItem.tscn" id="1_tpo04"]
+[ext_resource type="PackedScene" uid="uid://xh73bla45nmh" path="res://models/Weapon/меч.fbx" id="2_81dwt"]
+
+[node name="PickupItem" unique_id=332512943 instance=ExtResource("1_tpo04")]
+item_id = "sword"
+
+[node name="меч" parent="ModelHolder" parent_id_path=PackedInt32Array(1216435176) index="0" unique_id=2089027015 instance=ExtResource("2_81dwt")]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)

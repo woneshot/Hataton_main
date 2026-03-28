@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c5h7puho6ql5e"]
+
+[ext_resource type="PackedScene" uid="uid://cqm5708dlaook" path="res://scenes/prefabs/PickupItem.tscn" id="1_2pqhi"]
+[ext_resource type="PackedScene" uid="uid://bi5xbnfrqvrli" path="res://models/Bones/Кость.fbx" id="2_g2jbk"]
+
+[node name="PickupItem" unique_id=332512943 instance=ExtResource("1_2pqhi")]
+item_id = "bone"
+
+[node name="Кость" parent="ModelHolder" parent_id_path=PackedInt32Array(1216435176) index="0" unique_id=585255083 instance=ExtResource("2_g2jbk")]
+transform = Transform3D(2.51, 0, 0, 0, 2.51, 0, 0, 0, 2.51, 0, 0, 0)

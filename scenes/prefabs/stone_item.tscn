@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://brd7mo8mbj7ur"]
+
+[ext_resource type="PackedScene" uid="uid://cqm5708dlaook" path="res://scenes/prefabs/PickupItem.tscn" id="1_hal1t"]
+[ext_resource type="PackedScene" uid="uid://dtemj3c0khijs" path="res://models/Stones/камень_маленький.fbx" id="2_0i1q4"]
+
+[node name="PickupItem" unique_id=332512943 instance=ExtResource("1_hal1t")]
+item_id = "stone"
+
+[node name="камень_маленький" parent="ModelHolder" parent_id_path=PackedInt32Array(1216435176) index="0" unique_id=1085834577 instance=ExtResource("2_0i1q4")]
+transform = Transform3D(2.67, 0, 0, 0, 2.67, 0, 0, 0, 2.67, 0, 0, 0)
