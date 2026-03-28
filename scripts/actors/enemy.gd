@@ -53,6 +53,7 @@ var facing_change_timer: float = 0.0
 const FACING_CHANGE_COOLDOWN: float = 0.1
 const FACING_HYSTERESIS: float = 1.5
 var last_anim_name: String = ""
+var last_move_dir: Vector3 = Vector3.BACK
 
 @onready var visuals = $Visuals
 @onready var sprite: AnimatedSprite3D = $Visuals/Sprite
@@ -342,9 +343,10 @@ func _update_sprite_direction(dir: Vector3) -> void:
 	if is_attacking or is_hurt: return 
 
 	if dir == Vector3.ZERO:
-		var cam_dir = Vector3.BACK.rotated(Vector3.UP, camera_rig.global_rotation.y)
-		_update_facing_from_dir(cam_dir)
+		# Стоим — используем последнее направление
+		_update_facing_from_dir(last_move_dir)
 	else:
+		last_move_dir = dir  # Запоминаем
 		_update_facing_from_dir(dir)
 
 	var is_moving = velocity.length() > 0.1

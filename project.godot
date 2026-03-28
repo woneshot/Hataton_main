@@ -29,6 +29,7 @@ window/stretch/mode="viewport"
 player=""
 camera_rig=""
 enemy=""
+interactable=""
 
 [input]
 

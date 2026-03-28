@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://b8o6pubcp0evw"]
 
+[ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_68kpv"]
 [ext_resource type="Texture2D" uid="uid://b6fjxunhxgomn" path="res://assets/sprites/pixie king/pixie_king_idle.png" id="1_j5xny"]
+[ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_qse75"]
+
+[sub_resource type="Resource" id="Resource_deb0d"]
+script = ExtResource("2_qse75")
+lines = Array[String](["Я понимаю твою трагедию, странник", "Но как ты знаешь, в этом мире ничего не бывает просто так", "Если бы ты мог как-нибудь мне помочь...", "О, нет! На нас напали Вексы!"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_68kpv"]
 height = 1.6
@@ -84,19 +91,31 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="PixieKing" type="CharacterBody3D" unique_id=592265787]
+[node name="PixieKing" type="CharacterBody3D" unique_id=592265787 groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8745631, 0)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_68kpv")
+npc_type = 2
+actor_name = "Король Пикси Спарки LXVII"
+dialogue_entries = Array[ExtResource("2_qse75")]([SubResource("Resource_deb0d")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1952975323]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07897949, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.073762774, 0)
 shape = SubResource("CylinderShape3D_68kpv")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=236172913]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.077815294, 0)
+[node name="Visuals" type="Node3D" parent="." unique_id=695367752]
+
+[node name="Sprite" type="AnimatedSprite3D" parent="Visuals" unique_id=236172913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.035959244, 0)
 cast_shadow = 2
+offset = Vector2(0, 1.125)
 pixel_size = 0.03
 billboard = 2
+shaded = true
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_jq2i2")
-animation = &"idle_up"
+animation = &"idle_down"
+
+[node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1503482870 groups=["interactable"]]

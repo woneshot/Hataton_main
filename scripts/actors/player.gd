@@ -15,7 +15,7 @@ extends CharacterBody3D
 @export var dash_attack_range: float = 2.2
 @export var dash_attack_angle: float = 1.0
 @export var attack_move_speed_mult: float = 0.35
-@export var damage_point: float = 0.4  # Доля анимации когда наносится урон
+@export var damage_point: float = 0.4
 
 @export_group("Dash")
 @export var dash_speed: float = 20.0
@@ -56,7 +56,8 @@ var is_invulnerable: bool = false
 var current_facing: String = "down"
 var dash_direction: Vector3 = Vector3.ZERO
 var damage_dealt_this_attack: bool = false
-var attack_direction_cache: Vector3 = Vector3.ZERO  # Запоминаем направление атаки
+var attack_direction_cache: Vector3 = Vector3.ZERO
+var last_move_dir: Vector3 = Vector3.BACK
 
 # Антифликер
 var facing_change_timer: float = 0.0
@@ -81,7 +82,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	_update_sprite_normals()
-	_check_player_damage_point() 
+	_check_player_damage_point()
 	if is_dead:
 		dash_vfx.emitting = false
 	else:
@@ -143,12 +144,13 @@ func _handle_movement() -> void:
 		var current_speed = run_speed
 		if is_attacking:
 			current_speed = run_speed * attack_move_speed_mult
-			
+
 		velocity.x = direction.x * current_speed
 		velocity.z = direction.z * current_speed
 		var look_target = global_position + direction
 		interact_ray.look_at(look_target, Vector3.UP)
 		if not is_attacking:
+			last_move_dir = direction
 			_update_facing_direction(direction)
 	else:
 		velocity.x = move_toward(velocity.x, 0, run_speed)
@@ -158,6 +160,8 @@ func _handle_movement() -> void:
 		if velocity.length() > 0.1:
 			_set_anim_and_normal("run_" + current_facing, norm_run)
 		else:
+			# Стоим — пересчитываем facing по камере
+			_update_idle_facing()
 			_set_anim_and_normal("idle_" + current_facing, norm_idle)
 
 func _update_facing_direction(dir: Vector3) -> void:
@@ -189,12 +193,29 @@ func _update_facing_direction(dir: Vector3) -> void:
 		current_facing = new_facing
 		facing_change_timer = FACING_CHANGE_COOLDOWN
 
+func _update_idle_facing() -> void:
+	if not camera_rig: return
+
+	# Берём запомненное мировое направление и пересчитываем через текущий угол камеры
+	var local_dir = last_move_dir.rotated(Vector3.UP, -camera_rig.global_rotation.y)
+
+	var abs_x = abs(local_dir.x)
+	var abs_z = abs(local_dir.z)
+
+	if abs_z > abs_x:
+		current_facing = "down" if local_dir.z > 0 else "up"
+	else:
+		current_facing = "right" if local_dir.x > 0 else "left"
+
+	last_anim_name = ""
+
 func _face_dialog_source() -> void:
 	var dialog_ui = get_tree().get_first_node_in_group("dialog_ui")
 	if dialog_ui and dialog_ui.dialog_source and is_instance_valid(dialog_ui.dialog_source):
 		var dir_to_npc = global_position.direction_to(dialog_ui.dialog_source.global_position)
 		dir_to_npc.y = 0
 		if dir_to_npc.length() > 0.01:
+			last_move_dir = dir_to_npc
 			facing_change_timer = 0.0
 			_update_facing_direction(dir_to_npc)
 	_set_anim_and_normal("idle_" + current_facing, norm_idle)
@@ -211,7 +232,7 @@ func _attack() -> void:
 	var dir_to_mouse = global_position.direction_to(mouse_world_pos)
 	dir_to_mouse.y = 0
 	dir_to_mouse = dir_to_mouse.normalized()
-	attack_direction_cache = dir_to_mouse  # Запоминаем направление
+	attack_direction_cache = dir_to_mouse
 
 	facing_change_timer = 0.0
 	_update_facing_direction(dir_to_mouse)
@@ -226,13 +247,11 @@ func _attack() -> void:
 		sfx_player.stream = sfx_attack
 		sfx_player.play()
 
-	# Урон теперь наносится через _check_player_damage_point() в _process
-
 	await sprite.animation_finished
 	if is_instance_valid(self):
 		is_attacking = false
 		last_anim_name = ""
-		
+
 func _check_player_damage_point() -> void:
 	if not is_attacking or damage_dealt_this_attack or is_dead: return
 	if not sprite.sprite_frames: return
@@ -247,6 +266,7 @@ func _check_player_damage_point() -> void:
 	if progress >= damage_point:
 		damage_dealt_this_attack = true
 		_hit_enemies_in_arc(attack_direction_cache, attack_range, attack_angle)
+
 # ==========================================
 # ДЭШ
 # ==========================================
@@ -320,6 +340,20 @@ func _hit_enemies_in_arc(direction: Vector3, hit_range: float, hit_angle: float)
 			enemy.take_damage(1)
 			Events.camera_shake_requested.emit(0.1, 0.1)
 
+	var npcs = get_tree().get_nodes_in_group("interactable")
+	for npc in npcs:
+		if not is_instance_valid(npc): continue
+		if not npc.has_method("take_damage"): continue
+		if not ("npc_type" in npc and npc.npc_type == 4): continue
+		var dist = global_position.distance_to(npc.global_position)
+		if dist > hit_range: continue
+		var dir_to_npc = global_position.direction_to(npc.global_position)
+		dir_to_npc.y = 0
+		var angle = direction.angle_to(dir_to_npc.normalized())
+		if angle < hit_angle:
+			npc.take_damage(1)
+			Events.camera_shake_requested.emit(0.1, 0.1)
+
 # ==========================================
 # УТИЛИТЫ
 # ==========================================
@@ -355,7 +389,7 @@ func take_damage(amount: int) -> void:
 	if sfx_hurt:
 		sfx_player.stream = sfx_hurt
 		sfx_player.play()
-		
+
 	_flash_red()
 
 	if health <= 0:
@@ -366,8 +400,7 @@ func take_damage(amount: int) -> void:
 		dash_vfx.emitting = false
 		last_anim_name = ""
 		_set_anim_and_normal("death", norm_death)
-		
-		# Опускаем спрайт на 4 пикселя вниз при смерти
+
 		var pixel_offset = 1.5 * sprite.pixel_size
 		var tween = create_tween()
 		tween.tween_property(sprite, "position:y", sprite.position.y - pixel_offset, 0.15)
@@ -416,7 +449,7 @@ func _init_visuals() -> void:
 	mat.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
 	mat.fixed_size = false
 	mat.normal_enabled = true
-	mat.vertex_color_use_as_albedo = true # <-- ДОБАВЛЕНО ДЛЯ ВСПЫШКИ
+	mat.vertex_color_use_as_albedo = true
 	sprite.material_override = mat
 	current_normal_sheet = norm_idle
 
@@ -424,10 +457,10 @@ func _set_anim_and_normal(anim_name: String, normal_sheet: Texture2D) -> void:
 	if anim_name == last_anim_name:
 		return
 	last_anim_name = anim_name
-	
+
 	if sprite.sprite_frames.has_animation(anim_name):
 		sprite.play(anim_name)
-		
+
 	if normal_sheet:
 		current_normal_sheet = normal_sheet
 

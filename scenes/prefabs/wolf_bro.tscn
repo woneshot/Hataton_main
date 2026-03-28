@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://bx6ewcw0jgyj6"]
 
 [ext_resource type="Texture2D" uid="uid://esao8gupu5eu" path="res://assets/sprites/wolf_bro/wolf_bro_universal.png" id="1_8h1ar"]
+[ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_87wqs"]
+[ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_o3wq8"]
+
+[sub_resource type="Resource" id="Resource_ys60g"]
+script = ExtResource("2_o3wq8")
+lines = Array[String](["Псс... Я слышал ты хочешь отомстить ведьме за свое унижение", "Я помогу тебе. Не спрашивай почему", "Теперь бой с ведьмой дастся тебе немного проще. Удачи!"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_7jskd"]
+height = 1.6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87wqs"]
 atlas = ExtResource("1_8h1ar")
@@ -438,21 +448,30 @@ animations = [{
 "speed": 3.0
 }]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_7jskd"]
-height = 1.6
-
-[node name="WolfBro" type="CharacterBody3D" unique_id=1498679655]
-
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1586005121]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.840405, 0)
-cast_shadow = 2
-pixel_size = 0.03
-billboard = 2
-alpha_cut = 1
-texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_yigup")
-animation = &"idle_down"
+[node name="WolfBro" type="CharacterBody3D" unique_id=1498679655 groups=["interactable"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_87wqs")
+npc_type = 4
+actor_name = "Зверолюд-незнакомец"
+dialogue_entries = Array[ExtResource("2_o3wq8")]([SubResource("Resource_ys60g")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=366980371]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CylinderShape3D_7jskd")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=929824608]
+
+[node name="Sprite" type="AnimatedSprite3D" parent="Visuals" unique_id=1586005121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.840405, 0)
+cast_shadow = 2
+offset = Vector2(0, 3.01)
+pixel_size = 0.03
+billboard = 2
+shaded = true
+alpha_cut = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_yigup")
+animation = &"cast_down"
+
+[node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1210970614]

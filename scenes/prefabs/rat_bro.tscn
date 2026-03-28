@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://ckr8arm6c7vm"]
 
+[ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_1gcud"]
 [ext_resource type="Texture2D" uid="uid://diracb8usdyno" path="res://assets/sprites/rat_bro/rat_bro_universal.png" id="1_1qwof"]
+[ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_tyrh8"]
+
+[sub_resource type="Resource" id="Resource_7ugjo"]
+script = ExtResource("2_tyrh8")
+lines = Array[String](["Привет, друг! Не видел тебя *кашляет* здесь раньше!", "Ага, значит поганная ведьма и над тобой поиздеваться успела", "Она погубила много моих друзей ради своих зелий *кашляет*", "Так, что я помогу тебе просто так. Тебе нужно всего лишь принести мне...", "Эээ... Ну короче самую крутую штуку с моего хранилища. Да, именно ее, ты сразу поймешь о чем я", "Я бы сам с радостью сходил, но как видишь *кашялет* годы уже не те, да и ноги нет ха-ха-ха"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1gcud"]
 atlas = ExtResource("1_1qwof")
@@ -752,13 +759,30 @@ animations = [{
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dk74e"]
 height = 1.6
 
-[node name="RatBro" type="CharacterBody3D" unique_id=854936262]
+[node name="RatBro" type="CharacterBody3D" unique_id=854936262 groups=["interactable"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_1gcud")
+npc_type = 3
+actor_name = "Крысолюд Артемий"
+dialogue_entries = Array[ExtResource("2_tyrh8")]([SubResource("Resource_7ugjo")])
+can_wander = true
+wander_speed = 1.0
+wander_wait_min = 3.0
+wander_wait_max = 6.0
+dig_chance = 0.5
+dig_duration_min = 4.4
+dig_duration_max = 4.4
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=911804239]
+[node name="Visuals" type="Node3D" parent="." unique_id=1431505806]
+
+[node name="Sprite" type="AnimatedSprite3D" parent="Visuals" unique_id=911804239 groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.824842, 0)
 cast_shadow = 2
+offset = Vector2(0, 1.55)
 pixel_size = 0.03
 billboard = 2
+shaded = true
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_srdju")
@@ -767,3 +791,5 @@ animation = &"dig_left"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1156727997]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CylinderShape3D_dk74e")
+
+[node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1496717139]

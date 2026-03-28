@@ -1,8 +1,15 @@
 [gd_scene format=3 uid="uid://c2y27sy0a0bxq"]
 
 [ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="1_to0dc"]
-[ext_resource type="PackedScene" uid="uid://x10q6qkf3pef" path="res://scenes/prefabs/witch.tscn" id="2_7t6sv"]
 [ext_resource type="PackedScene" uid="uid://cigbeho856dvr" path="res://scenes/prefabs/CameraRig.tscn" id="2_nnyng"]
+[ext_resource type="PackedScene" uid="uid://b8o6pubcp0evw" path="res://scenes/prefabs/pixie_king.tscn" id="3_k4ls1"]
+[ext_resource type="PackedScene" uid="uid://cbcc4gr25pd4i" path="res://scenes/prefabs/pixie_1.tscn" id="4_p6ekb"]
+[ext_resource type="PackedScene" uid="uid://bsi6qv4yat8ad" path="res://scenes/prefabs/pixie_2.tscn" id="5_xra7j"]
+[ext_resource type="PackedScene" uid="uid://5anssov48se2" path="res://scenes/prefabs/pixie_3.tscn" id="6_au5tw"]
+[ext_resource type="PackedScene" uid="uid://ckr8arm6c7vm" path="res://scenes/prefabs/rat_bro.tscn" id="7_qo72s"]
+[ext_resource type="PackedScene" uid="uid://bx6ewcw0jgyj6" path="res://scenes/prefabs/wolf_bro.tscn" id="8_a20el"]
+[ext_resource type="PackedScene" uid="uid://4utgib0jkrcs" path="res://scenes/prefabs/guard.tscn" id="9_sex0t"]
+[ext_resource type="PackedScene" uid="uid://bm8nkblsphtov" path="res://scenes/prefabs/faun.tscn" id="10_p6ekb"]
 
 [node name="test_arena" type="Node3D" unique_id=122367211]
 
@@ -19,8 +26,28 @@ transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70
 shadow_enabled = true
 shadow_bias = 0.05
 
-[node name="Witch" parent="." unique_id=372944410 instance=ExtResource("2_7t6sv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.826338, 0, -1.9992561)
-
 [node name="Player" parent="." unique_id=140876529 instance=ExtResource("1_to0dc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8927082, 15.236845)
+
+[node name="PixieKing" parent="." unique_id=592265787 instance=ExtResource("3_k4ls1")]
+
+[node name="Pixie1" parent="." unique_id=348083422 instance=ExtResource("4_p6ekb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.206158, 0, 0)
+
+[node name="Pixie2" parent="." unique_id=1719322299 instance=ExtResource("5_xra7j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.5998974)
+
+[node name="Pixie3" parent="." unique_id=970112783 instance=ExtResource("6_au5tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.335563, 0, 0)
+
+[node name="RatBro" parent="." unique_id=854936262 instance=ExtResource("7_qo72s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.07113)
+
+[node name="WolfBro" parent="." unique_id=1498679655 instance=ExtResource("8_a20el")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8769393, 0, 2.8940883)
+
+[node name="Guard" parent="." unique_id=1396054506 instance=ExtResource("9_sex0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9526334, 0.86918235, 9.542366)
+
+[node name="Faun" parent="." unique_id=827347047 instance=ExtResource("10_p6ekb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.748278, 0, 0)

@@ -1,9 +1,24 @@
-[gd_scene format=3 uid="uid://bw2rd0ak38bwt"]
+[gd_scene format=3 uid="uid://4utgib0jkrcs"]
 
-[ext_resource type="Texture2D" uid="uid://drydhnl0rm03w" path="res://assets/sprites/guard2_done/guard2_slash.png" id="1_785u6"]
-[ext_resource type="Texture2D" uid="uid://b3ww7endjm45h" path="res://assets/sprites/guard2_done/guard2_hurt.png" id="2_kiter"]
-[ext_resource type="Texture2D" uid="uid://db1f2awcpebmn" path="res://assets/sprites/guard2_done/guard2_idle.png" id="3_nmi7j"]
-[ext_resource type="Texture2D" uid="uid://wvd7xxlbmj3n" path="res://assets/sprites/guard2_done/guard2_walk.png" id="4_nlr58"]
+[ext_resource type="Texture2D" uid="uid://drydhnl0rm03w" path="res://assets/sprites/guard2/guard2_slash.png" id="1_785u6"]
+[ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_kiter"]
+[ext_resource type="Texture2D" uid="uid://b3ww7endjm45h" path="res://assets/sprites/guard2/guard2_hurt.png" id="2_kiter"]
+[ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_nmi7j"]
+[ext_resource type="Texture2D" uid="uid://db1f2awcpebmn" path="res://assets/sprites/guard2/guard2_idle.png" id="3_nmi7j"]
+[ext_resource type="Texture2D" uid="uid://wvd7xxlbmj3n" path="res://assets/sprites/guard2/guard2_walk.png" id="4_nlr58"]
+
+[sub_resource type="Resource" id="Resource_nlr58"]
+script = ExtResource("2_nmi7j")
+condition_type = 2
+condition_value = "talked_to_guard"
+lines = Array[String](["Либо заходи, либо отойди"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
+[sub_resource type="Resource" id="Resource_kpa8f"]
+script = ExtResource("2_nmi7j")
+lines = Array[String](["Че уставился?"])
+set_flags = Array[String](["talked_to_guard"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kpa8f"]
 height = 1.6000977
@@ -112,7 +127,23 @@ region = Rect2(256, 0, 64, 64)
 atlas = ExtResource("3_nmi7j")
 region = Rect2(64, 128, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmi7j"]
+atlas = ExtResource("3_nmi7j")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlr58"]
+atlas = ExtResource("3_nmi7j")
+region = Rect2(64, 128, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7lm6u"]
+atlas = ExtResource("3_nmi7j")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpa8f"]
+atlas = ExtResource("3_nmi7j")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmcmo"]
 atlas = ExtResource("3_nmi7j")
 region = Rect2(64, 64, 64, 64)
 
@@ -120,7 +151,23 @@ region = Rect2(64, 64, 64, 64)
 atlas = ExtResource("3_nmi7j")
 region = Rect2(64, 192, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsb3b"]
+atlas = ExtResource("3_nmi7j")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i3ix"]
+atlas = ExtResource("3_nmi7j")
+region = Rect2(64, 192, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_aefv5"]
+atlas = ExtResource("3_nmi7j")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f13ge"]
+atlas = ExtResource("3_nmi7j")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_an27c"]
 atlas = ExtResource("3_nmi7j")
 region = Rect2(64, 0, 64, 64)
 
@@ -384,6 +431,12 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ngskf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmi7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlr58")
 }],
 "loop": true,
 "name": &"idle_down",
@@ -392,6 +445,12 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_7lm6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpa8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmcmo")
 }],
 "loop": true,
 "name": &"idle_left",
@@ -400,6 +459,12 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_55cqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tsb3b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i3ix")
 }],
 "loop": true,
 "name": &"idle_right",
@@ -408,6 +473,12 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_aefv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f13ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_an27c")
 }],
 "loop": true,
 "name": &"idle_up",
@@ -532,16 +603,31 @@ animations = [{
 
 [node name="Guard" type="CharacterBody3D" unique_id=1396054506]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86918235, 0)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_kiter")
+actor_name = "Королевский Стражник"
+dialogue_entries = Array[ExtResource("2_nmi7j")]([SubResource("Resource_nlr58"), SubResource("Resource_kpa8f")])
+disappear_is_death = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1943450116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06901932, 0)
 shape = SubResource("CylinderShape3D_kpa8f")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=224447657]
+[node name="Visuals" type="Node3D" parent="." unique_id=856208464]
+
+[node name="Sprite" type="AnimatedSprite3D" parent="Visuals" unique_id=224447657 groups=["interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.031126022, 0)
 cast_shadow = 2
+offset = Vector2(0, 0.965)
 pixel_size = 0.03
 billboard = 2
+shaded = true
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_an27c")
-animation = &"run_up"
+animation = &"idle_down"
+frame_progress = 0.1371654
+
+[node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=998400122]
+bus = &"Sfx"
