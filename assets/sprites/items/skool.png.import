@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1dg2ij0l3aat"
-path="res://.godot/imported/Pink crystal.png-2d4235d57a37dfec4181a29b9b3ef82b.ctex"
+uid="uid://ccoh8farlilso"
+path="res://.godot/imported/skool.png-6e5fbbdc6121139f38ec7c785725942a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/items/Pink crystal.png"
-dest_files=["res://.godot/imported/Pink crystal.png-2d4235d57a37dfec4181a29b9b3ef82b.ctex"]
+source_file="res://assets/sprites/items/skool.png"
+dest_files=["res://.godot/imported/skool.png-6e5fbbdc6121139f38ec7c785725942a.ctex"]
 
 [params]
 

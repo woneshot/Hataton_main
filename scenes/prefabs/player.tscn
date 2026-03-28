@@ -943,6 +943,7 @@ animations = [{
 height = 1.6
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6v0jn"]
+size = Vector3(1, 1.3, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=140876529 groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8927082, 0)
@@ -968,7 +969,7 @@ draw_pass_1 = SubResource("QuadMesh_r053x")
 cast_shadow = 2
 offset = Vector2(0, -3.72)
 pixel_size = 0.03
-billboard = 2
+billboard = 1
 shaded = true
 alpha_cut = 1
 texture_filter = 0
@@ -976,12 +977,15 @@ sprite_frames = SubResource("SpriteFrames_6v0jn")
 animation = &"dash_right"
 
 [node name="ItemAboveHead" type="Sprite3D" parent="Visuals" unique_id=1798970287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0703503, 0)
+pixel_size = 0.003
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1158441341]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09279305, 0)
 shape = SubResource("CylinderShape3D_r053x")
 
 [node name="InteractRay" type="ShapeCast3D" parent="." unique_id=1546069070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
 shape = SubResource("BoxShape3D_6v0jn")
 target_position = Vector3(0, 0, -1)
 collision_mask = 4

@@ -20,6 +20,12 @@
 [ext_resource type="PackedScene" uid="uid://cpy65r1078nt3" path="res://scenes/objects/Trees/TreeNaked.tscn" id="18_rv1ks"]
 [ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="19_eueyj"]
 [ext_resource type="PackedScene" uid="uid://cigbeho856dvr" path="res://scenes/prefabs/CameraRig.tscn" id="20_rv1ks"]
+[ext_resource type="PackedScene" uid="uid://b0r3x5drtc6hs" path="res://scenes/prefabs/crystall1_item.tscn" id="21_61akd"]
+[ext_resource type="PackedScene" uid="uid://brfw3lg8re4fc" path="res://scenes/prefabs/crystall2_item.tscn" id="22_yxr15"]
+[ext_resource type="PackedScene" uid="uid://c5h7puho6ql5e" path="res://scenes/prefabs/bone_item.tscn" id="23_s6yrj"]
+[ext_resource type="PackedScene" uid="uid://ba2ulbvf88w00" path="res://scenes/prefabs/skool_item.tscn" id="24_fy4ph"]
+[ext_resource type="PackedScene" uid="uid://brd7mo8mbj7ur" path="res://scenes/prefabs/stone_item.tscn" id="25_dqbwq"]
+[ext_resource type="PackedScene" uid="uid://doxyjut5wn535" path="res://scenes/prefabs/sword_item.tscn" id="26_28s52"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_7fh15"]
 rayleigh_color = Color(0.26550722, 0.3593695, 0.5378088, 1)
@@ -358,3 +364,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.329086, 0, -21.443752)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6129236, 0)
 
 [node name="CameraRig" parent="." unique_id=252267071 instance=ExtResource("20_rv1ks")]
+
+[node name="PickupItem" parent="." unique_id=332512943 instance=ExtResource("21_61akd")]
+transform = Transform3D(1, 0, 0, 0, -0.7871826, 0.61671996, 0, -0.61671996, -0.7871826, -12.164712, 4.7683716e-07, -2.206575)
+
+[node name="PickupItem2" parent="." unique_id=787099398 instance=ExtResource("22_yxr15")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -11.305187, 0, 3.9262466)
+
+[node name="PickupItem3" parent="." unique_id=939327265 instance=ExtResource("23_s6yrj")]
+transform = Transform3D(0.63012034, 0, 0.7764975, 0, 1, 0, -0.7764975, 0, 0.63012034, -10.007664, 0.010206997, 0.6585579)
+
+[node name="PickupItem4" parent="." unique_id=351181890 instance=ExtResource("24_fy4ph")]
+transform = Transform3D(0.48091602, -0.8329711, -0.27364028, 0.86602545, 0.49999997, 0, 0.13682012, -0.23697944, 0.9618321, -11.984894, 0, 0.38745987)
+
+[node name="PickupItem5" parent="." unique_id=269990486 instance=ExtResource("25_dqbwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.792055, 0, 6.4224863)
+
+[node name="PickupItem6" parent="." unique_id=533443189 instance=ExtResource("26_28s52")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.840826, 0, 5.922642)
