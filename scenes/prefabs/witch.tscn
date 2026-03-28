@@ -4,10 +4,13 @@
 [ext_resource type="Script" uid="uid://y77y3ddm7w37" path="res://scripts/actors/boss_witch.gd" id="1_wip40"]
 [ext_resource type="Texture2D" uid="uid://d2r36xq0qfqae" path="res://assets/sprites/witch/witch_hurt.png" id="2_gq37u"]
 [ext_resource type="PackedScene" uid="uid://drua3ex5p77e0" path="res://scenes/prefabs/skeleton.tscn" id="2_jns8y"]
-[ext_resource type="PackedScene" uid="uid://bt8me3yofq8fj" path="res://scenes/prefabs/fireball_projectile.tscn" id="2_wsopi"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/fireball_projectile.tscn" id="2_wsopi"]
 [ext_resource type="Texture2D" uid="uid://vsod6rfrbidt" path="res://assets/sprites/witch/witch_walk.png" id="3_cno4m"]
 [ext_resource type="Texture2D" uid="uid://dg3s8gpdgbcqr" path="res://assets/sprites/witch/witch_idle.png" id="3_gq37u"]
 [ext_resource type="PackedScene" uid="uid://bm8nkblsphtov" path="res://scenes/prefabs/faun.tscn" id="3_wsopi"]
+[ext_resource type="Texture2D" uid="uid://cpn55twntvq28" path="res://assets/normal_maps/Witch/witch_idle_n.png" id="5_a26u5"]
+[ext_resource type="Texture2D" uid="uid://bgnujelmtt75e" path="res://assets/normal_maps/Witch/witch_cast_n.png" id="6_ortrp"]
+[ext_resource type="Texture2D" uid="uid://qqrca17j7k5u" path="res://assets/normal_maps/Witch/witch_death_n.png" id="7_7c1lc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7vfut"]
 height = 1.6
@@ -640,6 +643,9 @@ fireball_scene = ExtResource("2_wsopi")
 spawn_points = [NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4"), NodePath("SpawnPoint5")]
 skeleton_scene = ExtResource("2_jns8y")
 faun_scene = ExtResource("3_wsopi")
+norm_idle = ExtResource("5_a26u5")
+norm_cast = ExtResource("6_ortrp")
+norm_death = ExtResource("7_7c1lc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1758258281]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

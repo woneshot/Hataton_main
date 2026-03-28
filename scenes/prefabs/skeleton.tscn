@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bdivcna4swkjp" path="res://scripts/actors/enemy.gd" id="1_rxqkx"]
 [ext_resource type="Texture2D" uid="uid://7w31m53o251h" path="res://assets/sprites/skeleton/skeleton_universal.png" id="1_sa6gg"]
 [ext_resource type="PackedScene" uid="uid://d3kjtsqlc0isl" path="res://scenes/prefabs/arrow_projectile.tscn" id="2_mmbai"]
+[ext_resource type="Texture2D" uid="uid://d2dbpjrvt3ie4" path="res://assets/normal_maps/Skeleton/skeleton_n.png" id="3_mmbai"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hw0it"]
 atlas = ExtResource("1_sa6gg")
@@ -714,6 +715,10 @@ attack_range = 10.0
 attack_cooldown = 2.0
 damage_point = 0.65
 projectile_scene = ExtResource("2_mmbai")
+norm_idle = ExtResource("3_mmbai")
+norm_walk = ExtResource("3_mmbai")
+norm_attack = ExtResource("3_mmbai")
+norm_death = ExtResource("3_mmbai")
 
 [node name="Visuals" type="Node3D" parent="." unique_id=119111380]
 
