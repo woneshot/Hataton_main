@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bthiexl7k4a36" path="res://scenes/objects/Enviroment/House.tscn" id="7_t3aqv"]
 [ext_resource type="PackedScene" uid="uid://b1xmewe7vhjxm" path="res://scenes/objects/Trees/TreeNormal.tscn" id="8_fysms"]
 [ext_resource type="PackedScene" uid="uid://0ej7cjkqqui8" path="res://scenes/objects/Trees/Spruce.tscn" id="9_e84iw"]
+[ext_resource type="Material" uid="uid://drouv5vft42gd" path="res://materials/borovik_mat.tres" id="9_r5wn2"]
 [ext_resource type="PackedScene" uid="uid://cpy65r1078nt3" path="res://scenes/objects/Trees/TreeNaked.tscn" id="10_2ijbw"]
 [ext_resource type="PackedScene" uid="uid://bcvoqq8sh7vgc" path="res://scenes/objects/Logs/Log.tscn" id="11_cy82g"]
 [ext_resource type="PackedScene" uid="uid://dqlf0iu0r0l4o" path="res://scenes/objects/Logs/Log2.tscn" id="12_lfypb"]
@@ -134,7 +135,7 @@ camera_angle = -20.0
 [node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1159971051]
 
 [node name="Player" parent="." unique_id=140876529 instance=ExtResource("17_e84iw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2465315, 3.1211429, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2465315, 10.264954, 0)
 
 [node name="SceneTransition" parent="." unique_id=1645615911 groups=["interactable"] instance=ExtResource("19_cy82g")]
 transform = Transform3D(6.666303, 0, 0, 0, 3.3322558, 0, 0, 0, 2, -0.40571046, 0.27713323, -20.96393)
@@ -169,6 +170,7 @@ transform = Transform3D(39.436226, 6.659208, 0.6625644, -6.692088, 39.24247, 3.9
 [node name="боровик" type="MeshInstance3D" parent="Scene/NearStump/Borovik/Боровик" unique_id=72006105]
 transform = Transform3D(3.3396657, 0, 0, 0, -3.9811917e-07, 3.3396654, 0, -3.3396654, -3.9811917e-07, 1.4683633e-19, 0.033308487, 7.347689e-05)
 mesh = SubResource("ArrayMesh_gvpkf")
+surface_material_override/0 = ExtResource("9_r5wn2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Scene/NearStump/Borovik/Боровик/боровик" unique_id=623209904]
 

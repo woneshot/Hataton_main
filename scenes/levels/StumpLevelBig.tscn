@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://byejev5f40we3" path="res://scenes/objects/Enviroment/Kotel.tscn" id="15_ajt3b"]
 [ext_resource type="PackedScene" uid="uid://ci8ky1tjwcx6w" path="res://scenes/objects/Trees/Enter.tscn" id="15_heega"]
 [ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="16_heega"]
+[ext_resource type="Material" uid="uid://drouv5vft42gd" path="res://materials/borovik_mat.tres" id="16_xsrrs"]
 [ext_resource type="PackedScene" uid="uid://cigbeho856dvr" path="res://scenes/prefabs/CameraRig.tscn" id="17_jkc3g"]
 [ext_resource type="PackedScene" uid="uid://672kylrnkbdi" path="res://scenes/objects/Enviroment/Grass.tscn" id="18_jkc3g"]
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="22_wa3u7"]
@@ -791,6 +792,7 @@ transform = Transform3D(39.436226, 6.659208, 0.6625644, -6.692088, 39.24247, 3.9
 [node name="боровик" type="MeshInstance3D" parent="NearStump/Scene/NearStump/Borovik/Боровик" unique_id=72006105]
 transform = Transform3D(3.3396657, 0, 0, 0, -3.9811917e-07, 3.3396654, 0, -3.3396654, -3.9811917e-07, 1.4683633e-19, 0.033308487, 7.347689e-05)
 mesh = SubResource("ArrayMesh_gvpkf")
+surface_material_override/0 = ExtResource("16_xsrrs")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NearStump/Scene/NearStump/Borovik/Боровик/боровик" unique_id=623209904]
 
