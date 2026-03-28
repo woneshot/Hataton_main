@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bcvoqq8sh7vgc" path="res://scenes/objects/Logs/Log.tscn" id="11_cy82g"]
 [ext_resource type="PackedScene" uid="uid://dqlf0iu0r0l4o" path="res://scenes/objects/Logs/Log2.tscn" id="12_lfypb"]
 [ext_resource type="PackedScene" uid="uid://l2qdkhoeonxj" path="res://scenes/objects/Rocks/RockBig.tscn" id="13_ppksh"]
-[ext_resource type="PackedScene" uid="uid://d04ibs84t56b2" path="res://scenes/objects/Chest.tscn" id="14_v5fec"]
+[ext_resource type="PackedScene" uid="uid://bfotets2yv467" path="res://scenes/objects/Enviroment/Chest.tscn" id="14_v5fec"]
 [ext_resource type="PackedScene" uid="uid://byejev5f40we3" path="res://scenes/objects/Enviroment/Kotel.tscn" id="15_ap3tq"]
 [ext_resource type="PackedScene" uid="uid://672kylrnkbdi" path="res://scenes/objects/Enviroment/Grass.tscn" id="16_e84iw"]
 [ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="17_e84iw"]
