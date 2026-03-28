@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c876i337qwb56"]
+
+[ext_resource type="PackedScene" uid="uid://xlit50jrduxv" path="res://models/Trees/Shelf.fbx" id="1_meiy3"]
+[ext_resource type="Material" uid="uid://d4k20vb0p2gnd" path="res://materials/shelf_mat.tres" id="2_h67it"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8va1u"]
+size = Vector3(0.025193252, 0.020676184, 0.024631403)
+
+[node name="Shelf" unique_id=825853617 instance=ExtResource("1_meiy3")]
+
+[node name="полка" parent="." index="0" unique_id=452111930]
+surface_material_override/0 = ExtResource("2_h67it")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="полка" index="0" unique_id=287127910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009614546, 0, 0.012317771)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="полка/StaticBody3D" index="0" unique_id=1425060358]
+shape = SubResource("BoxShape3D_8va1u")

@@ -1,0 +1,11 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://ca8d0rvk28ra7"]
+
+[ext_resource type="Texture2D" uid="uid://qnn8jv7obyyp" path="res://assets/textures/Table/base_color (29).png" id="1_1enco"]
+[ext_resource type="Texture2D" uid="uid://bl16fht1qhefj" path="res://assets/textures/Table/emission (4).png" id="2_6k681"]
+[ext_resource type="Texture2D" uid="uid://ctainaas3wkhy" path="res://assets/textures/Table/ORMO (29).png" id="3_11x7h"]
+
+[resource]
+albedo_texture = ExtResource("1_1enco")
+orm_texture = ExtResource("3_11x7h")
+emission_enabled = true
+emission_texture = ExtResource("2_6k681")
