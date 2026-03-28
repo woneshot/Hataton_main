@@ -192,4 +192,4 @@ transform = Transform3D(-13.25436, 31.966143, 49.01517, 41.941147, 40.23618, -14
 [node name="CameraRig" parent="." unique_id=252267071 instance=ExtResource("7_june8")]
 
 [node name="Player" parent="." unique_id=140876529 instance=ExtResource("6_f21en")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1561952, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1561952, 15.845707)
