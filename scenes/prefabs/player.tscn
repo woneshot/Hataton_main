@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://dcugkkcddu704"]
 
-[ext_resource type="Texture2D" uid="uid://buj1pyspwjw0t" path="res://assets/sprites/main_done/hero_islash.png" id="1_06qtw"]
+[ext_resource type="Texture2D" uid="uid://buj1pyspwjw0t" path="res://assets/sprites/main/hero_islash.png" id="1_06qtw"]
 [ext_resource type="Script" uid="uid://4mb8kb3bx48i" path="res://scripts/actors/player.gd" id="1_6v0jn"]
-[ext_resource type="Texture2D" uid="uid://cdolpcaw4g37n" path="res://assets/sprites/main_done/hero_slash.png" id="2_6o77n"]
-[ext_resource type="Texture2D" uid="uid://b0xqtkg8mdktv" path="res://assets/sprites/main_done/hero_thrust.png" id="3_6v0jn"]
-[ext_resource type="Texture2D" uid="uid://cj5lwmmvcfke5" path="res://assets/sprites/main_done/hero_hurt.png" id="4_r053x"]
-[ext_resource type="Texture2D" uid="uid://bewx7a1egeomu" path="res://assets/sprites/main_done/hero_idle.png" id="5_jybep"]
-[ext_resource type="Texture2D" uid="uid://b7qlqgejtot4q" path="res://assets/sprites/main_done/hero_walk.png" id="6_50rl7"]
+[ext_resource type="Texture2D" uid="uid://cdolpcaw4g37n" path="res://assets/sprites/main/hero_slash.png" id="2_6o77n"]
+[ext_resource type="Texture2D" uid="uid://b0xqtkg8mdktv" path="res://assets/sprites/main/hero_thrust.png" id="3_6v0jn"]
+[ext_resource type="Texture2D" uid="uid://cj5lwmmvcfke5" path="res://assets/sprites/main/hero_hurt.png" id="4_r053x"]
+[ext_resource type="Texture2D" uid="uid://bewx7a1egeomu" path="res://assets/sprites/main/hero_idle.png" id="5_jybep"]
+[ext_resource type="Texture2D" uid="uid://b7qlqgejtot4q" path="res://assets/sprites/main/hero_walk.png" id="6_50rl7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oqq3r"]
 atlas = ExtResource("1_06qtw")

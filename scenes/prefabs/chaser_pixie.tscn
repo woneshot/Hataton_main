@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dg654x02fsoqq"]
 
-[ext_resource type="Texture2D" uid="uid://crj1fektye4p5" path="res://assets/sprites/chaser_pixie_done/chaser_pixie_universal.png" id="1_giisn"]
+[ext_resource type="Texture2D" uid="uid://crj1fektye4p5" path="res://assets/sprites/chaser_pixie/chaser_pixie_universal.png" id="1_giisn"]
 [ext_resource type="Script" uid="uid://bdivcna4swkjp" path="res://scripts/actors/enemy.gd" id="1_tsaag"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_giisn"]
@@ -568,7 +568,6 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_tsaag")
 speed = 4.0
-attack_range = 1.0
 attack_cooldown = 5.0
 damage_point = 0.625
 

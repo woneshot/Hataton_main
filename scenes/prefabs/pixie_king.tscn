@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b8o6pubcp0evw"]
 
-[ext_resource type="Texture2D" uid="uid://b6fjxunhxgomn" path="res://assets/sprites/pixie king_done/pixie_king_idle.png" id="1_j5xny"]
+[ext_resource type="Texture2D" uid="uid://b6fjxunhxgomn" path="res://assets/sprites/pixie king/pixie_king_idle.png" id="1_j5xny"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_68kpv"]
 height = 1.6
