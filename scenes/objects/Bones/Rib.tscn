@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dplem1cw0ipmd"]
+
+[ext_resource type="PackedScene" uid="uid://b80m8liavwaj8" path="res://models/Ребро.fbx" id="1_rquv6"]
+
+[node name="Rib" type="Node3D" unique_id=704749751]
+
+[node name="Ребро" parent="." unique_id=914321764 instance=ExtResource("1_rquv6")]

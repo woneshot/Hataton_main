@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bfotets2yv467"]
+
+[ext_resource type="PackedScene" uid="uid://b0ni3erc07c6l" path="res://models/сундук.fbx" id="1_h0fec"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hncw5"]
+size = Vector3(3, 1.5, 2)
+
+[node name="Chest" type="Node3D" unique_id=272723466]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=157073838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71370775, 0)
+visible = false
+mesh = SubResource("BoxMesh_hncw5")
+
+[node name="сундук" parent="." unique_id=1345215271 instance=ExtResource("1_h0fec")]
+transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 0, 0.5421423, 0)

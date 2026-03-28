@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d0l4uq4k35l7c"]
+
+[ext_resource type="PackedScene" uid="uid://bykn8y28kfr1b" path="res://models/Enviroment/Стол.fbx" id="1_4i4hv"]
+
+[node name="Table" type="Node3D" unique_id=1332846030]
+
+[node name="Стол" parent="." unique_id=239546599 instance=ExtResource("1_4i4hv")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.0045449734, 0)

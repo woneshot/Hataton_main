@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="11_xra7j"]
 [ext_resource type="PackedScene" uid="uid://b3t5nbdqcb3c" path="res://scenes/prefabs/shooter_pixie.tscn" id="12_au5tw"]
 [ext_resource type="PackedScene" uid="uid://x10q6qkf3pef" path="res://scenes/prefabs/witch.tscn" id="14_sex0t"]
+[ext_resource type="PackedScene" uid="uid://phdfmw58m5ho" path="res://scenes/prefabs/SceneTransition.tscn" id="15_sex0t"]
 
 [node name="test_arena" type="Node3D" unique_id=122367211]
 script = ExtResource("1_qo72s")
@@ -66,3 +67,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.038723, 0, -7.918308)
 
 [node name="WolfBro" parent="." unique_id=1498679655 instance=ExtResource("8_a20el")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.459991, 0, 10.582557)
+
+[node name="SceneTransition" parent="." unique_id=1645615911 instance=ExtResource("15_sex0t")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8.696078, 0, 4.5392528)

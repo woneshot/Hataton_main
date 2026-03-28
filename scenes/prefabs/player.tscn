@@ -973,7 +973,7 @@ shaded = true
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_6v0jn")
-animation = &"idle_up"
+animation = &"dash_right"
 
 [node name="ItemAboveHead" type="Sprite3D" parent="Visuals" unique_id=1798970287]
 

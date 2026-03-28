@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://byejev5f40we3"]
+
+[ext_resource type="PackedScene" uid="uid://fa55man6q48g" path="res://models/котел (2).fbx" id="1_lk11y"]
+
+[node name="Kotel" type="Node3D" unique_id=1750264284]
+
+[node name="котел (2)" parent="." unique_id=1626390969 instance=ExtResource("1_lk11y")]

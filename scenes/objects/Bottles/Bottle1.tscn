@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://djj2qsbrttnk0"]
+
+[ext_resource type="PackedScene" uid="uid://bj2evagqh62ig" path="res://models/колба1.fbx" id="1_ojudi"]
+
+[node name="Bottle1" type="Node3D" unique_id=841237556]
+
+[node name="колба1" parent="." unique_id=1825090746 instance=ExtResource("1_ojudi")]

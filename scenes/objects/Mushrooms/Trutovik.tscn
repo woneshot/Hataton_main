@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://hfr3js0soueu"]
+
+[ext_resource type="PackedScene" uid="uid://db7s74khevlbt" path="res://models/Mushrooms/Трутовик.fbx" id="1_2ghu3"]
+
+[node name="Trutovik" type="Node3D" unique_id=1713155812]
+
+[node name="Трутовик" parent="." unique_id=954068270 instance=ExtResource("1_2ghu3")]

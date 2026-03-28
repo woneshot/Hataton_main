@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://2rigjlf7grgt"]
+
+[ext_resource type="PackedScene" uid="uid://xh73bla45nmh" path="res://models/Weapon/меч.fbx" id="1_vp4tk"]
+
+[node name="Sword" type="Node3D" unique_id=1443937874]
+
+[node name="меч" parent="." unique_id=1775599024 instance=ExtResource("1_vp4tk")]
