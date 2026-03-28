@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://cix7hrqpexcmf"]
 
+[ext_resource type="Material" uid="uid://cc2ephnvicvnf" path="res://materials/muhomor_mat.tres" id="1_8168a"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_skrwo"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_wmy24"]
@@ -42,6 +44,7 @@ size = Vector3(0.0900137, 0.0900137, 0.08740807)
 [node name="Мухомор2" type="MeshInstance3D" parent="Мухомор" unique_id=210320214]
 transform = Transform3D(1.9427055, 0, 0, 0, -2.3158854e-07, 1.9427054, 0, -1.9427054, -2.3158854e-07, 0, 0.019398462, 0)
 mesh = SubResource("ArrayMesh_ir66a")
+surface_material_override/0 = ExtResource("1_8168a")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1929549260]
 transform = Transform3D(1.9427055, 0, 0, 0, -2.3158854e-07, 1.9427054, 0, -1.9427054, -2.3158854e-07, 0, 0.08487548, -7.805468e-09)
@@ -49,4 +52,5 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=834089399]
+visible = false
 shape = SubResource("BoxShape3D_g86tr")
