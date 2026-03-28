@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fk24rqk7nxfq"
-path.s3tc="res://.godot/imported/base_color.png-05f9f40aaab959c1131b30e218e0f6d7.s3tc.ctex"
+uid="uid://bqqslsjjlxwk4"
+path.s3tc="res://.godot/imported/base_color.png-2e566745dbd69fbd5517530efe31442d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/base_color.png"
-dest_files=["res://.godot/imported/base_color.png-05f9f40aaab959c1131b30e218e0f6d7.s3tc.ctex"]
+source_file="res://assets/textures/обосраное дерево/base_color.png"
+dest_files=["res://.godot/imported/base_color.png-2e566745dbd69fbd5517530efe31442d.s3tc.ctex"]
 
 [params]
 

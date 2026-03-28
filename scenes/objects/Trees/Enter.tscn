@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://cu28pcygne4va"]
 
+[ext_resource type="Material" uid="uid://c8dmf0ik1l8a" path="res://materials/obosr_tree_mat.tres" id="1_0oi6x"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b2wju"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_nmyq8"]
@@ -42,6 +44,7 @@ data = PackedVector3Array(0, 0.0098, 0.0064999997, -0.0069999998, 0.0069, 0.0069
 [node name="дерево_обосраное" type="MeshInstance3D" parent="дерево_обосраное (2)" unique_id=651528726]
 transform = Transform3D(38.043907, 0, 0, 0, -4.535187e-06, 38.043903, 0, -38.043903, -4.535187e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_tedhh")
+surface_material_override/0 = ExtResource("1_0oi6x")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="дерево_обосраное (2)/дерево_обосраное" unique_id=2064754005]
 collision_layer = 2
