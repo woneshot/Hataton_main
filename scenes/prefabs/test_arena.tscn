@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bx6ewcw0jgyj6" path="res://scenes/prefabs/wolf_bro.tscn" id="8_a20el"]
 [ext_resource type="PackedScene" uid="uid://4utgib0jkrcs" path="res://scenes/prefabs/guard.tscn" id="9_sex0t"]
 [ext_resource type="PackedScene" uid="uid://bm8nkblsphtov" path="res://scenes/prefabs/faun.tscn" id="10_p6ekb"]
+[ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="11_xra7j"]
 
 [node name="test_arena" type="Node3D" unique_id=122367211]
 
@@ -51,3 +52,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9526334, 0.86918235, 9.542
 
 [node name="Faun" parent="." unique_id=827347047 instance=ExtResource("10_p6ekb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.748278, 0, 0)
+
+[node name="DialogueUI" parent="." unique_id=742846960 instance=ExtResource("11_xra7j")]

@@ -64,7 +64,7 @@ var last_move_dir: Vector3 = Vector3.BACK  # Запоминаем последн
 
 # Антифликер
 var current_facing: String = "down"
-var facing_change_timer: float = 0.0
+var facing_change_timer: float = 0.0 # SIIIIX SEVEEEEEEEEEEEEEEEEn
 const FACING_CHANGE_COOLDOWN: float = 0.1
 const FACING_HYSTERESIS: float = 1.5
 var last_anim_name: String = ""

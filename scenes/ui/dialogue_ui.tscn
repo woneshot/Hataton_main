@@ -1,10 +1,14 @@
-[gd_scene format=3 uid="uid://bewdxqcnodlf0"]
+[gd_scene format=3 uid="uid://c54n0240ee0st"]
 
 [ext_resource type="Script" uid="uid://cg3hkruewie8w" path="res://scripts/objects/dialogue_ui.gd" id="1_y3syv"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y3syv"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_y3syv"]
 
-[node name="DialogueUI" type="CanvasLayer" unique_id=742846960]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y3syv"]
+texture = SubResource("CanvasTexture_y3syv")
+modulate_color = Color(0.019607844, 0.019607844, 0.019607844, 0.6627451)
+
+[node name="DialogueUI" type="CanvasLayer" unique_id=742846960 groups=["dialog_ui"]]
 script = ExtResource("1_y3syv")
 
 [node name="DialogRoot" type="Control" parent="." unique_id=408055747]
@@ -23,7 +27,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -95.0
+offset_top = -109.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxTexture_y3syv")
@@ -33,6 +37,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -4.9999847
+offset_bottom = 8.000015
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 16
@@ -49,9 +55,10 @@ text = "Имя"
 
 [node name="DialogText" type="Label" parent="DialogRoot/Panel/MarginContainer/VBoxContainer" unique_id=131295948]
 layout_mode = 2
+theme_override_font_sizes/font_size = 24
 text = "Текст диалога для проверки"
 
 [node name="ContinueHint" type="Label" parent="DialogRoot/Panel/MarginContainer/VBoxContainer" unique_id=513194281]
 layout_mode = 2
 size_flags_horizontal = 8
-text = "Далее"
+text = "[E] Далее"
