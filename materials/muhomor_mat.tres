@@ -1,0 +1,8 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://cc2ephnvicvnf"]
+
+[ext_resource type="Texture2D" uid="uid://dkvfmgi2mk4rg" path="res://assets/textures/Muhomor/base_color (38).png" id="1_qy6j6"]
+[ext_resource type="Texture2D" uid="uid://bxa7p1oyw8gu2" path="res://assets/textures/Muhomor/ORMO (38).png" id="2_rfith"]
+
+[resource]
+albedo_texture = ExtResource("1_qy6j6")
+orm_texture = ExtResource("2_rfith")
