@@ -99,7 +99,6 @@ ssao_intensity = 3.0
 ssil_enabled = true
 glow_enabled = true
 glow_intensity = 0.8
-glow_strength = 1.2
 glow_bloom = 0.3
 glow_blend_mode = 0
 glow_hdr_threshold = 0.8

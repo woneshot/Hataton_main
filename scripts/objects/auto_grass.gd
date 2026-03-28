@@ -11,7 +11,7 @@ func spawn_object():
 	var new_object = object_scene.instantiate()
 	
 	var x = randf_range(-50, 50)
-	var z = randf_range(-50, 50)
+	var z = randf_range(-25, 100)
 	var y = 0
 	
 	new_object.position = Vector3(x, y, z)
