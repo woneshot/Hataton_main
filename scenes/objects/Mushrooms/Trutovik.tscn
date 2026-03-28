@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://hfr3js0soueu"]
 
+[ext_resource type="Material" uid="uid://bc5ykpsme3dxf" path="res://materials/trutovik_mat.tres" id="1_2ghu3"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47m05"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sys1u"]
@@ -41,9 +43,10 @@ points = PackedVector3Array(0.01170255, 0.0142499115, -0.0010260633, -0.01269691
 
 [node name="Трутовик" type="Node3D" parent="." unique_id=954068270]
 
-[node name="трутовик" type="MeshInstance3D" parent="." unique_id=1725259449]
+[node name="трутовик" type="MeshInstance3D" parent="Трутовик" unique_id=1725259449]
 transform = Transform3D(26.33649, 0, 0, 0, 1.5697772e-06, 26.33649, 0, -26.33649, 1.5697772e-06, 0.032868378, 0.17288254, 0.07935131)
 mesh = SubResource("ArrayMesh_mj18t")
+surface_material_override/0 = ExtResource("1_2ghu3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=904995937]
 transform = Transform3D(26.33649, 0, 0, 0, 1.5697772e-06, 26.33649, 0, -26.33649, 1.5697772e-06, 0.032868378, 0.17288254, 0.07935131)
