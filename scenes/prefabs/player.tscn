@@ -3,10 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://buj1pyspwjw0t" path="res://assets/sprites/main/hero_islash.png" id="1_06qtw"]
 [ext_resource type="Script" uid="uid://4mb8kb3bx48i" path="res://scripts/actors/player.gd" id="1_6v0jn"]
 [ext_resource type="Texture2D" uid="uid://cdolpcaw4g37n" path="res://assets/sprites/main/hero_slash.png" id="2_6o77n"]
+[ext_resource type="Texture2D" uid="uid://cuo1833nq2nqe" path="res://assets/normal_maps/Hero/hero_idle_n.png" id="2_lagtt"]
 [ext_resource type="Texture2D" uid="uid://b0xqtkg8mdktv" path="res://assets/sprites/main/hero_thrust.png" id="3_6v0jn"]
+[ext_resource type="Texture2D" uid="uid://jpbackmxgn4t" path="res://assets/normal_maps/Hero/hero_walk_n.png" id="3_gkb8g"]
+[ext_resource type="Texture2D" uid="uid://fk5ynlvoq07u" path="res://assets/normal_maps/Hero/hero_islash_n.png" id="4_c1k3r"]
 [ext_resource type="Texture2D" uid="uid://cj5lwmmvcfke5" path="res://assets/sprites/main/hero_hurt.png" id="4_r053x"]
 [ext_resource type="Texture2D" uid="uid://bewx7a1egeomu" path="res://assets/sprites/main/hero_idle.png" id="5_jybep"]
+[ext_resource type="Texture2D" uid="uid://mvusrmn5f77u" path="res://assets/normal_maps/Hero/hero_thrust_n.png" id="5_xtlg4"]
 [ext_resource type="Texture2D" uid="uid://b7qlqgejtot4q" path="res://assets/sprites/main/hero_walk.png" id="6_50rl7"]
+[ext_resource type="Texture2D" uid="uid://b3y7frtlub604" path="res://assets/normal_maps/Hero/hero_death_n.png" id="6_va4sl"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6v0jn"]
 emission_shape = 1
@@ -954,6 +959,11 @@ dash_attack_range = 5.0
 dash_attack_angle = 0.5
 dash_speed = 15.0
 dash_duration = 0.4
+norm_idle = ExtResource("2_lagtt")
+norm_run = ExtResource("3_gkb8g")
+norm_attack = ExtResource("4_c1k3r")
+norm_dash = ExtResource("5_xtlg4")
+norm_death = ExtResource("6_va4sl")
 
 [node name="DashReadyVFX" type="GPUParticles3D" parent="." unique_id=668284243]
 transform = Transform3D(0.6471395, 0, 0, 0, 0.29379714, 0, 0, 0, 0.61973065, -0.010276392, -0.7645218, 0.27828696)

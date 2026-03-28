@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_kiter"]
 [ext_resource type="Texture2D" uid="uid://b3ww7endjm45h" path="res://assets/sprites/guard2/guard2_hurt.png" id="2_kiter"]
 [ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_nmi7j"]
+[ext_resource type="Texture2D" uid="uid://bo2k06cqhvxa6" path="res://assets/normal_maps/Guard2/guard2_idle_n.png" id="3_nlr58"]
 [ext_resource type="Texture2D" uid="uid://db1f2awcpebmn" path="res://assets/sprites/guard2/guard2_idle.png" id="3_nmi7j"]
 [ext_resource type="Texture2D" uid="uid://wvd7xxlbmj3n" path="res://assets/sprites/guard2/guard2_walk.png" id="4_nlr58"]
 
@@ -608,6 +609,7 @@ actor_name = "Королевский Стражник"
 dialogue_entries = Array[ExtResource("2_nmi7j")]([SubResource("Resource_nlr58"), SubResource("Resource_nmi7j")])
 disappear_on_flag = "vex_attack"
 disappear_is_death = true
+norm_idle = ExtResource("3_nlr58")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1943450116]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.06901932, 0)

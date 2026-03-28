@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_1gcud"]
 [ext_resource type="Texture2D" uid="uid://diracb8usdyno" path="res://assets/sprites/rat_bro/rat_bro_universal.png" id="1_1qwof"]
 [ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_tyrh8"]
+[ext_resource type="Texture2D" uid="uid://jb8l0ddpe1ph" path="res://assets/normal_maps/Rat/rat_bro_universal_n.png" id="3_7ugjo"]
 
 [sub_resource type="Resource" id="Resource_tyrh8"]
 script = ExtResource("2_tyrh8")
@@ -825,6 +826,11 @@ wander_wait_max = 6.0
 dig_chance = 0.5
 dig_duration_min = 4.4
 dig_duration_max = 4.4
+norm_idle = ExtResource("3_7ugjo")
+norm_run = ExtResource("3_7ugjo")
+norm_cast = ExtResource("3_7ugjo")
+norm_dig = ExtResource("3_7ugjo")
+norm_death = ExtResource("3_7ugjo")
 
 [node name="Visuals" type="Node3D" parent="." unique_id=1431505806]
 

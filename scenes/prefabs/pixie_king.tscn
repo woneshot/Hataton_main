@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_68kpv"]
 [ext_resource type="Texture2D" uid="uid://b6fjxunhxgomn" path="res://assets/sprites/pixie king/pixie_king_idle.png" id="1_j5xny"]
 [ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_qse75"]
+[ext_resource type="Texture2D" uid="uid://djskyt01gta1g" path="res://assets/normal_maps/Pixie King/pixie_king_idle_n.png" id="3_deb0d"]
 
 [sub_resource type="Resource" id="Resource_qse75"]
 script = ExtResource("2_qse75")
@@ -114,6 +115,7 @@ script = ExtResource("1_68kpv")
 npc_type = 2
 actor_name = "Король Пикси Спарки LXVII"
 dialogue_entries = Array[ExtResource("2_qse75")]([SubResource("Resource_qse75"), SubResource("Resource_sh86x"), SubResource("Resource_deb0d")])
+norm_idle = ExtResource("3_deb0d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1952975323]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.073762774, 0)
