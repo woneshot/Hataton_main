@@ -1,0 +1,165 @@
+[gd_scene format=3 uid="uid://c082to6b0bjhe"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/pixie2/pixie2_universal.png" id="1_2dv07"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tesyt"]
+height = 1.6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0trrn"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(0, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvggb"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(64, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8weiv"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(128, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdx07"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(192, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rldv6"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(256, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrpxx"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(320, 1280, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o23ih"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(576, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbiga"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(640, 640, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43oou"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(576, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8xq5"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(640, 576, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s4yy"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(576, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d60ra"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(640, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43f68"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(576, 512, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36x48"]
+atlas = ExtResource("1_2dv07")
+region = Rect2(640, 512, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7d8u8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0trrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvggb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8weiv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdx07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rldv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrpxx")
+}],
+"loop": false,
+"name": &"death",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o23ih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbiga")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43oou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8xq5")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s4yy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d60ra")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43f68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36x48")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 3.0
+}]
+
+[node name="Pixie2" type="CharacterBody3D" unique_id=1719322299]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2035596910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CylinderShape3D_tesyt")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=282148959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28094918, 0)
+cast_shadow = 2
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_7d8u8")
+animation = &"idle_down"

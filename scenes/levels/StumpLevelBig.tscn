@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://du0jmsq82uey"]
+
+[ext_resource type="PackedScene" uid="uid://cutnmp0xg5fx1" path="res://scenes/objects/Poganka.tscn" id="1_lnrgy"]
+[ext_resource type="PackedScene" uid="uid://b8lxnovkqkwqu" path="res://scenes/objects/RockSmall.tscn" id="2_3y4bc"]
+[ext_resource type="PackedScene" uid="uid://d2wjlkuulf1c2" path="res://scenes/objects/RockMid.tscn" id="3_htage"]
+[ext_resource type="PackedScene" uid="uid://l2qdkhoeonxj" path="res://scenes/objects/RockBig.tscn" id="4_i0woh"]
+[ext_resource type="PackedScene" uid="uid://dawv4i52cfuc" path="res://scenes/objects/Borovik.tscn" id="5_v8r2g"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6momg"]
+size = Vector3(0.8, 1.8, 0.8)
+
+[node name="StumpLevelBig" type="Node3D" unique_id=1097703287]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1449494631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8111119)
+size = Vector3(50, 0.01, 50)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1815577576]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 3.0883465, -16.281876)
+radius = 30.0
+height = 15.091431
+sides = 18
+smooth_faces = false
+
+[node name="Poganka" parent="." unique_id=1880157394 instance=ExtResource("1_lnrgy")]
+transform = Transform3D(14.810532, 2.2664533, 0.7150609, -2.3314214, 14.731485, 1.5961844, -0.4610821, -1.6871632, 14.897681, 5.65881, -0.09405959, -1.8577268)
+
+[node name="Poganka1" parent="." unique_id=1012045291 instance=ExtResource("1_lnrgy")]
+transform = Transform3D(9.859835, 1.5176069, 0.69320214, -1.444552, 9.844002, -1.0044401, -0.8348228, 0.8902246, 9.925249, 5.449925, -0.21593201, -0.522122)
+
+[node name="RockSmall" parent="." unique_id=934146003 instance=ExtResource("2_3y4bc")]
+transform = Transform3D(19.86431, 0, -2.3257875, 0, 20.000002, 0, 2.3257875, 0, 19.86431, 5.3542585, -0.7810607, 2.8403368)
+
+[node name="RockMid" parent="." unique_id=425814975 instance=ExtResource("3_htage")]
+transform = Transform3D(5.1384068, 0, 8.5788555, 0, 10, 0, -8.5788555, 0, 5.1384068, 0.5304413, 0, 6.1812983)
+
+[node name="RockBig" parent="." unique_id=1005628571 instance=ExtResource("4_i0woh")]
+transform = Transform3D(-2.5810742, 0, 6.506769, 0, 7, 0, -6.506769, 0, -2.5810742, -6.2530823, 0, 3.0877)
+
+[node name="Borovik" parent="." unique_id=1034141589 instance=ExtResource("5_v8r2g")]
+transform = Transform3D(19.718113, 3.3296037, 0.33128217, -3.3460438, 19.621233, 1.9522339, 7.4505806e-08, -1.9801427, 19.901735, -5.961862, 0, -1.9310222)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1719679646]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1.6587346, 0)
+mesh = SubResource("BoxMesh_6momg")
+
+[node name="Poganka2" parent="." unique_id=1411825214 instance=ExtResource("1_lnrgy")]
+transform = Transform3D(20, 0, 0, 0, 19.524559, 4.334926, 0, -4.334926, 19.524559, -3.0967114, 0.2551298, 8.401826)
+
+[node name="RockMid2" parent="." unique_id=2073600307 instance=ExtResource("3_htage")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -21.426907, 0, -6.809368)

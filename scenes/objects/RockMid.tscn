@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d2wjlkuulf1c2"]
+
+[ext_resource type="PackedScene" uid="uid://c85bqegsrn83o" path="res://models/камень_средний.fbx" id="1_y0nhk"]
+
+[node name="RockMid" type="Node3D" unique_id=425814975]
+
+[node name="камень_средний" parent="." unique_id=2112553346 instance=ExtResource("1_y0nhk")]

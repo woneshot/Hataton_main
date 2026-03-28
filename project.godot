@@ -15,9 +15,20 @@ run/main_scene="uid://dkwgpxp3rsfh8"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Events="*uid://ig0vqhoxtbp3"
+AudioManager="*uid://btlsofy3o3pfu"
+
 [display]
 
 window/stretch/mode="viewport"
+
+[global_group]
+
+player=""
+camera_rig=""
+enemy=""
 
 [input]
 
@@ -53,7 +64,7 @@ attack={
 }
 dash={
 "deadzone": 0.2,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
 ]
 }
 camera_rotate={

@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://b8o6pubcp0evw"]
+
+[ext_resource type="Texture2D" uid="uid://b6fjxunhxgomn" path="res://assets/sprites/pixie king/pixie_king_idle.png" id="1_j5xny"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_68kpv"]
+height = 1.6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qse75"]
+atlas = ExtResource("1_j5xny")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deb0d"]
+atlas = ExtResource("1_j5xny")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh86x"]
+atlas = ExtResource("1_j5xny")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3iun"]
+atlas = ExtResource("1_j5xny")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt6te"]
+atlas = ExtResource("1_j5xny")
+region = Rect2(0, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snbvr"]
+atlas = ExtResource("1_j5xny")
+region = Rect2(64, 192, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6qcu"]
+atlas = ExtResource("1_j5xny")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_702xt"]
+atlas = ExtResource("1_j5xny")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jq2i2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qse75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deb0d")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sh86x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3iun")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt6te")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snbvr")
+}],
+"loop": true,
+"name": &"idle_right",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6qcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_702xt")
+}],
+"loop": true,
+"name": &"idle_up",
+"speed": 2.0
+}]
+
+[node name="PixieKing" type="CharacterBody3D" unique_id=592265787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8745631, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1952975323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.07897949, 0)
+shape = SubResource("CylinderShape3D_68kpv")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=236172913]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.077815294, 0)
+cast_shadow = 2
+pixel_size = 0.03
+billboard = 2
+alpha_cut = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_jq2i2")
+animation = &"idle_up"

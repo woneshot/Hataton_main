@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bcvoqq8sh7vgc"]
+
+[ext_resource type="PackedScene" uid="uid://bojf4j1iwnq5n" path="res://models/Бревно1.fbx" id="1_y82wk"]
+
+[node name="Log" type="Node3D" unique_id=1046345211]
+
+[node name="Бревно1" parent="." unique_id=291392360 instance=ExtResource("1_y82wk")]
