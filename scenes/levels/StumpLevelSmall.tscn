@@ -32,6 +32,7 @@ normal_enabled = true
 normal_scale = 1.49
 normal_texture = ExtResource("6_v5fec")
 uv1_scale = Vector3(55, 55, 55)
+texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6m0tq"]
 
