@@ -26,6 +26,7 @@ AudioManager="*uid://btlsofy3o3pfu"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [global_group]
