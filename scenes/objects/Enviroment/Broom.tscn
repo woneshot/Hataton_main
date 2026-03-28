@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://mni1k11h4t4q"]
+
+[ext_resource type="PackedScene" uid="uid://d20muv4ghbve3" path="res://models/Метла.fbx" id="1_a6a7t"]
+
+[node name="Broom" type="Node3D" unique_id=1410580319]
+
+[node name="Метла" parent="." unique_id=1548874746 instance=ExtResource("1_a6a7t")]

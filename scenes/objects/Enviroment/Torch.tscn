@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cxdvo264qx5ph"]
+
+[ext_resource type="PackedScene" uid="uid://b2t7selub8yl5" path="res://models/Enviroment/подставка_под _факел.fbx" id="1_1e6x8"]
+
+[node name="Torch" type="Node3D" unique_id=1069759318]
+
+[node name="подставка_под _факел" parent="." unique_id=1180180440 instance=ExtResource("1_1e6x8")]

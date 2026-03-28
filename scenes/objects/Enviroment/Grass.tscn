@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://672kylrnkbdi"]
+
+[ext_resource type="PackedScene" uid="uid://d2gk7niihdyc6" path="res://models/трава (2).fbx" id="1_rb37m"]
+
+[node name="Grass" type="Node3D" unique_id=231161701]
+
+[node name="трава (2)" parent="." unique_id=1961260047 instance=ExtResource("1_rb37m")]

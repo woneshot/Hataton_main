@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bpl2an1gb7wvq"]
+
+[ext_resource type="PackedScene" uid="uid://iu2u56dccfhq" path="res://models/Череп.fbx" id="1_wl06m"]
+
+[node name="Skull" type="Node3D" unique_id=897440610]
+
+[node name="Череп" parent="." unique_id=143004779 instance=ExtResource("1_wl06m")]

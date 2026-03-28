@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://3s2cbjijo1qq"]
+
+[ext_resource type="PackedScene" uid="uid://b3uolx4cwjc0w" path="res://models/Кристалл.fbx" id="1_h5mf5"]
+
+[node name="Crystall" type="Node3D" unique_id=1355351704]
+
+[node name="Кристалл" parent="." unique_id=1420483945 instance=ExtResource("1_h5mf5")]

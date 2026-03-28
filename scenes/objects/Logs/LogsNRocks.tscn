@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bhww37o5ae3tg"]
+
+[ext_resource type="PackedScene" uid="uid://cxukwcl8jjwxp" path="res://models/камни_и_бревна.fbx" id="1_wpllk"]
+
+[node name="LogsNRocks" type="Node3D" unique_id=358002638]
+
+[node name="камни_и_бревна" parent="." unique_id=1300034961 instance=ExtResource("1_wpllk")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
