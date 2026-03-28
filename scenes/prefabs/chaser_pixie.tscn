@@ -1,6 +1,10 @@
-[gd_scene format=3 uid="uid://c6l0rpw75q15p"]
+[gd_scene format=3 uid="uid://dg654x02fsoqq"]
 
 [ext_resource type="Texture2D" uid="uid://crj1fektye4p5" path="res://assets/sprites/chaser_pixie_done/chaser_pixie_universal.png" id="1_giisn"]
+[ext_resource type="Script" uid="uid://bdivcna4swkjp" path="res://scripts/actors/enemy.gd" id="1_tsaag"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_giisn"]
+height = 1.6
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tsaag"]
 atlas = ExtResource("1_giisn")
@@ -558,21 +562,33 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_giisn"]
-height = 1.6
-
-[node name="ChaserPixie" type="CharacterBody3D" unique_id=697264001]
+[node name="ChaserPixie" type="CharacterBody3D" unique_id=697264001 groups=["enemy"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.892169, 0)
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_tsaag")
+speed = 4.0
+attack_range = 1.0
+attack_cooldown = 5.0
+damage_point = 0.625
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1440465044]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1981957818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09213638, 0)
+shape = SubResource("CylinderShape3D_giisn")
+
+[node name="Visuals" type="Node3D" parent="." unique_id=28461174]
+
+[node name="Sprite" type="AnimatedSprite3D" parent="Visuals" unique_id=1440465044]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.046699762, 0)
 cast_shadow = 2
+offset = Vector2(0, 2.275)
 pixel_size = 0.03
 billboard = 2
+shaded = true
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_jrtpg")
-animation = &"run_down"
+animation = &"attack_left"
+frame = 5
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1981957818]
-shape = SubResource("CylinderShape3D_giisn")
+[node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=637043732]

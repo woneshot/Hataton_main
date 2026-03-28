@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cigbeho856dvr"]
+
+[ext_resource type="Script" uid="uid://6purojar8bge" path="res://scripts/objects/camera_rig.gd" id="1_io2lb"]
+
+[node name="CameraRig" type="Node3D" unique_id=252267071 groups=["camera_rig"]]
+script = ExtResource("1_io2lb")
+camera_offset = Vector3(0, 3, 6)
+camera_angle = -30.0
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1159971051]

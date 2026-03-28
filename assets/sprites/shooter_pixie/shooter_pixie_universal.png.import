@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bojr8r14slt5n"
-path.s3tc="res://.godot/imported/shooter_pixie_universal.png-a63dd6a10d49fccda59410f6bfc63175.s3tc.ctex"
+path.s3tc="res://.godot/imported/shooter_pixie_universal.png-5946650e36e148abc753c5c834940ced.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/shooter_pixie_done/shooter_pixie_universal.png"
-dest_files=["res://.godot/imported/shooter_pixie_universal.png-a63dd6a10d49fccda59410f6bfc63175.s3tc.ctex"]
+source_file="res://assets/sprites/shooter_pixie/shooter_pixie_universal.png"
+dest_files=["res://.godot/imported/shooter_pixie_universal.png-5946650e36e148abc753c5c834940ced.s3tc.ctex"]
 
 [params]
 

@@ -6,19 +6,20 @@ extends Area3D
 
 var direction: Vector3 = Vector3.ZERO
 var launched: bool = false
+var owner_body: Node3D = null  # Кто выстрелил
 
-@onready var sprite = $Sprite3D
-
-func launch(target_pos: Vector3) -> void:
-	direction = global_position.direction_to(target_pos).normalized()
+func launch(target_pos: Vector3, shooter: Node3D = null) -> void:
+	owner_body = shooter
+	direction = global_position.direction_to(target_pos)
+	direction.y = 0  # Убираем вертикальную составляющую
+	direction = direction.normalized()
 	launched = true
 	
-	# Поворачиваем спрайт в сторону полёта (вокруг Y)
 	if direction.length() > 0.01:
 		var angle = atan2(direction.x, direction.z)
 		rotation.y = angle
 	
-	get_tree().create_timer(lifetime).timeout.connect(func(): 
+	get_tree().create_timer(lifetime).timeout.connect(func():
 		if is_instance_valid(self): queue_free()
 	)
 
@@ -27,6 +28,9 @@ func _process(delta: float) -> void:
 		global_position += direction * speed * delta
 
 func _on_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player") and body.has_method("take_damage"):
+	# Игнорируем того кто выстрелил
+	if body == owner_body: return
+	
+	if body.has_method("take_damage"):
 		body.take_damage(damage)
 	queue_free()

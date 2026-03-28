@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://drua3ex5p77e0"]
 
+[ext_resource type="Script" uid="uid://bdivcna4swkjp" path="res://scripts/actors/enemy.gd" id="1_rxqkx"]
 [ext_resource type="Texture2D" uid="uid://7w31m53o251h" path="res://assets/sprites/skeleton/skeleton_universal.png" id="1_sa6gg"]
+[ext_resource type="PackedScene" uid="uid://d3kjtsqlc0isl" path="res://scenes/prefabs/arrow_projectile.tscn" id="2_mmbai"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hw0it"]
 atlas = ExtResource("1_sa6gg")
@@ -701,9 +703,21 @@ animations = [{
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ovxbf"]
 height = 1.6
 
-[node name="Skeleton" type="CharacterBody3D" unique_id=1270867266]
+[node name="Skeleton" type="CharacterBody3D" unique_id=1270867266 groups=["enemy"]]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_rxqkx")
+type = 1
+speed = 1.5
+health = 1
+attack_range = 10.0
+attack_cooldown = 2.0
+damage_point = 0.65
+projectile_scene = ExtResource("2_mmbai")
 
-[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=2136940622]
+[node name="Visuals" type="Node3D" parent="." unique_id=119111380]
+
+[node name="Sprite" type="AnimatedSprite3D" parent="Visuals" unique_id=2136940622]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8005687, 0)
 cast_shadow = 2
 pixel_size = 0.03
@@ -711,8 +725,11 @@ billboard = 2
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_f7jso")
-animation = &"run_left"
+animation = &"shoot_left"
+frame = 9
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1205278936]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CylinderShape3D_ovxbf")
+
+[node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1075315628]

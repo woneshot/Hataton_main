@@ -1,3 +1,26 @@
 [gd_scene format=3 uid="uid://c2y27sy0a0bxq"]
 
+[ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="1_to0dc"]
+[ext_resource type="PackedScene" uid="uid://x10q6qkf3pef" path="res://scenes/prefabs/witch.tscn" id="2_7t6sv"]
+[ext_resource type="PackedScene" uid="uid://cigbeho856dvr" path="res://scenes/prefabs/CameraRig.tscn" id="2_nnyng"]
+
 [node name="test_arena" type="Node3D" unique_id=122367211]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=613568200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+use_collision = true
+collision_layer = 2
+size = Vector3(40, 1, 40)
+
+[node name="CameraRig" parent="." unique_id=252267071 instance=ExtResource("2_nnyng")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1763714853]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+shadow_enabled = true
+shadow_bias = 0.05
+
+[node name="Witch" parent="." unique_id=372944410 instance=ExtResource("2_7t6sv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.826338, 0, -1.9992561)
+
+[node name="Player" parent="." unique_id=140876529 instance=ExtResource("1_to0dc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8927082, 15.236845)

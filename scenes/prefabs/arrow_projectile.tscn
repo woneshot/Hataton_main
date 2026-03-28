@@ -1,22 +1,29 @@
 [gd_scene format=3 uid="uid://d3kjtsqlc0isl"]
 
+[ext_resource type="Script" uid="uid://4wfon4g2qsha" path="res://scripts/objects/projectile.gd" id="1_2wn4e"]
 [ext_resource type="Texture2D" uid="uid://dka563a67ny1t" path="res://assets/sprites/projectiles/arrow.png" id="1_nx21d"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2wn4e"]
 radius = 0.15
 
 [node name="ArrowProjectile" type="Area3D" unique_id=298593530]
+transform = Transform3D(-3.4969112e-08, 0, 0.8, 0, 0.8, 0, -0.8, 0, -3.4969112e-08, 0, 0, 0)
 collision_layer = 8
 collision_mask = 7
 monitorable = false
+script = ExtResource("1_2wn4e")
+speed = 18.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=645357396]
 shape = SubResource("SphereShape3D_2wn4e")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=699536754]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.825333, -0.2556443, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00036247075, -0.2556443, -3.60923e-08)
 pixel_size = 0.002
+axis = 0
 shaded = true
 alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("1_nx21d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
