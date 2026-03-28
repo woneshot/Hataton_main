@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cqm5708dlaook"]
+
+[ext_resource type="Script" uid="uid://dgqjgsc1buwn6" path="res://scripts/objects/pickup_item.gd" id="1_t5m0y"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qmdyk"]
+
+[node name="PickupItem" type="Area3D" unique_id=332512943]
+script = ExtResource("1_t5m0y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1580217474]
+shape = SubResource("SphereShape3D_qmdyk")
+
+[node name="ModelHolder" type="Node3D" parent="." unique_id=1216435176]
+
+[node name="PickupSound" type="AudioStreamPlayer3D" parent="." unique_id=1127803425]
+bus = &"Sfx"

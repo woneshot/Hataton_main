@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://y77y3ddm7w37" path="res://scripts/actors/boss_witch.gd" id="1_wip40"]
 [ext_resource type="Texture2D" uid="uid://d2r36xq0qfqae" path="res://assets/sprites/witch/witch_hurt.png" id="2_gq37u"]
 [ext_resource type="PackedScene" uid="uid://drua3ex5p77e0" path="res://scenes/prefabs/skeleton.tscn" id="2_jns8y"]
+[ext_resource type="PackedScene" uid="uid://bt8me3yofq8fj" path="res://scenes/prefabs/fireball_projectile.tscn" id="2_wsopi"]
 [ext_resource type="Texture2D" uid="uid://vsod6rfrbidt" path="res://assets/sprites/witch/witch_walk.png" id="3_cno4m"]
 [ext_resource type="Texture2D" uid="uid://dg3s8gpdgbcqr" path="res://assets/sprites/witch/witch_idle.png" id="3_gq37u"]
 [ext_resource type="PackedScene" uid="uid://bm8nkblsphtov" path="res://scenes/prefabs/faun.tscn" id="3_wsopi"]
@@ -631,6 +632,11 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_wip40")
 max_health = 25
+shield_down_duration = 8.0
+detection_range = 10.0
+phase2_fireball_delay = 5.0
+fireball_cooldown = 6.0
+fireball_scene = ExtResource("2_wsopi")
 spawn_points = [NodePath("SpawnPoint1"), NodePath("SpawnPoint2"), NodePath("SpawnPoint3"), NodePath("SpawnPoint4"), NodePath("SpawnPoint5")]
 skeleton_scene = ExtResource("2_jns8y")
 faun_scene = ExtResource("3_wsopi")
@@ -650,7 +656,9 @@ billboard = 2
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_mcfhm")
-animation = &"idle_down"
+animation = &"cast_right"
+frame = 9
+frame_progress = 1.0
 
 [node name="ShieldParticles" type="GPUParticles3D" parent="." unique_id=1928536036]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22104871, 0)

@@ -567,7 +567,6 @@ billboard = 2
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_16ey1")
-animation = &"attack_right"
-frame = 6
+animation = &"run_left"
 
 [node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1020219994]

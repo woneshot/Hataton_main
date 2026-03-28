@@ -4,6 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://bhi1bve2kvvao" path="res://assets/sprites/pixie3/pixie3_universal.png" id="1_p3ug7"]
 [ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_2jtql"]
 
+[sub_resource type="Resource" id="Resource_2jtql"]
+script = ExtResource("2_2jtql")
+condition_type = 2
+condition_value = "defeated_vex"
+lines = Array[String](["Ты спас мне жизнь, спасибо!"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
+[sub_resource type="Resource" id="Resource_5ywt5"]
+script = ExtResource("2_2jtql")
+condition_type = 2
+condition_value = "vex_attack"
+lines = Array[String](["А-а-а!"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
 [sub_resource type="Resource" id="Resource_3uc1m"]
 script = ExtResource("2_2jtql")
 lines = Array[String](["Хожу", "Надо же кому-то ходить"])
@@ -406,7 +420,7 @@ collision_mask = 2
 script = ExtResource("1_jqwiy")
 npc_type = 1
 actor_name = "Пикси Аристократ"
-dialogue_entries = Array[ExtResource("2_2jtql")]([SubResource("Resource_3uc1m")])
+dialogue_entries = Array[ExtResource("2_2jtql")]([SubResource("Resource_2jtql"), SubResource("Resource_5ywt5"), SubResource("Resource_3uc1m")])
 can_wander = true
 wander_speed = 1.0
 wander_radius = 2.0

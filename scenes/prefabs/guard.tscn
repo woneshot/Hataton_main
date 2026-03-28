@@ -11,13 +11,11 @@
 script = ExtResource("2_nmi7j")
 condition_type = 2
 condition_value = "talked_to_guard"
-lines = Array[String](["Либо заходи, либо отойди"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
-[sub_resource type="Resource" id="Resource_kpa8f"]
+[sub_resource type="Resource" id="Resource_nmi7j"]
 script = ExtResource("2_nmi7j")
-lines = Array[String](["Че уставился?"])
-set_flags = Array[String](["talked_to_guard"])
+lines = Array[String](["Чего уставился?!"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kpa8f"]
@@ -607,7 +605,8 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_kiter")
 actor_name = "Королевский Стражник"
-dialogue_entries = Array[ExtResource("2_nmi7j")]([SubResource("Resource_nlr58"), SubResource("Resource_kpa8f")])
+dialogue_entries = Array[ExtResource("2_nmi7j")]([SubResource("Resource_nlr58"), SubResource("Resource_nmi7j")])
+disappear_on_flag = "vex_attack"
 disappear_is_death = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1943450116]

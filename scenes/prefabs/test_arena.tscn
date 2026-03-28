@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c2y27sy0a0bxq"]
 
+[ext_resource type="Script" uid="uid://yh85ytqjfifs" path="res://scripts/objects/level.gd" id="1_qo72s"]
 [ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="1_to0dc"]
 [ext_resource type="PackedScene" uid="uid://cigbeho856dvr" path="res://scenes/prefabs/CameraRig.tscn" id="2_nnyng"]
 [ext_resource type="PackedScene" uid="uid://b8o6pubcp0evw" path="res://scenes/prefabs/pixie_king.tscn" id="3_k4ls1"]
@@ -11,8 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://4utgib0jkrcs" path="res://scenes/prefabs/guard.tscn" id="9_sex0t"]
 [ext_resource type="PackedScene" uid="uid://bm8nkblsphtov" path="res://scenes/prefabs/faun.tscn" id="10_p6ekb"]
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="11_xra7j"]
+[ext_resource type="PackedScene" uid="uid://b3t5nbdqcb3c" path="res://scenes/prefabs/shooter_pixie.tscn" id="12_au5tw"]
+[ext_resource type="PackedScene" uid="uid://x10q6qkf3pef" path="res://scenes/prefabs/witch.tscn" id="14_sex0t"]
 
 [node name="test_arena" type="Node3D" unique_id=122367211]
+script = ExtResource("1_qo72s")
+monologue_flag = "mono_intro"
+monologue_lines = Array[String](["Ебанная бабка!", "Я ее маму ебал!"])
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=613568200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -44,9 +50,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.335563, 0, 0)
 [node name="RatBro" parent="." unique_id=854936262 instance=ExtResource("7_qo72s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.07113)
 
-[node name="WolfBro" parent="." unique_id=1498679655 instance=ExtResource("8_a20el")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8769393, 0, 2.8940883)
-
 [node name="Guard" parent="." unique_id=1396054506 instance=ExtResource("9_sex0t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9526334, 0.86918235, 9.542366)
 
@@ -54,3 +57,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9526334, 0.86918235, 9.542
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.748278, 0, 0)
 
 [node name="DialogueUI" parent="." unique_id=742846960 instance=ExtResource("11_xra7j")]
+
+[node name="ShooterPixie" parent="." unique_id=747800759 instance=ExtResource("12_au5tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.559998)
+
+[node name="Witch" parent="." unique_id=372944410 instance=ExtResource("14_sex0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.038723, 0, -7.918308)
+
+[node name="WolfBro" parent="." unique_id=1498679655 instance=ExtResource("8_a20el")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.459991, 0, 10.582557)

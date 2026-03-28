@@ -4,9 +4,60 @@
 [ext_resource type="Texture2D" uid="uid://diracb8usdyno" path="res://assets/sprites/rat_bro/rat_bro_universal.png" id="1_1qwof"]
 [ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_tyrh8"]
 
+[sub_resource type="Resource" id="Resource_tyrh8"]
+script = ExtResource("2_tyrh8")
+condition_type = 2
+condition_value = "level_completed"
+lines = Array[String](["Да, моя магия не сверкает. Извини, дружище!", "А теперь, отойди-ка от меня. Не дай бог раздавишь"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
+[sub_resource type="Resource" id="Resource_y71e6"]
+script = ExtResource("2_tyrh8")
+condition_type = 2
+required_flag = "three_items"
+lines = Array[String](["Да, это оно! В точности, как я описывал", "Ну и долго же ты копался! Ха-ха!", "Приготовься, может немного покалывать!"])
+set_flags = Array[String](["level_completed"])
+consume_item = true
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
+[sub_resource type="Resource" id="Resource_1751x"]
+script = ExtResource("2_tyrh8")
+condition_type = 2
+required_flag = "two_items"
+lines = Array[String](["Ты что, слепой?! Я же четко сказал, что нужно принести!!!"])
+set_flags = Array[String](["three_items"])
+consume_item = true
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
+[sub_resource type="Resource" id="Resource_x00mp"]
+script = ExtResource("2_tyrh8")
+condition_type = 2
+required_flag = "one_items"
+lines = Array[String](["Опять не то! Ты меня вообще слушал?"])
+set_flags = Array[String](["two_items"])
+consume_item = true
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
+[sub_resource type="Resource" id="Resource_m2agm"]
+script = ExtResource("2_tyrh8")
+condition_type = 2
+required_flag = "quest_started"
+lines = Array[String](["Даже Крот поймет, что это не та штука!", "Эх... Скучаю по нему, хороший был парень..."])
+set_flags = Array[String](["one_item"])
+consume_item = true
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
+[sub_resource type="Resource" id="Resource_rhej7"]
+script = ExtResource("2_tyrh8")
+condition_type = 3
+condition_value = "quest_started"
+lines = Array[String](["Ну так ты будешь шевелиться?"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
 [sub_resource type="Resource" id="Resource_7ugjo"]
 script = ExtResource("2_tyrh8")
-lines = Array[String](["Привет, друг! Не видел тебя *кашляет* здесь раньше!", "Ага, значит поганная ведьма и над тобой поиздеваться успела", "Она погубила много моих друзей ради своих зелий *кашляет*", "Так, что я помогу тебе просто так. Тебе нужно всего лишь принести мне...", "Эээ... Ну короче самую крутую штуку с моего хранилища. Да, именно ее, ты сразу поймешь о чем я", "Я бы сам с радостью сходил, но как видишь *кашялет* годы уже не те, да и ноги не те уже ха-ха-ха"])
+lines = Array[String](["Привет, друг! Не видел тебя *кашляет* здесь раньше!", "Ага, значит поганная ведьма и над тобой поиздеваться успела", "Она погубила много моих друзей ради своих зелий *кашляет*", "Так, что я помогу тебе просто так. Тебе нужно всего лишь принести мне...", "Эээ... Ну самую крутую штуку с моего хранилища. Да, именно ее, ты сразу ее увидишь", "Я бы сам с радостью сходил, но как видишь *кашляет* ноги не те уже ха-ха-ха"])
+set_flags = Array[String](["quest_started"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1gcud"]
@@ -765,7 +816,7 @@ collision_mask = 2
 script = ExtResource("1_1gcud")
 npc_type = 3
 actor_name = "Крысолюд Артемий"
-dialogue_entries = Array[ExtResource("2_tyrh8")]([SubResource("Resource_7ugjo")])
+dialogue_entries = Array[ExtResource("2_tyrh8")]([SubResource("Resource_tyrh8"), SubResource("Resource_y71e6"), SubResource("Resource_1751x"), SubResource("Resource_x00mp"), SubResource("Resource_m2agm"), SubResource("Resource_rhej7"), SubResource("Resource_7ugjo")])
 can_wander = true
 wander_speed = 1.0
 wander_wait_min = 3.0
@@ -786,7 +837,7 @@ shaded = true
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_srdju")
-animation = &"dig_left"
+animation = &"idle_down"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1156727997]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

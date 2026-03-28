@@ -79,6 +79,7 @@ func _ready() -> void:
 	_update_item_visual()
 	Events.item_picked_up.connect(func(_id): _update_item_visual())
 	Events.item_used.connect(func(_id): _update_item_visual())
+	Events.world_flag_changed.connect(_on_world_flag_changed)
 
 func _process(_delta: float) -> void:
 	_update_sprite_normals()
@@ -102,22 +103,35 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Во время диалога — стоим и смотрим на NPC
+	# --- ЛОГИКА ДИАЛОГОВ И МОНОЛОГОВ ---
 	if Events.is_in_dialogue:
-		velocity.x = 0
-		velocity.z = 0
-		_face_dialog_source()
-		move_and_slide()
-		return
-
-	if is_dashing:
-		velocity.x = dash_direction.x * dash_speed
-		velocity.z = dash_direction.z * dash_speed
+		var dialog_ui = get_tree().get_first_node_in_group("dialog_ui")
+		var is_monologue = (dialog_ui != null and dialog_ui.dialog_source == null)
+		
+		if is_monologue:
+			# МОНОЛОГ: Стоим на месте, не реагируем на WASD
+			velocity.x = 0
+			velocity.z = 0
+			_update_idle_facing() # Разрешаем только крутить камеру и видеть спину
+			_set_anim_and_normal("idle_" + current_facing, norm_idle)
+			move_and_slide()
+			return
+		else:
+			# РАЗГОВОР С NPC: Двигаться можно
+			_handle_movement()
+			# Если остановились - смотрим на NPC
+			if velocity.length() < 0.1:
+				_face_dialog_source_or_camera()
 	else:
-		_handle_movement()
+		# Обычная игра
+		if is_dashing:
+			velocity.x = dash_direction.x * dash_speed
+			velocity.z = dash_direction.z * dash_speed
+		else:
+			_handle_movement()
 
 	move_and_slide()
-
+	
 func _input(event: InputEvent) -> void:
 	if Events.is_paused or is_dead: return
 
@@ -209,8 +223,9 @@ func _update_idle_facing() -> void:
 
 	last_anim_name = ""
 
-func _face_dialog_source() -> void:
+func _face_dialog_source_or_camera() -> void:
 	var dialog_ui = get_tree().get_first_node_in_group("dialog_ui")
+	
 	if dialog_ui and dialog_ui.dialog_source and is_instance_valid(dialog_ui.dialog_source):
 		var dir_to_npc = global_position.direction_to(dialog_ui.dialog_source.global_position)
 		dir_to_npc.y = 0
@@ -218,6 +233,9 @@ func _face_dialog_source() -> void:
 			last_move_dir = dir_to_npc
 			facing_change_timer = 0.0
 			_update_facing_direction(dir_to_npc)
+	else:
+		_update_idle_facing()
+		
 	_set_anim_and_normal("idle_" + current_facing, norm_idle)
 
 # ==========================================
@@ -476,3 +494,13 @@ func _update_sprite_normals() -> void:
 			normal_atlas_texture.atlas = current_normal_sheet
 			normal_atlas_texture.region = visual_tex.region
 			sprite.material_override.normal_texture = normal_atlas_texture
+			
+			
+func _on_world_flag_changed(flag_name: String, value) -> void:
+	if value == true:
+		if flag_name == "level_completed1" or flag_name == "level_completed2":
+			heal(max_health) # Восстанавливаем полное ХП
+			
+			# Если есть звук хила или партиклы - можно добавить сюда
+			if sfx_dash: # Временная затычка звуком дэша (или добавь sfx_heal)
+				pass

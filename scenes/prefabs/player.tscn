@@ -8,6 +8,23 @@
 [ext_resource type="Texture2D" uid="uid://bewx7a1egeomu" path="res://assets/sprites/main/hero_idle.png" id="5_jybep"]
 [ext_resource type="Texture2D" uid="uid://b7qlqgejtot4q" path="res://assets/sprites/main/hero_walk.png" id="6_50rl7"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6v0jn"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0.2, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v0jn"]
+albedo_color = Color(0.888353, 0.80894065, 0.4680001, 1)
+emission_enabled = true
+emission = Color(0.86769295, 0.7701557, 0.40960047, 1)
+emission_energy_multiplier = 7.3
+texture_filter = 0
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_r053x"]
+material = SubResource("StandardMaterial3D_6v0jn")
+size = Vector2(0.025, 0.025)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_oqq3r"]
 atlas = ExtResource("1_06qtw")
 region = Rect2(0, 384, 192, 192)
@@ -927,11 +944,6 @@ height = 1.6
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6v0jn"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6v0jn"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_r053x"]
-size = Vector3(0.01, 0.01, 0.01)
-
 [node name="Player" type="CharacterBody3D" unique_id=140876529 groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8927082, 0)
 collision_mask = 6
@@ -941,6 +953,14 @@ dash_attack_range = 5.0
 dash_attack_angle = 0.5
 dash_speed = 15.0
 dash_duration = 0.4
+
+[node name="DashReadyVFX" type="GPUParticles3D" parent="." unique_id=668284243]
+transform = Transform3D(0.6471395, 0, 0, 0, 0.29379714, 0, 0, 0, 0.61973065, -0.010276392, -0.7645218, 0.27828696)
+cast_shadow = 0
+amount = 100
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_6v0jn")
+draw_pass_1 = SubResource("QuadMesh_r053x")
 
 [node name="Visuals" type="Node3D" parent="." unique_id=1047324090]
 
@@ -953,7 +973,7 @@ shaded = true
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_6v0jn")
-animation = &"attack_left_1"
+animation = &"idle_up"
 
 [node name="ItemAboveHead" type="Sprite3D" parent="Visuals" unique_id=1798970287]
 
@@ -965,10 +985,5 @@ shape = SubResource("CylinderShape3D_r053x")
 shape = SubResource("BoxShape3D_6v0jn")
 target_position = Vector3(0, 0, -1)
 collision_mask = 4
-
-[node name="DashReadyVFX" type="GPUParticles3D" parent="." unique_id=668284243]
-amount = 1
-process_material = SubResource("ParticleProcessMaterial_6v0jn")
-draw_pass_1 = SubResource("BoxMesh_r053x")
 
 [node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=615548599]
