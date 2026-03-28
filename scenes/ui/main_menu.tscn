@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dkwgpxp3rsfh8"]
+
+[ext_resource type="Script" uid="uid://dikhomo6dsibc" path="res://scripts/objects/main_menu.gd" id="1_sl1te"]
+
+[node name="mainMenu" type="Control" unique_id=793932312]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sl1te")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1209150673]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=10019295]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=271269086]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=111478906]
+layout_mode = 2
+theme_override_font_sizes/font_size = 56
+text = "nameOfTheGame"
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer" unique_id=747725085]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer" unique_id=537762618]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "PLAY
+"
+
+[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2033327871]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "SETTINGS
+
+"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1904760840]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "EXIT
+
+"
