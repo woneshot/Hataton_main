@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://dqlf0iu0r0l4o"]
 
+[ext_resource type="Material" uid="uid://6r8n8ywe5445" path="res://materials/log_mat.tres" id="1_mbo2o"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aitsw"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_0mgh4"]
@@ -44,6 +46,7 @@ data = PackedVector3Array(-0.0071, 0.0067999996, -0.0025, -0.0074, 0.0071, 0.001
 [node name="Бревно3" type="MeshInstance3D" parent="Бревно2" unique_id=5798283]
 transform = Transform3D(100, 2.2204457e-14, 8.7011514e-14, -2.220446e-14, 100, 2.9584986e-05, -2.2204457e-14, -7.549789e-06, 391.86505, 0, 1.0019256, 0)
 mesh = SubResource("ArrayMesh_0s0au")
+surface_material_override/0 = ExtResource("1_mbo2o")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Бревно2/Бревно3" unique_id=913412759]
 collision_layer = 2

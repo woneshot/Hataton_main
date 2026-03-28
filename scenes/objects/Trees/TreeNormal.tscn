@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://b1xmewe7vhjxm"]
 
+[ext_resource type="Material" uid="uid://bumvicq0qr14d" path="res://materials/tree_normal_mat.tres" id="1_onehq"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83bo1"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sk04e"]
@@ -44,6 +46,7 @@ data = PackedVector3Array(0.0067999996, -0.0009999999, 0.028199999, 0.0021, -0.0
 [node name="дерево" type="MeshInstance3D" parent="дерево" unique_id=1399364556]
 transform = Transform3D(-125.51589, 1.9063558e-05, -1.2341615e-12, 0, 7.5252196e-06, 86.8464, 1.8952373e-05, 126.252235, -1.0352897e-05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_4v1dg")
+surface_material_override/0 = ExtResource("1_onehq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="дерево/дерево" unique_id=1915771949]
 collision_layer = 2

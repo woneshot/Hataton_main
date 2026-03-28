@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://b8lxnovkqkwqu"]
 
+[ext_resource type="Material" uid="uid://devgklsx7m78i" path="res://materials/rock_small_mat.tres" id="1_vvp12"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sfvcx"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vafpo"]
@@ -42,6 +44,7 @@ points = PackedVector3Array(-0.009059524, 0.0018875953, 0.00015977351, -0.006503
 [node name="камень_маленький" type="MeshInstance3D" parent="камень_маленький" unique_id=944770230]
 transform = Transform3D(13.132451, 0, 0, 0, -1.5655102e-06, 13.13245, 0, -13.13245, -1.5655102e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_8jkkb")
+surface_material_override/0 = ExtResource("1_vvp12")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="камень_маленький/камень_маленький" unique_id=514756899]
 collision_layer = 2

@@ -1,0 +1,11 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://csapdv7ahyhr5"]
+
+[ext_resource type="Texture2D" uid="uid://bo264b43ayqac" path="res://assets/textures/RockBig/base_color (33).png" id="1_rribu"]
+[ext_resource type="Texture2D" uid="uid://bp3ypdsqgl761" path="res://assets/textures/RockBig/emission (6).png" id="2_7427p"]
+[ext_resource type="Texture2D" uid="uid://c23v32bt7cj64" path="res://assets/textures/RockBig/ORMO (33).png" id="3_5v1l8"]
+
+[resource]
+albedo_texture = ExtResource("1_rribu")
+orm_texture = ExtResource("3_5v1l8")
+emission_enabled = true
+emission_texture = ExtResource("2_7427p")

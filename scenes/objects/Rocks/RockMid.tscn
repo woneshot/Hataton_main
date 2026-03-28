@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://d2wjlkuulf1c2"]
 
+[ext_resource type="Material" uid="uid://c4vo4vc20c21v" path="res://materials/rock_mid_mat.tres" id="1_sjyt5"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ylosd"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4rl4a"]
@@ -44,6 +46,7 @@ points = PackedVector3Array(-0.0072561256, -0.009125082, -0.00022742973, 0.00057
 [node name="камень_средний" type="MeshInstance3D" parent="камень_средний" unique_id=1889672073]
 transform = Transform3D(25.00422, 0, 0, 0, -2.9807386e-06, 25.004246, 0, -25.004246, -2.9807386e-06, 0, 0.2502004, 0)
 mesh = SubResource("ArrayMesh_jnvs4")
+surface_material_override/0 = ExtResource("1_sjyt5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="камень_средний/камень_средний" unique_id=234987718]
 collision_layer = 2
