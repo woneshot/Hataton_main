@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://cpy65r1078nt3"]
-
-[ext_resource type="PackedScene" uid="uid://df3c8bqahu1ly" path="res://models/дерево_голое.fbx" id="1_dofio"]
-
-[node name="TreeNaked" type="Node3D" unique_id=33101368]
-
-[node name="дерево_голое" parent="." unique_id=1594807735 instance=ExtResource("1_dofio")]

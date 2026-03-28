@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://cix7hrqpexcmf"]
-
-[ext_resource type="PackedScene" uid="uid://c2csh2p3lf0rg" path="res://models/Мухомор.fbx" id="1_t30o8"]
-
-[node name="Muhomor" type="Node3D" unique_id=342972634]
-
-[node name="Мухомор" parent="." unique_id=766458701 instance=ExtResource("1_t30o8")]

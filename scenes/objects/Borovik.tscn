@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://dawv4i52cfuc"]
-
-[ext_resource type="PackedScene" uid="uid://ppojgpiamtt7" path="res://models/Боровик.fbx" id="1_q5veu"]
-
-[node name="Borovik" type="Node3D" unique_id=1034141589]
-
-[node name="Боровик" parent="." unique_id=1339585513 instance=ExtResource("1_q5veu")]

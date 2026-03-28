@@ -3,6 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://bvjbws427p8r1" path="res://assets/sprites/pixie1/pixie1_universal.png" id="1_5vss2"]
 [ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_c1yv2"]
 [ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_vr86f"]
+[ext_resource type="Texture2D" uid="uid://18ii2am18io1" path="res://assets/normal_maps/Pixie 1/pixie1_n.png" id="3_j6yfl"]
+
+[sub_resource type="Resource" id="Resource_vr86f"]
+script = ExtResource("2_vr86f")
+condition_type = 2
+condition_value = "defeated_vex"
+lines = Array[String](["Слава нашему спасителю!"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
+[sub_resource type="Resource" id="Resource_7k1nb"]
+script = ExtResource("2_vr86f")
+condition_type = 2
+condition_value = "vex_attack"
+lines = Array[String](["Спасайся, кто может!"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="Resource" id="Resource_j6yfl"]
 script = ExtResource("2_vr86f")
@@ -406,9 +421,14 @@ collision_mask = 2
 script = ExtResource("1_c1yv2")
 npc_type = 1
 actor_name = "Пикси Рэйнджер"
-dialogue_entries = Array[ExtResource("2_vr86f")]([SubResource("Resource_j6yfl")])
+dialogue_entries = Array[ExtResource("2_vr86f")]([SubResource("Resource_vr86f"), SubResource("Resource_7k1nb"), SubResource("Resource_j6yfl")])
 can_wander = true
 can_take_damage_from_enemies = true
+norm_idle = ExtResource("3_j6yfl")
+norm_run = ExtResource("3_j6yfl")
+norm_cast = ExtResource("3_j6yfl")
+norm_dig = ExtResource("3_j6yfl")
+norm_death = ExtResource("3_j6yfl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=214499068]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

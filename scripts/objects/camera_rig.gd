@@ -65,14 +65,12 @@ func _update_fov(delta: float) -> void:
 	camera.fov = lerp(camera.fov, target_fov, fov_lerp_speed * delta)
 
 func shake(intensity: float = -1.0, duration: float = -1.0) -> void:
-	if intensity < 0: 
-		intensity = default_shake_intensity
-	if duration < 0: 
-		duration = default_shake_duration
-		
+	if intensity < 0: intensity = default_shake_intensity
+	if duration < 0: duration = default_shake_duration
 	var elapsed = 0.0
-	
 	while elapsed < duration:
+		if not is_instance_valid(self) or not is_inside_tree():
+			return
 		shake_offset = Vector3(
 			randf_range(-intensity, intensity),
 			randf_range(-intensity, intensity),
@@ -80,5 +78,4 @@ func shake(intensity: float = -1.0, duration: float = -1.0) -> void:
 		)
 		elapsed += get_process_delta_time()
 		await get_tree().process_frame
-		
 	shake_offset = Vector3.ZERO

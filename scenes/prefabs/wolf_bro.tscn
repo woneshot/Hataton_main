@@ -3,10 +3,26 @@
 [ext_resource type="Texture2D" uid="uid://esao8gupu5eu" path="res://assets/sprites/wolf_bro/wolf_bro_universal.png" id="1_8h1ar"]
 [ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_87wqs"]
 [ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_o3wq8"]
+[ext_resource type="Texture2D" uid="uid://bhfvc8668evx7" path="res://assets/normal_maps/Wolf/wolf_bro_universal_n.png" id="3_ys60g"]
+
+[sub_resource type="Resource" id="Resource_btfe3"]
+script = ExtResource("2_o3wq8")
+condition_type = 3
+condition_value = "wolf_is_dying"
+lines = Array[String](["Кха... Я же просто хотел помочь..."])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
+[sub_resource type="Resource" id="Resource_o3wq8"]
+script = ExtResource("2_o3wq8")
+condition_type = 3
+condition_value = "easy_boss"
+lines = Array[String](["Если боишься схватки с ведьмой, можешь сбежать", "По это тропе сможешь выйти из леса", "Выбор за тобой..."])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="Resource" id="Resource_ys60g"]
 script = ExtResource("2_o3wq8")
 lines = Array[String](["Псс... Я слышал ты хочешь отомстить ведьме за свое унижение", "Я помогу тебе. Не спрашивай почему", "Теперь бой с ведьмой дастся тебе немного проще. Удачи!"])
+set_flags = Array[String](["easy_boss"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7jskd"]
@@ -454,7 +470,14 @@ collision_mask = 2
 script = ExtResource("1_87wqs")
 npc_type = 4
 actor_name = "Зверолюд-незнакомец"
-dialogue_entries = Array[ExtResource("2_o3wq8")]([SubResource("Resource_ys60g")])
+dialogue_entries = Array[ExtResource("2_o3wq8")]([SubResource("Resource_btfe3"), SubResource("Resource_o3wq8"), SubResource("Resource_ys60g")])
+cast_after_flag = "easy_boss"
+force_dialogue_flag = "wolf_is_dying"
+norm_idle = ExtResource("3_ys60g")
+norm_run = ExtResource("3_ys60g")
+norm_cast = ExtResource("3_ys60g")
+norm_dig = ExtResource("3_ys60g")
+norm_death = ExtResource("3_ys60g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=366980371]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
@@ -475,3 +498,5 @@ sprite_frames = SubResource("SpriteFrames_yigup")
 animation = &"cast_down"
 
 [node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1210970614]
+
+[node name="CastParticles" type="GPUParticles3D" parent="." unique_id=1523371798]

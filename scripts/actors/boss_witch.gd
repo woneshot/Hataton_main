@@ -5,20 +5,20 @@ extends CharacterBody3D
 # ==========================================
 @export_group("Stats")
 @export var max_health: int = 30
-@export var shield_down_duration: float = 10.0  # Сколько секунд бить бабку после убийства мобов
+@export var shield_down_duration: float = 10.0
 @export var detection_range: float = 8.0
 
 @export_group("Phases")
-@export var has_third_phase: bool = false  # TODO: потом привяжем к флагу Events.get_flag("...")
-@export var phase2_fireball_delay: float = 10.0  # Через сколько сек после начала фазы бросает фаерболы
-@export var fireball_count: int = 8  # Сколько фаерболов по кругу
-@export var fireball_scene: PackedScene  # Сцена проджектайла фаербола
+@export var phase2_fireball_delay: float = 10.0
+@export var fireball_cooldown: float = 8.0
+@export var fireball_count: int = 8
+@export var fireball_scene: PackedScene
 
 @export_group("Cast Animation")
-@export var cast_damage_point: float = 0.5  # На какой доле анимации каста спавнятся мобы
+@export var cast_damage_point: float = 0.5
 
 @export_group("Spawn Points")
-@export var spawn_points: Array[Marker3D] = []  # Точки спавна мобов (расставить в сцене)
+@export var spawn_points: Array[Marker3D] = []
 
 @export_group("Spawn Scenes")
 @export var skeleton_scene: PackedScene
@@ -45,12 +45,16 @@ var health: int = 0
 var is_dead: bool = false
 var is_shielded: bool = false
 var is_casting: bool = false
-var is_vulnerable: bool = false  # Щит снят, можно бить
+var is_casting_fireballs: bool = false
+var is_vulnerable: bool = false
 var fight_started: bool = false
-var current_phase: int = 0  # 0 = не начали, 1 = фаза 1, 2 = фаза 2, 3 = фаза 3
-var max_phases: int = 2
+var is_enraged: bool = false
+var current_phase: int = 0
+var max_phases: int = 3
 var spawned_enemies: Array[Node] = []
 var cast_spawned_this_anim: bool = false
+var fireball_timer: float = 0.0
+var enrage_angle_offset: float = 0.0
 
 var player: Node3D = null
 var camera_rig: Node3D = null
@@ -63,9 +67,7 @@ const FACING_CHANGE_COOLDOWN: float = 0.1
 const FACING_HYSTERESIS: float = 1.5
 var last_anim_name: String = ""
 
-# Партиклы щита
 @onready var shield_particles: GPUParticles3D = $ShieldParticles
-
 @onready var visuals = $Visuals
 @onready var sprite: AnimatedSprite3D = $Visuals/Sprite
 @onready var sfx_player = $SfxPlayer
@@ -77,19 +79,37 @@ func _ready() -> void:
 	camera_rig = get_tree().get_first_node_in_group("camera_rig")
 	sprite.animation_finished.connect(_on_sprite_animation_finished)
 	
-	if has_third_phase:
-		max_phases = 3
-	
+	# УБРАЛИ проверку флага отсюда
+		
 	if shield_particles:
 		shield_particles.emitting = false
 
-func _process(_delta: float) -> void:
+func _start_fight() -> void:
+	fight_started = true
+	
+	if Events.get_flag("easy_boss"):
+		max_phases = 2
+	else:
+		max_phases = 3
+	
+	max_health = 10 * max_phases
+	health = max_health
+	
+	_start_next_phase()
+
+func _process(delta: float) -> void:
 	_update_sprite_normals()
 	_check_cast_spawn_point()
 	
-	# Проверяем живы ли заспавненные мобы
-	if is_shielded and fight_started and not is_casting:
+	if is_dead or is_enraged: return
+	
+	if is_shielded and fight_started and not is_casting and not is_casting_fireballs:
 		_check_spawned_enemies()
+		
+		if current_phase >= 2:
+			fireball_timer -= delta
+			if fireball_timer <= 0.0:
+				_start_fireball_cast()
 
 func _physics_process(delta: float) -> void:
 	if is_dead or Events.is_paused: return
@@ -104,45 +124,42 @@ func _physics_process(delta: float) -> void:
 		player = get_tree().get_first_node_in_group("player")
 		if not player: return
 
-	# Бабка всегда стоит на месте
+	if is_enraged or is_casting or is_casting_fireballs:
+		velocity.x = 0
+		velocity.z = 0
+		move_and_slide()
+		return
+
 	velocity.x = 0
 	velocity.z = 0
 
-	# Смотрим на игрока
-	if not is_casting:
-		var dir_to_player = global_position.direction_to(player.global_position)
-		dir_to_player.y = 0
-		if dir_to_player.length() > 0.01:
-			_update_facing_from_dir(dir_to_player)
+	var dir_to_player = global_position.direction_to(player.global_position)
+	dir_to_player.y = 0
+	if dir_to_player.length() > 0.01:
+		_update_facing_from_dir(dir_to_player)
 
-	# Детект игрока — начало боя
 	if not fight_started:
 		var dist = global_position.distance_to(player.global_position)
 		if dist < detection_range:
 			_start_fight()
+			move_and_slide()
+			return  # ← ФИКС: не даём idle перебить cast-анимацию
 
-	# Idle анимация если не кастуем и не мертвы
-	if not is_casting and not is_dead:
-		_set_anim_and_normal("idle_" + current_facing, norm_idle)
-
+	_set_anim_and_normal("idle_" + current_facing, norm_idle)
 	move_and_slide()
 
 # ==========================================
 # НАЧАЛО БОЯ
 # ==========================================
-func _start_fight() -> void:
-	fight_started = true
-	_start_next_phase()
+
 
 func _start_next_phase() -> void:
 	current_phase += 1
 	
 	if current_phase > max_phases:
-		# Все фазы пройдены, бабка не побеждена — ВЗРЫВ
 		_explode()
 		return
 	
-	# Начинаем каст
 	_start_cast()
 
 # ==========================================
@@ -154,7 +171,6 @@ func _start_cast() -> void:
 	is_vulnerable = false
 	cast_spawned_this_anim = false
 	
-	# Включаем партиклы щита
 	if shield_particles:
 		shield_particles.emitting = true
 	
@@ -175,26 +191,24 @@ func _check_cast_spawn_point() -> void:
 	var frame_count = sprite.sprite_frames.get_frame_count(anim_name)
 	if frame_count <= 0: return
 	
-	var progress = float(sprite.frame) / float(frame_count)
+	var progress = 0.0
+	if frame_count > 1:
+		progress = float(sprite.frame) / float(frame_count - 1)
+	else:
+		progress = 1.0
+		
 	if progress >= cast_damage_point:
 		cast_spawned_this_anim = true
 		_spawn_phase_enemies()
 
 func _spawn_phase_enemies() -> void:
 	spawned_enemies.clear()
-	
 	var to_spawn: Array = []
 	
 	match current_phase:
-		1:
-			# Фаза 1: 1 фавн + 2 скелетона
-			to_spawn = [faun_scene, skeleton_scene, skeleton_scene]
-		2:
-			# Фаза 2: 3 фавна + 2 скелетона
-			to_spawn = [faun_scene, faun_scene, faun_scene, skeleton_scene, skeleton_scene]
-		3:
-			# Фаза 3: то же что фаза 2
-			to_spawn = [faun_scene, faun_scene, faun_scene, skeleton_scene, skeleton_scene]
+		1: to_spawn = [faun_scene, skeleton_scene, skeleton_scene]
+		2: to_spawn = [faun_scene, faun_scene, faun_scene, skeleton_scene, skeleton_scene]
+		3: to_spawn = [faun_scene, faun_scene, faun_scene, skeleton_scene, skeleton_scene]
 	
 	for i in to_spawn.size():
 		var scene = to_spawn[i]
@@ -203,7 +217,6 @@ func _spawn_phase_enemies() -> void:
 		var enemy = scene.instantiate()
 		get_parent().add_child(enemy)
 		
-		# Размещаем на точках спавна (если есть), иначе вокруг бабки
 		if i < spawn_points.size() and spawn_points[i] != null:
 			enemy.global_position = spawn_points[i].global_position
 		else:
@@ -213,16 +226,8 @@ func _spawn_phase_enemies() -> void:
 		
 		spawned_enemies.append(enemy)
 	
-	# Фаза 2 и 3: через N секунд бросаем фаерболы
 	if current_phase >= 2:
-		_schedule_fireballs()
-
-func _on_sprite_animation_finished() -> void:
-	if is_dead: return
-	
-	if sprite.animation.begins_with("cast_"):
-		is_casting = false
-		# После каста остаёмся в idle с щитом
+		fireball_timer = phase2_fireball_delay
 
 # ==========================================
 # ПРОВЕРКА МОБОВ
@@ -244,22 +249,35 @@ func _shield_down() -> void:
 	if shield_particles:
 		shield_particles.emitting = false
 	
-	# Через N секунд щит поднимается обратно (следующая фаза)
 	await get_tree().create_timer(shield_down_duration).timeout
-	if is_instance_valid(self) and not is_dead:
+	if is_instance_valid(self) and not is_dead and not is_enraged:
 		is_vulnerable = false
 		_start_next_phase()
 
 # ==========================================
 # ФАЕРБОЛЫ
 # ==========================================
-func _schedule_fireballs() -> void:
-	await get_tree().create_timer(phase2_fireball_delay).timeout
-	if is_instance_valid(self) and not is_dead and is_shielded:
-		_cast_fireballs()
+func _start_fireball_cast() -> void:
+	if is_dead or is_casting or is_casting_fireballs or is_enraged: return
+	
+	is_casting_fireballs = true
+	fireball_timer = fireball_cooldown
+	
+	if is_instance_valid(player):
+		var dir_to_player = global_position.direction_to(player.global_position)
+		dir_to_player.y = 0
+		if dir_to_player.length() > 0.01:
+			_update_facing_from_dir(dir_to_player)
+	
+	if sfx_cast:
+		sfx_player.stream = sfx_cast
+		sfx_player.play()
+	
+	last_anim_name = ""
+	_set_anim_and_normal("cast_" + current_facing, norm_cast)
 
 func _cast_fireballs() -> void:
-	if fireball_scene == null: return
+	if fireball_scene == null or is_dead: return
 	
 	for i in fireball_count:
 		var angle = TAU * float(i) / float(fireball_count)
@@ -274,36 +292,80 @@ func _cast_fireballs() -> void:
 			fireball.launch(target, self)
 
 # ==========================================
-# ВЗРЫВ (ВСЕ ФАЗЫ ПРОЙДЕНЫ — ИГРОК УМИРАЕТ)
+# ОКОНЧАНИЕ АНИМАЦИИ
+# ==========================================
+func _on_sprite_animation_finished() -> void:
+	if is_dead or is_enraged: return
+	
+	if sprite.animation.begins_with("cast_"):
+		# Страховка: если анимация проскочила, спавним принудительно
+		if is_casting and not cast_spawned_this_anim:
+			cast_spawned_this_anim = true
+			_spawn_phase_enemies()
+
+		if is_casting:
+			is_casting = false
+		elif is_casting_fireballs:
+			is_casting_fireballs = false
+			_cast_fireballs()
+		
+		last_anim_name = ""
+		_set_anim_and_normal("idle_" + current_facing, norm_idle)
+
+# ==========================================
+# ВЗРЫВ (BULLET HELL)
 # ==========================================
 func _explode() -> void:
 	is_shielded = true
 	is_vulnerable = false
+	is_enraged = true
+	is_casting = false
+	is_casting_fireballs = false
+	
+	if shield_particles:
+		shield_particles.emitting = true
 	
 	if sfx_explosion:
 		sfx_player.stream = sfx_explosion
 		sfx_player.play()
 	
-	# TODO: можно добавить анимацию каста для взрыва
-	# Тряска камеры
 	Events.camera_shake_requested.emit(0.5, 1.0)
 	
-	await get_tree().create_timer(1.0).timeout
+	last_anim_name = ""
+	_set_anim_and_normal("cast_" + current_facing, norm_cast)
 	
-	# Убиваем игрока
-	if is_instance_valid(player) and player.has_method("take_damage"):
-		player.take_damage(999)
+	_enrage_barrage_loop()
+
+func _enrage_barrage_loop() -> void:
+	if is_dead or not is_enraged: return
+	
+	if fireball_scene != null:
+		var count = 24
+		for i in count:
+			var angle = (TAU * float(i) / float(count)) + enrage_angle_offset
+			var dir = Vector3(cos(angle), 0, sin(angle))
+			
+			var fireball = fireball_scene.instantiate()
+			get_parent().add_child(fireball)
+			fireball.global_position = global_position + Vector3(0, 0.8, 0)
+			
+			if fireball.has_method("launch"):
+				var target = global_position + dir * 15.0 + Vector3(0, 0.8, 0)
+				fireball.launch(target, self)
+	
+	enrage_angle_offset += 0.15
+	Events.camera_shake_requested.emit(0.1, 0.3)
+	
+	await get_tree().create_timer(0.3).timeout
+	if is_instance_valid(self):
+		_enrage_barrage_loop()
 
 # ==========================================
 # ЗДОРОВЬЕ
 # ==========================================
 func take_damage(amount: int) -> void:
 	if is_dead: return
-	
-	# Щит активен — урон не проходит
-	if is_shielded or not is_vulnerable:
-		# TODO: можно добавить звук "щит заблокировал" или партикл
-		return
+	if is_shielded or not is_vulnerable: return
 	
 	health -= amount
 	_flash_red()
@@ -326,12 +388,13 @@ func _die() -> void:
 	is_shielded = false
 	is_vulnerable = false
 	is_casting = false
+	is_casting_fireballs = false
+	is_enraged = false
 	velocity = Vector3.ZERO
 	
 	if shield_particles:
 		shield_particles.emitting = false
 	
-	# Убиваем всех оставшихся мобов
 	for enemy in spawned_enemies:
 		if is_instance_valid(enemy) and enemy.has_method("take_damage"):
 			enemy.take_damage(999)
@@ -348,7 +411,7 @@ func _die() -> void:
 	var tween = create_tween()
 	tween.tween_property(sprite, "position:y", sprite.position.y - pixel_offset, 0.15)
 	
-	# TODO: поставить флаг Events.set_flag("boss_killed")
+	Events.set_flag("boss_killed")
 	
 	await sprite.animation_finished
 	await get_tree().create_timer(2.0).timeout
@@ -359,8 +422,7 @@ func _die() -> void:
 # СПРАЙТ НАПРАВЛЕНИЕ
 # ==========================================
 func _update_facing_from_dir(dir: Vector3) -> void:
-	if facing_change_timer > 0.0:
-		return
+	if facing_change_timer > 0.0: return
 	if not camera_rig: return
 
 	var local_dir = dir.rotated(Vector3.UP, -camera_rig.global_rotation.y)

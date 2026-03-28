@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 enum NPCType { GUARD, AMBIENT, KING, RAT, WOLF }
 
+var cast_particles: GPUParticles3D = null
+
 @export_group("Type")
 @export var npc_type: NPCType = NPCType.GUARD
 
@@ -53,6 +55,7 @@ var camera_rig: Node3D
 var current_entry: DialogueEntry = null
 var is_talking: bool = false
 var is_dead: bool = false
+var is_invulnerable_during_death_speech: bool = false
 var is_digging: bool = false
 var is_casting: bool = false
 var home_position: Vector3 = Vector3.ZERO
@@ -80,6 +83,12 @@ func _ready() -> void:
 	Events.dialogue_ended_ex.connect(_on_dialogue_ended)
 	sprite.animation_finished.connect(_on_sprite_animation_finished)
 	
+	# Партиклы каста — только если нода существует
+	cast_particles = get_node_or_null("CastParticles")
+	if cast_particles and npc_type == NPCType.WOLF:
+		_setup_cast_particles()
+		cast_particles.emitting = false
+	
 	if disappear_on_flag != "":
 		Events.world_flag_changed.connect(_on_flag_changed)
 		if Events.get_flag(disappear_on_flag):
@@ -93,6 +102,8 @@ func _ready() -> void:
 		_start_idle_cycle()
 	elif npc_type == NPCType.RAT:
 		_start_idle_cycle()
+		
+
 
 func _process(_delta: float) -> void:
 	_update_sprite_normals()
@@ -233,14 +244,19 @@ func _on_dialogue_ended(completed: bool) -> void:
 		if current_entry.consume_item and Events.current_item != "":
 			Events.use_item()
 		
-		# WOLF: проверяем нужно ли играть cast_ после этого диалога
 		if npc_type == NPCType.WOLF and cast_after_flag != "":
 			if cast_after_flag in set_flags_list:
 				_play_cast()
 
 	current_entry = null
 	
-	# Возобновляем цикл idle/wander/dig
+	# === НОВОЕ: Если мы говорили предсмертную фразу - умираем! ===
+	if is_invulnerable_during_death_speech and completed:
+		is_invulnerable_during_death_speech = false
+		_execute_death()
+		return
+	# =============================================================
+
 	if not is_dead and not is_casting:
 		_start_idle_cycle()
 
@@ -254,9 +270,16 @@ func _get_matching_entry() -> DialogueEntry:
 	return null
 
 func _check_condition(entry: DialogueEntry) -> bool:
+	if entry.required_flag != "" and not Events.get_flag(entry.required_flag):
+		return false
+		
 	match entry.condition_type:
 		DialogueEntry.ConditionType.NONE: return true
 		DialogueEntry.ConditionType.HAS_ITEM: return Events.has_item(entry.condition_value)
+		
+		# <-- НОВОЕ: Просто проверяем, что строка current_item не пустая
+		DialogueEntry.ConditionType.HAS_ANY_ITEM: return Events.current_item != "" 
+		
 		DialogueEntry.ConditionType.FLAG_TRUE: return Events.get_flag(entry.condition_value)
 		DialogueEntry.ConditionType.FLAG_FALSE: return not Events.get_flag(entry.condition_value)
 	return false
@@ -340,13 +363,19 @@ func _play_cast() -> void:
 	velocity = Vector3.ZERO
 	last_anim_name = ""
 	_set_anim_and_normal("cast_" + current_facing, norm_cast)
-	# Ждём окончания анимации через _on_sprite_animation_finished
+	
+	if cast_particles:
+		cast_particles.emitting = true
 
 func _on_sprite_animation_finished() -> void:
 	if is_dead: return
 	
 	if sprite.animation.begins_with("cast_"):
 		is_casting = false
+		
+		if cast_particles:
+			cast_particles.emitting = false
+		
 		last_anim_name = ""
 		_start_idle_cycle()
 
@@ -368,7 +397,6 @@ func _on_force_dialogue_flag_changed(flag_name: String, _value) -> void:
 func take_damage(_amount: int) -> void:
 	if is_dead: return
 	
-	# Кто может получать урон
 	match npc_type:
 		NPCType.GUARD: return   # Неубиваемый
 		NPCType.KING: return    # Неубиваемый
@@ -376,6 +404,19 @@ func take_damage(_amount: int) -> void:
 		NPCType.AMBIENT: pass   # Может умереть (от врагов)
 		NPCType.WOLF: pass      # Может умереть (от всех)
 	
+	# === НОВОЕ: Если у NPC есть предсмертная фраза ===
+	if force_dialogue_flag != "":
+		# Ставим флаг, который запустит принудительный диалог
+		Events.set_flag(force_dialogue_flag)
+		# Делаем NPC бессмертным на время диалога, чтобы он успел договорить!
+		is_invulnerable_during_death_speech = true 
+		return # Прерываем обычную смерть. Он умрет ПОСЛЕ диалога.
+	# ==================================================
+
+	_execute_death() # Обычная смерть (вынесли в отдельную функцию для удобства)
+
+# Выделили логику смерти в отдельную функцию
+func _execute_death() -> void:
 	is_dead = true
 	is_talking = false
 	is_wandering = false
@@ -455,3 +496,74 @@ func _update_sprite_normals() -> void:
 			normal_atlas_texture.atlas = current_normal_sheet
 			normal_atlas_texture.region = visual_tex.region
 			sprite.material_override.normal_texture = normal_atlas_texture
+			
+			
+func _setup_cast_particles() -> void:
+	var mat = ParticleProcessMaterial.new()
+	
+	# Вихрь вокруг NPC
+	mat.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_RING
+	mat.emission_ring_radius = 0.8
+	mat.emission_ring_inner_radius = 0.2
+	mat.emission_ring_height = 0.1
+	mat.emission_ring_axis = Vector3.UP
+	
+	# Движение вверх по спирали
+	mat.direction = Vector3(0, 1, 0)
+	mat.spread = 30.0
+	mat.initial_velocity_min = 1.0
+	mat.initial_velocity_max = 2.5
+	mat.gravity = Vector3(0, -0.5, 0)
+	
+	# Вращение (вихрь)
+	mat.orbit_velocity_min = 2.0
+	mat.orbit_velocity_max = 4.0
+	
+	# Зелёно-голубой градиент
+	var gradient = Gradient.new()
+	gradient.set_offset(0, 0.0)
+	gradient.set_color(0, Color(0.2, 1.0, 0.5, 1.0))   # Зелёный старт
+	gradient.add_point(0.3, Color(0.0, 0.9, 0.8, 0.9))  # Бирюзовый
+	gradient.add_point(0.7, Color(0.1, 0.6, 1.0, 0.6))  # Голубой
+	gradient.set_offset(1, 1.0)
+	gradient.set_color(1, Color(0.0, 0.8, 1.0, 0.0))    # Прозрачный конец
+	
+	var color_ramp = GradientTexture1D.new()
+	color_ramp.gradient = gradient
+	mat.color_ramp = color_ramp
+	
+	# Размер: мелкие → крупнее → исчезают
+	var scale_curve = Curve.new()
+	scale_curve.add_point(Vector2(0.0, 0.3))
+	scale_curve.add_point(Vector2(0.3, 1.0))
+	scale_curve.add_point(Vector2(1.0, 0.2))
+	var scale_texture = CurveTexture.new()
+	scale_texture.curve = scale_curve
+	mat.scale_min = 0.05
+	mat.scale_max = 0.12
+	mat.scale_curve = scale_texture
+	
+	cast_particles.process_material = mat
+	cast_particles.amount = 32
+	cast_particles.lifetime = 1.2
+	cast_particles.explosiveness = 0.0
+	cast_particles.randomness = 0.3
+	cast_particles.fixed_fps = 30
+	cast_particles.one_shot = false
+	cast_particles.position = Vector3(0, 0.5, 0)  # Центр тела NPC
+	
+	# Меш партиклов — маленькие квадратики
+	var quad = QuadMesh.new()
+	quad.size = Vector2(0.08, 0.08)
+	cast_particles.draw_pass_1 = quad
+	
+	# Материал квадратиков — светящийся, billboard
+	var draw_mat = StandardMaterial3D.new()
+	draw_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	draw_mat.emission_enabled = true
+	draw_mat.emission = Color(0.1, 0.8, 0.6)
+	draw_mat.emission_energy_multiplier = 2.0
+	draw_mat.billboard_mode = BaseMaterial3D.BILLBOARD_ENABLED
+	draw_mat.vertex_color_use_as_albedo = true
+	draw_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	quad.material = draw_mat

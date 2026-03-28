@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://phdfmw58m5ho"]
+
+[ext_resource type="Script" uid="uid://q77boehd6m04" path="res://scripts/objects/scene_transition.gd" id="1_vnhaa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pjb0e"]
+size = Vector3(2, 2, 0.3)
+
+[node name="SceneTransition" type="StaticBody3D" unique_id=1645615911]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_vnhaa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=108174506]
+shape = SubResource("BoxShape3D_pjb0e")
+
+[node name="PortalParticles" type="GPUParticles3D" parent="." unique_id=1445251350]
+preprocess = 8.0
+
+[node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=347903309]

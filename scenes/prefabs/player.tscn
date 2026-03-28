@@ -3,10 +3,32 @@
 [ext_resource type="Texture2D" uid="uid://buj1pyspwjw0t" path="res://assets/sprites/main/hero_islash.png" id="1_06qtw"]
 [ext_resource type="Script" uid="uid://4mb8kb3bx48i" path="res://scripts/actors/player.gd" id="1_6v0jn"]
 [ext_resource type="Texture2D" uid="uid://cdolpcaw4g37n" path="res://assets/sprites/main/hero_slash.png" id="2_6o77n"]
+[ext_resource type="Texture2D" uid="uid://cuo1833nq2nqe" path="res://assets/normal_maps/Hero/hero_idle_n.png" id="2_lagtt"]
 [ext_resource type="Texture2D" uid="uid://b0xqtkg8mdktv" path="res://assets/sprites/main/hero_thrust.png" id="3_6v0jn"]
+[ext_resource type="Texture2D" uid="uid://jpbackmxgn4t" path="res://assets/normal_maps/Hero/hero_walk_n.png" id="3_gkb8g"]
+[ext_resource type="Texture2D" uid="uid://fk5ynlvoq07u" path="res://assets/normal_maps/Hero/hero_islash_n.png" id="4_c1k3r"]
 [ext_resource type="Texture2D" uid="uid://cj5lwmmvcfke5" path="res://assets/sprites/main/hero_hurt.png" id="4_r053x"]
 [ext_resource type="Texture2D" uid="uid://bewx7a1egeomu" path="res://assets/sprites/main/hero_idle.png" id="5_jybep"]
+[ext_resource type="Texture2D" uid="uid://mvusrmn5f77u" path="res://assets/normal_maps/Hero/hero_thrust_n.png" id="5_xtlg4"]
 [ext_resource type="Texture2D" uid="uid://b7qlqgejtot4q" path="res://assets/sprites/main/hero_walk.png" id="6_50rl7"]
+[ext_resource type="Texture2D" uid="uid://b3y7frtlub604" path="res://assets/normal_maps/Hero/hero_death_n.png" id="6_va4sl"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6v0jn"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0.2, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6v0jn"]
+albedo_color = Color(0.888353, 0.80894065, 0.4680001, 1)
+emission_enabled = true
+emission = Color(0.86769295, 0.7701557, 0.40960047, 1)
+emission_energy_multiplier = 7.3
+texture_filter = 0
+billboard_mode = 2
+
+[sub_resource type="QuadMesh" id="QuadMesh_r053x"]
+material = SubResource("StandardMaterial3D_6v0jn")
+size = Vector2(0.025, 0.025)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oqq3r"]
 atlas = ExtResource("1_06qtw")
@@ -926,11 +948,7 @@ animations = [{
 height = 1.6
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6v0jn"]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6v0jn"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_r053x"]
-size = Vector3(0.01, 0.01, 0.01)
+size = Vector3(1, 1.3, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=140876529 groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8927082, 0)
@@ -941,6 +959,19 @@ dash_attack_range = 5.0
 dash_attack_angle = 0.5
 dash_speed = 15.0
 dash_duration = 0.4
+norm_idle = ExtResource("2_lagtt")
+norm_run = ExtResource("3_gkb8g")
+norm_attack = ExtResource("4_c1k3r")
+norm_dash = ExtResource("5_xtlg4")
+norm_death = ExtResource("6_va4sl")
+
+[node name="DashReadyVFX" type="GPUParticles3D" parent="." unique_id=668284243]
+transform = Transform3D(0.6471395, 0, 0, 0, 0.29379714, 0, 0, 0, 0.61973065, -0.010276392, -0.7645218, 0.27828696)
+cast_shadow = 0
+amount = 100
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_6v0jn")
+draw_pass_1 = SubResource("QuadMesh_r053x")
 
 [node name="Visuals" type="Node3D" parent="." unique_id=1047324090]
 
@@ -948,14 +979,16 @@ dash_duration = 0.4
 cast_shadow = 2
 offset = Vector2(0, -3.72)
 pixel_size = 0.03
-billboard = 2
+billboard = 1
 shaded = true
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_6v0jn")
-animation = &"attack_left_1"
+animation = &"dash_right"
 
 [node name="ItemAboveHead" type="Sprite3D" parent="Visuals" unique_id=1798970287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0703503, 0)
+pixel_size = 0.002
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1158441341]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09279305, 0)
@@ -965,10 +998,6 @@ shape = SubResource("CylinderShape3D_r053x")
 shape = SubResource("BoxShape3D_6v0jn")
 target_position = Vector3(0, 0, -1)
 collision_mask = 4
-
-[node name="DashReadyVFX" type="GPUParticles3D" parent="." unique_id=668284243]
-amount = 1
-process_material = SubResource("ParticleProcessMaterial_6v0jn")
-draw_pass_1 = SubResource("BoxMesh_r053x")
+collide_with_areas = true
 
 [node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=615548599]
