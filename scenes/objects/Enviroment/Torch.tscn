@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://cxdvo264qx5ph"]
 
+[ext_resource type="Material" uid="uid://dxtohnx14m181" path="res://materials/torch_mat.tres" id="1_1e6x8"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elptf"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6sfaa"]
@@ -42,6 +44,7 @@ data = PackedVector3Array(0.0016999999, 0.0016999999, -0.0251, 0.0041, 0.0041, 0
 [node name="подставка_под_факел" type="MeshInstance3D" parent="подставка_под _факел" unique_id=1643603386]
 transform = Transform3D(6.893447, 0, 0, 0, -8.217629e-07, 6.8934464, 0, -6.8934464, -8.217629e-07, 0, 0, 0)
 mesh = SubResource("ArrayMesh_u71vc")
+surface_material_override/0 = ExtResource("1_1e6x8")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="подставка_под _факел/подставка_под_факел" unique_id=1744354399]
 collision_layer = 2
