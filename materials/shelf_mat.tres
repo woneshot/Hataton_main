@@ -1,0 +1,6 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://d4k20vb0p2gnd"]
+
+[ext_resource type="Texture2D" uid="uid://d1sa7yhocsdhe" path="res://assets/textures/Shelf/base_color (28).png" id="1_plfhc"]
+
+[resource]
+albedo_texture = ExtResource("1_plfhc")

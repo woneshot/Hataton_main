@@ -1,0 +1,6 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://bbugoxts3g45i"]
+
+[ext_resource type="Texture2D" uid="uid://ck8kwgiswm1a2" path="res://assets/textures/Poganka/base_color (37).png" id="1_muhkh"]
+
+[resource]
+albedo_texture = ExtResource("1_muhkh")

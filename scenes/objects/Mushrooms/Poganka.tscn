@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://cutnmp0xg5fx1"]
 
+[ext_resource type="Material" uid="uid://bbugoxts3g45i" path="res://materials/poganka_mat.tres" id="1_n3h03"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8uao"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_fsemc"]
@@ -44,6 +46,7 @@ points = PackedVector3Array(-0.052408785, -0.0032736247, 0.045692462, -0.0081902
 [node name="поганка" type="MeshInstance3D" parent="Поганка" unique_id=1384766041]
 transform = Transform3D(1.9143049, 0, 0, 0, -2.2820292e-07, 1.9143047, 0, -1.9143047, -2.2820292e-07, 0, 0.010845864, 0)
 mesh = SubResource("ArrayMesh_vgepc")
+surface_material_override/0 = ExtResource("1_n3h03")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=717721226]
 transform = Transform3D(1.9143049, 0, 0, 0, -2.2820292e-07, 1.9143047, 0, -1.9143047, -2.2820292e-07, 0, 0.010845864, 0)

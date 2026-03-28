@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://bfotets2yv467"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_hncw5"]
-size = Vector3(3, 1.5, 2)
+[ext_resource type="Material" uid="uid://b47k2a4vndt1i" path="res://materials/chest_mat.tres" id="1_3kce7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxpmv"]
 
@@ -40,17 +39,13 @@ data = PackedVector3Array(0.0157, 0.0037, 0.0004, 0.015299999, 0.0041, 0, 0.0152
 
 [node name="Chest" type="Node3D" unique_id=272723466]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=157073838]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.71370775, 0)
-visible = false
-mesh = SubResource("BoxMesh_hncw5")
-
 [node name="сундук" type="Node3D" parent="." unique_id=1345215271]
 transform = Transform3D(-1.3113416e-07, 0, -3, 0, 3, 0, 3, 0, -1.3113416e-07, 0, 0.5421423, 0)
 
 [node name="рундук" type="MeshInstance3D" parent="сундук" unique_id=2068557845]
 transform = Transform3D(20.775742, 5.684342e-14, 1.3552527e-20, 0, -2.1398437e-06, 23.508474, 0, -17.950308, -2.8024285e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_kak10")
+surface_material_override/0 = ExtResource("1_3kce7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="сундук/рундук" unique_id=1248672105]
 collision_layer = 2

@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://d0l4uq4k35l7c"]
 
+[ext_resource type="Material" uid="uid://ca8d0rvk28ra7" path="res://materials/table_mat.tres" id="1_4i4hv"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cn3y5"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_621b4"]
@@ -43,6 +45,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0.0045449734, 0)
 [node name="стол" type="MeshInstance3D" parent="Стол" unique_id=1902601808]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_sbj1m")
+surface_material_override/0 = ExtResource("1_4i4hv")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Стол/стол" unique_id=1294171526]
 collision_layer = 2
