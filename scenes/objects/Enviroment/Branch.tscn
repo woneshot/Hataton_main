@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjqamx0y2hlgh"]
 
-[ext_resource type="PackedScene" uid="uid://bcft57r27j5kl" path="res://models/Enviroment/ветка.fbx" id="1_ruhec"]
+[ext_resource type="PackedScene" uid="uid://dc3jo4q8paehe" path="res://models/Enviroment/Ветки (2).fbx" id="1_ruhec"]
 
 [node name="Branch" type="Node3D" unique_id=622877612]
 
-[node name="ветка" parent="." unique_id=1419206437 instance=ExtResource("1_ruhec")]
+[node name="Ветки (2)" parent="." unique_id=1333587428 instance=ExtResource("1_ruhec")]

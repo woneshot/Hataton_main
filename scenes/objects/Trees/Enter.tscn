@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ci8ky1tjwcx6w"]
+
+[ext_resource type="PackedScene" uid="uid://bu2mbjja3qmfs" path="res://models/Trees/дерево_обосраное (2).fbx" id="1_0oi6x"]
+
+[node name="Enter" type="Node3D" unique_id=1961895355]
+
+[node name="дерево_обосраное (2)" parent="." unique_id=1105585382 instance=ExtResource("1_0oi6x")]
