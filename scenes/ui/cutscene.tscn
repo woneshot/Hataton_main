@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dt4k34nheg2di"]
+
+[ext_resource type="Script" uid="uid://cobsrjly6yy48" path="res://scripts/objects/cutscene.gd" id="1_rn7xi"]
+
+[node name="Cutscene" type="Control" unique_id=374138236]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rn7xi")
+slide_duration = 5.0
+
+[node name="Background" type="ColorRect" parent="." unique_id=1871532954]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SlideImage" type="TextureRect" parent="." unique_id=1784160721]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 6
