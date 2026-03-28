@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhi1bve2kvvao"
-path.s3tc="res://.godot/imported/pixie3_universal.png-031fb24dab4c151e652c492caf9b234c.s3tc.ctex"
+uid="uid://bk11pidadm8nj"
+path.s3tc="res://.godot/imported/witch_cast.png-a183ba95ad38ae7a7b05b6d930f7dfef.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/pixie3/pixie3_universal.png"
-dest_files=["res://.godot/imported/pixie3_universal.png-031fb24dab4c151e652c492caf9b234c.s3tc.ctex"]
+source_file="res://assets/sprites/witch/witch_cast.png"
+dest_files=["res://.godot/imported/witch_cast.png-a183ba95ad38ae7a7b05b6d930f7dfef.s3tc.ctex"]
 
 [params]
 

@@ -565,12 +565,14 @@ height = 1.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.892169, 0)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1440465044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.046699762, 0)
+cast_shadow = 2
 pixel_size = 0.03
 billboard = 2
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_jrtpg")
-animation = &"death"
+animation = &"run_down"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1981957818]
 shape = SubResource("CylinderShape3D_giisn")

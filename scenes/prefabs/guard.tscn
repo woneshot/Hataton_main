@@ -537,6 +537,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86918235, 0)
 shape = SubResource("CylinderShape3D_kpa8f")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=224447657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.031126022, 0)
+cast_shadow = 2
 pixel_size = 0.03
 billboard = 2
 alpha_cut = 1

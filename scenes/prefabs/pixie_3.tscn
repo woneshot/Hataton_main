@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dspd7mskorr73"]
 
-[ext_resource type="Texture2D" uid="uid://bhi1bve2kvvao" path="res://assets/sprites/pixie3/pixie3_universal.png" id="1_p3ug7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/pixie3/pixie3_universal.png" id="1_p3ug7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqwiy"]
 atlas = ExtResource("1_p3ug7")
@@ -417,13 +417,14 @@ height = 1.6
 [node name="Pixie3" type="CharacterBody3D" unique_id=970112783]
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=1095768863]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96490955, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.824842, 0)
+cast_shadow = 2
 pixel_size = 0.03
 billboard = 2
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_3j2tu")
-animation = &"run_up"
+animation = &"idle_down"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=939755501]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

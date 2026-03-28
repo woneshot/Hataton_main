@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c082to6b0bjhe"]
 
-[ext_resource type="Texture2D" uid="uid://diyu2khk7yspm" path="res://assets/sprites/pixie2/pixie2_universal.png" id="1_2dv07"]
+[ext_resource type="Texture2D" path="res://assets/sprites/pixie2/pixie2_universal.png" id="1_2dv07"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tesyt"]
 height = 1.6
@@ -156,9 +156,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CylinderShape3D_tesyt")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=282148959]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3222159, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28094918, 0)
+cast_shadow = 2
 billboard = 2
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_7d8u8")
-animation = &"idle_up"
+animation = &"idle_down"

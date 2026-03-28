@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diyu2khk7yspm"
-path.s3tc="res://.godot/imported/pixie2_universal.png-9b2ea5101d78153387ca3e615eec23ba.s3tc.ctex"
+uid="uid://cw5is8qxg1xsv"
+path.s3tc="res://.godot/imported/faun_islash.png-e2c32dc6b6feb94b9e8993ad685a05e6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/pixie2/pixie2_universal.png"
-dest_files=["res://.godot/imported/pixie2_universal.png-9b2ea5101d78153387ca3e615eec23ba.s3tc.ctex"]
+source_file="res://assets/sprites/faun/faun_islash.png"
+dest_files=["res://.godot/imported/faun_islash.png-e2c32dc6b6feb94b9e8993ad685a05e6.s3tc.ctex"]
 
 [params]
 

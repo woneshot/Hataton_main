@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvjbws427p8r1"
-path.s3tc="res://.godot/imported/pixie1_universal.png-a077fe3cd83e94e939a1f5caf5ea7d62.s3tc.ctex"
+uid="uid://vsod6rfrbidt"
+path.s3tc="res://.godot/imported/witch_walk.png-3c7d3dd81cac088086ba31068eabeb34.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/sprites/pixie1/pixie1_universal.png"
-dest_files=["res://.godot/imported/pixie1_universal.png-a077fe3cd83e94e939a1f5caf5ea7d62.s3tc.ctex"]
+source_file="res://assets/sprites/witch/witch_walk.png"
+dest_files=["res://.godot/imported/witch_walk.png-3c7d3dd81cac088086ba31068eabeb34.s3tc.ctex"]
 
 [params]
 

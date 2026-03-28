@@ -1,0 +1,260 @@
+* Shadow (shadow)
+
+  Textures
+
+  Author(s) : Dr. Jamgo
+  License(s): CC0
+  Url(s)    : https://opengameart.org/content/shadow-for-lpc-sprite
+
+  Fixed colors
+
+  Author(s) : Dr. Jamgo
+  License(s): CC0
+  Url(s)    : https://opengameart.org/content/shadow-for-lpc-sprite
+
+* Wolf (body)
+
+  Textures
+
+  Author(s) : dalonedrau
+              Stephen Challener (Redshrike)
+              Eliza Wyatt (ElizaWy)
+  License(s): CC-BY-SA 3.0
+  Url(s)    : https://opengameart.org/content/lpc-barbarian-sprite-base
+              https://opengameart.org/content/lpc-muscular-swing-animation
+              https://opengameart.org/content/lpc-muscular-hurt-animation
+
+  Primary colors
+
+  Author(s) : Benjamin K. Smith (BenCreating)
+              Johannes Sjölund (wulax)
+              Matthew Krohn (makrohn)
+              Stephen Challener (Redshrike)
+              William.Thompsonj
+              Sander Frenken (castelonia)
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-wolfman
+
+* Loose (pants)
+
+  Textures
+
+  Author(s) : Nila122
+              Johannes Sjölund (wulax)
+              Stephen Challener (Redshrike)
+  License(s): CC-BY-SA 3.0
+              GPL 2.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-pirates
+              https://opengameart.org/content/more-lpc-clothes-and-hair
+
+  Primary colors
+
+  Author(s) : Nila122
+              Johannes Sjölund (wulax)
+              Stephen Challener (Redshrike)
+  License(s): CC-BY-SA 3.0
+              GPL 2.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/more-lpc-clothes-and-hair
+
+* Slippers (shoes)
+
+  Textures
+
+  Author(s) : bluecarrot16
+              Joe White
+              Luke Mehl
+              pflat
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/female-mage-clothing-set
+              http://opengameart.org/content/lpc-clothing-updates
+
+  Primary colors
+
+  Author(s) : Nila122
+              Johannes Sjölund (wulax)
+              Stephen Challener (Redshrike)
+  License(s): CC-BY-SA 3.0
+              GPL 2.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/more-lpc-clothes-and-hair
+
+* Wolf (head)
+
+  Textures
+
+  Author(s) : Benjamin K. Smith (BenCreating)
+              Johannes Sjölund (wulax)
+              Matthew Krohn (makrohn)
+              Stephen Challener (Redshrike)
+              William.Thompsonj
+              Sander Frenken (castelonia)
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-wolfman
+
+  Primary colors
+
+  Author(s) : Benjamin K. Smith (BenCreating)
+              Johannes Sjölund (wulax)
+              Matthew Krohn (makrohn)
+              Stephen Challener (Redshrike)
+              William.Thompsonj
+              Sander Frenken (castelonia)
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-wolfman
+
+* Wolf (eyes)
+
+  Textures
+
+  Author(s) : Benjamin K. Smith (BenCreating)
+              Johannes Sjölund (wulax)
+              Matthew Krohn (makrohn)
+              Stephen Challener (Redshrike)
+              William.Thompsonj
+              Sander Frenken (castelonia)
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-wolfman
+
+  Primary colors
+
+  Author(s) : Benjamin K. Smith (BenCreating)
+              Johannes Sjölund (wulax)
+              Matthew Krohn (makrohn)
+              Stephen Challener (Redshrike)
+              William.Thompsonj
+              Sander Frenken (castelonia)
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-wolfman
+
+* Wolf (tail)
+
+  Textures
+
+  Author(s) : David Conway Jr. (JaidynReiman)
+  License(s): OGA-BY 3.0
+              OGA-BY 4.0
+              CC-BY 3.0
+              CC-BY 4.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-furry-ears-tails-for-rpg-sprites
+
+  Primary colors
+
+  Author(s) : Benjamin K. Smith (BenCreating)
+              Johannes Sjölund (wulax)
+              Matthew Krohn (makrohn)
+              Stephen Challener (Redshrike)
+              William.Thompsonj
+              Sander Frenken (castelonia)
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-wolfman
+
+* Quiver (back)
+
+  Textures
+
+  Author(s) : Johannes Sjölund (wulax)
+              pflat
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+
+  Primary colors
+
+  Author(s) : Nila122
+              Johannes Sjölund (wulax)
+              Stephen Challener (Redshrike)
+  License(s): CC-BY-SA 3.0
+              GPL 2.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/more-lpc-clothes-and-hair
+
+  Secondary colors
+
+  Author(s) : Nila122
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-clothes-for-children
+
+  Fixed colors
+
+  Author(s) : Eliza Wyatt (ElizaWy)
+              Joe White
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-pregnancy-bases-maternity-wear
+
+* Crossbow (mainhand)
+
+  Textures
+
+  Author(s) : Dr. Jamgo
+              pflat
+  License(s): CC0
+  Url(s)    : https://opengameart.org/content/lpc-crossbow-final
+
+  Primary colors
+
+  Author(s) : Somebody did this recolor but I can't find it
+
+  Secondary colors
+
+  Author(s) : Michael Whitlock (bigbeargames)
+              Matthew Krohn (makrohn)
+              Johannes Sjölund (wulax)
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+              https://opengameart.org/content/lpc-combat-armor-for-women
+
+  Fixed colors
+
+  Author(s) : Benjamin K. Smith (BenCreating)
+              Sander Frenken (castelonia)
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-zombie
+
+* Bolt (ammo)
+
+  Textures
+
+  Author(s) : Dr. Jamgo
+              pflat
+  License(s): CC0
+  Url(s)    : https://opengameart.org/content/lpc-crossbow-final
+
+  Primary colors
+
+  Author(s) : Nila122
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-clothes-for-children
+
+  Secondary colors
+
+  Author(s) : Eliza Wyatt (ElizaWy)
+              Joe White
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-pregnancy-bases-maternity-wear
+
+  Fixed colors
+
+  Author(s) : Michael Whitlock (bigbeargames)
+              Matthew Krohn (makrohn)
+              Johannes Sjölund (wulax)
+  License(s): CC-BY-SA 3.0
+              GPL 3.0
+  Url(s)    : https://opengameart.org/content/lpc-medieval-fantasy-character-sprites
+              https://opengameart.org/content/lpc-combat-armor-for-women
+
