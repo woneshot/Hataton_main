@@ -1,0 +1,8 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://bgo6q0k8cpo43"]
+
+[ext_resource type="Texture2D" uid="uid://bc4r2pq30xr8i" path="res://assets/textures/Branch/base_color (22).png" id="1_8if2x"]
+[ext_resource type="Texture2D" uid="uid://cequcdcxu61ps" path="res://assets/textures/Branch/ORMO (22).png" id="2_4bx2f"]
+
+[resource]
+albedo_texture = ExtResource("1_8if2x")
+orm_texture = ExtResource("2_4bx2f")

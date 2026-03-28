@@ -1,6 +1,7 @@
 extends CanvasLayer
 
-@export var close_distance: float = 5.0
+@export var close_distance: float = 3.5
+
 @export var chars_per_second: float = 30.0
 
 var lines: Array[String] = []

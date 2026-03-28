@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ba2ulbvf88w00"]
+
+[ext_resource type="PackedScene" uid="uid://cqm5708dlaook" path="res://scenes/prefabs/PickupItem.tscn" id="1_ivd0e"]
+[ext_resource type="PackedScene" uid="uid://cdp44mo0aviom" path="res://models/Bones/Череп_микимауса.fbx" id="2_7sjgp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ivd0e"]
+radius = 0.015692381
+height = 0.035132557
+
+[node name="PickupItem" unique_id=332512943 instance=ExtResource("1_ivd0e")]
+item_id = "rat_skool"
+
+[node name="Череп_микимауса" parent="ModelHolder" parent_id_path=PackedInt32Array(1216435176) index="0" unique_id=1148097095 instance=ExtResource("2_7sjgp")]
+transform = Transform3D(2.58, 0, 0, 0, 2.58, 0, 0, 0, 2.58, 0, -0.19647217, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ModelHolder/Череп_микимауса/череп_микимауса" parent_id_path=PackedInt32Array(1148097095, 1404090940) index="0" unique_id=2057166739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0027192086, -5.5879354e-08, -0.004271928)
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ModelHolder/Череп_микимауса/череп_микимауса/StaticBody3D" index="0" unique_id=683814226]
+shape = SubResource("CapsuleShape3D_ivd0e")
+
+[editable path="ModelHolder/Череп_микимауса"]

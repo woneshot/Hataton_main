@@ -1,0 +1,8 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://drouv5vft42gd"]
+
+[ext_resource type="Texture2D" uid="uid://cdbo3fy707flk" path="res://assets/textures/Borovik/base_color (39).png" id="1_q0koc"]
+[ext_resource type="Texture2D" uid="uid://fsnm7ggvclb2" path="res://assets/textures/Borovik/ORMO (39).png" id="2_lu3bk"]
+
+[resource]
+albedo_texture = ExtResource("1_q0koc")
+orm_texture = ExtResource("2_lu3bk")

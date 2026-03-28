@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://bt8me3yofq8fj"]
+
+[ext_resource type="Script" uid="uid://4wfon4g2qsha" path="res://scripts/objects/projectile.gd" id="1_ki05m"]
+[ext_resource type="Texture2D" uid="uid://bekdysg51ney0" path="res://assets/sprites/projectiles/fireball.png" id="2_w1ckr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l2pql"]
+radius = 0.3
+
+[sub_resource type="Gradient" id="Gradient_ki05m"]
+offsets = PackedFloat32Array(0, 0.33816424, 0.71497583, 1)
+colors = PackedColorArray(1, 0.8745098, 0.45490196, 1, 1, 0.6777468, 0.60662055, 1, 0.8288132, 0.2144252, 0, 1, 0.91512066, 0.6615127, 0.07531104, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w1ckr"]
+gradient = SubResource("Gradient_ki05m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l2pql"]
+emission_shape = 1
+emission_sphere_radius = 0.4
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_w1ckr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2g2v"]
+albedo_color = Color(0.9430262, 0.47504574, 0.14664602, 1)
+emission_enabled = true
+emission = Color(1, 0.78431374, 0.33333334, 1)
+emission_energy_multiplier = 3.97
+texture_filter = 0
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_0cmfn"]
+material = SubResource("StandardMaterial3D_q2g2v")
+size = Vector2(0.1, 0.1)
+
+[node name="FireballProjectile" type="Area3D" unique_id=664430439]
+script = ExtResource("1_ki05m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1531598709]
+shape = SubResource("SphereShape3D_l2pql")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1735332194]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0010374486, 0.01959318, -0.013688803)
+offset = Vector2(165, 210)
+pixel_size = 0.0015
+billboard = 1
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("2_w1ckr")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1788638259]
+amount = 20
+lifetime = 0.5
+preprocess = 0.5
+process_material = SubResource("ParticleProcessMaterial_l2pql")
+draw_pass_1 = SubResource("QuadMesh_0cmfn")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=896157366]
+light_color = Color(1, 0.58922094, 0.24562624, 1)
+light_energy = 5.334
+omni_range = 0.99640936
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

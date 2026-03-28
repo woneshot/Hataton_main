@@ -3,10 +3,25 @@
 [ext_resource type="Texture2D" uid="uid://diyu2khk7yspm" path="res://assets/sprites/pixie2/pixie2_universal.png" id="1_2dv07"]
 [ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_tesyt"]
 [ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_0trrn"]
+[ext_resource type="Texture2D" uid="uid://cpc0x6y11x6fs" path="res://assets/normal_maps/Pixie2/pixie2_n.png" id="3_mvggb"]
+
+[sub_resource type="Resource" id="Resource_0trrn"]
+script = ExtResource("2_0trrn")
+condition_type = 2
+condition_value = "defeated_vex"
+lines = Array[String](["Благодарю, за спасение нашего Короля!"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
+
+[sub_resource type="Resource" id="Resource_8weiv"]
+script = ExtResource("2_0trrn")
+condition_type = 2
+condition_value = "vex_attack"
+lines = Array[String](["Защищайте Короля!"])
+metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="Resource" id="Resource_mvggb"]
 script = ExtResource("2_0trrn")
-lines = Array[String](["К королю по делу"])
+lines = Array[String](["К Королю по делу"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tesyt"]
@@ -162,8 +177,13 @@ collision_mask = 2
 script = ExtResource("1_tesyt")
 npc_type = 1
 actor_name = "Королевский Советник"
-dialogue_entries = Array[ExtResource("2_0trrn")]([SubResource("Resource_mvggb")])
+dialogue_entries = Array[ExtResource("2_0trrn")]([SubResource("Resource_0trrn"), SubResource("Resource_8weiv"), SubResource("Resource_mvggb")])
 can_take_damage_from_enemies = true
+norm_idle = ExtResource("3_mvggb")
+norm_run = ExtResource("3_mvggb")
+norm_cast = ExtResource("3_mvggb")
+norm_dig = ExtResource("3_mvggb")
+norm_death = ExtResource("3_mvggb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2035596910]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)

@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://l2qdkhoeonxj"]
-
-[ext_resource type="PackedScene" uid="uid://bujqlurfk4kl0" path="res://models/камень_большой.fbx" id="1_dfejj"]
-
-[node name="RockBig" type="Node3D" unique_id=1005628571]
-
-[node name="камень_большой" parent="." unique_id=1248707254 instance=ExtResource("1_dfejj")]

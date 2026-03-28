@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://b3raadosd1ieg"]
-
-[ext_resource type="PackedScene" uid="uid://b7etpu6orjtcb" path="res://models/дерево_обосраное.fbx" id="1_dkk83"]
-
-[node name="Stump" type="Node3D" unique_id=1961756420]
-
-[node name="дерево_обосраное" parent="." unique_id=1282237480 instance=ExtResource("1_dkk83")]
