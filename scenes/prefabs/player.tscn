@@ -978,16 +978,16 @@ animation = &"dash_right"
 
 [node name="ItemAboveHead" type="Sprite3D" parent="Visuals" unique_id=1798970287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0703503, 0)
-pixel_size = 0.003
+pixel_size = 0.002
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1158441341]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.09279305, 0)
 shape = SubResource("CylinderShape3D_r053x")
 
 [node name="InteractRay" type="ShapeCast3D" parent="." unique_id=1546069070]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
 shape = SubResource("BoxShape3D_6v0jn")
 target_position = Vector3(0, 0, -1)
 collision_mask = 4
+collide_with_areas = true
 
 [node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=615548599]

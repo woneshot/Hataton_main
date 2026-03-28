@@ -6,8 +6,9 @@
 
 [sub_resource type="Resource" id="Resource_tyrh8"]
 script = ExtResource("2_tyrh8")
-condition_type = 2
-condition_value = "level_completed"
+condition_type = 3
+condition_value = "three_items"
+required_flag = "level_completed"
 lines = Array[String](["Да, моя магия не сверкает. Извини, дружище!", "А теперь, отойди-ка от меня. Не дай бог раздавишь"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
@@ -32,7 +33,7 @@ metadata/_custom_type_script = "uid://ttk42w6474wt"
 [sub_resource type="Resource" id="Resource_x00mp"]
 script = ExtResource("2_tyrh8")
 condition_type = 2
-required_flag = "one_items"
+required_flag = "one_item"
 lines = Array[String](["Опять не то! Ты меня вообще слушал?"])
 set_flags = Array[String](["two_items"])
 consume_item = true

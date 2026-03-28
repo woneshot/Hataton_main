@@ -88,6 +88,10 @@ func _process(_delta: float) -> void:
 		dash_vfx.emitting = false
 	else:
 		dash_vfx.emitting = can_dash and _is_dash_unlocked()
+	
+	# Вращение предмета над головой
+	if item_above_head.visible:
+		item_above_head.rotate_y(_delta * 2.0)
 
 func _physics_process(delta: float) -> void:
 	if is_dead:

@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://ba2ulbvf88w00" path="res://scenes/prefabs/skool_item.tscn" id="24_fy4ph"]
 [ext_resource type="PackedScene" uid="uid://brd7mo8mbj7ur" path="res://scenes/prefabs/stone_item.tscn" id="25_dqbwq"]
 [ext_resource type="PackedScene" uid="uid://doxyjut5wn535" path="res://scenes/prefabs/sword_item.tscn" id="26_28s52"]
+[ext_resource type="PackedScene" uid="uid://ckr8arm6c7vm" path="res://scenes/prefabs/rat_bro.tscn" id="27_yxr15"]
+[ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="28_s6yrj"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_7fh15"]
 rayleigh_color = Color(0.26550722, 0.3593695, 0.5378088, 1)
@@ -58,7 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8111119)
 use_collision = true
 collision_layer = 2
 collision_mask = 0
-size = Vector3(200, 0.01, 200)
+size = Vector3(1000, 0.01, 1000)
 
 [node name="NearHouse" type="Node3D" parent="Scene" unique_id=2114990057]
 
@@ -361,24 +363,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5156307, 0, -26.794739)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.329086, 0, -21.443752)
 
 [node name="Player" parent="." unique_id=140876529 instance=ExtResource("19_eueyj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6129236, 0)
+transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 0, 1.6129236, 0)
 
 [node name="CameraRig" parent="." unique_id=252267071 instance=ExtResource("20_rv1ks")]
 
-[node name="PickupItem" parent="." unique_id=332512943 instance=ExtResource("21_61akd")]
-transform = Transform3D(1, 0, 0, 0, -0.7871826, 0.61671996, 0, -0.61671996, -0.7871826, -12.164712, 4.7683716e-07, -2.206575)
+[node name="PickupItem" parent="." unique_id=332512943 instance=ExtResource("23_s6yrj")]
+transform = Transform3D(-0.32515556, 0, 0.94566053, 0, 1, 0, -0.94566053, 0, -0.32515556, -10.878523, 0.022794366, 4.329753)
 
-[node name="PickupItem2" parent="." unique_id=787099398 instance=ExtResource("22_yxr15")]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -11.305187, 0, 3.9262466)
+[node name="PickupItem2" parent="." unique_id=1942750784 instance=ExtResource("21_61akd")]
+transform = Transform3D(0.8692075, 0.38139257, 0.31467178, -0.401804, 0.9157258, 0, -0.28815302, -0.12643635, 0.9492006, -12.331516, 0.02342999, 6.128264)
 
-[node name="PickupItem3" parent="." unique_id=939327265 instance=ExtResource("23_s6yrj")]
-transform = Transform3D(0.63012034, 0, 0.7764975, 0, 1, 0, -0.7764975, 0, 0.63012034, -10.007664, 0.010206997, 0.6585579)
+[node name="PickupItem3" parent="." unique_id=2044522293 instance=ExtResource("22_yxr15")]
+transform = Transform3D(0.5784406, 0.63679105, -0.50980735, -0.74020636, 0.67237973, 0, 0.34278414, 0.37736264, 0.86028856, -11.712795, 0.10330117, -2.4811063)
 
-[node name="PickupItem4" parent="." unique_id=351181890 instance=ExtResource("24_fy4ph")]
-transform = Transform3D(0.48091602, -0.8329711, -0.27364028, 0.86602545, 0.49999997, 0, 0.13682012, -0.23697944, 0.9618321, -11.984894, 0, 0.38745987)
+[node name="PickupItem4" parent="." unique_id=1234903669 instance=ExtResource("24_fy4ph")]
+transform = Transform3D(0.43042427, -0.7455168, 0.5088612, 0.86602545, 0.49999997, 0, -0.25443056, 0.44068673, 0.8608486, -11.660795, 0.056359768, -0.7294731)
+item_id = "skool"
 
-[node name="PickupItem5" parent="." unique_id=269990486 instance=ExtResource("25_dqbwq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.792055, 0, 6.4224863)
+[node name="PickupItem5" parent="." unique_id=1603952022 instance=ExtResource("25_dqbwq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.72203, 0, 8.395801)
+item_id = "rock"
 
-[node name="PickupItem6" parent="." unique_id=533443189 instance=ExtResource("26_28s52")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.840826, 0, 5.922642)
+[node name="PickupItem6" parent="." unique_id=781323293 instance=ExtResource("26_28s52")]
+transform = Transform3D(0.91025776, 0.414042, 0, -0.414042, 0.91025776, 0, 0, 0, 1, -9.2022085, 0.1960817, 1.5102963)
+
+[node name="RatBro" parent="." unique_id=854936262 instance=ExtResource("27_yxr15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.351407, 0, 6.211763)
+
+[node name="DialogueUI" parent="." unique_id=742846960 instance=ExtResource("28_s6yrj")]
