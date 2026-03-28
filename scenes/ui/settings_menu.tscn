@@ -1,12 +1,122 @@
 [gd_scene format=3 uid="uid://eppvw7a4crdt"]
 
+[ext_resource type="Script" uid="uid://cvcqxwnmrxiji" path="res://scripts/objects/settings_menu.gd" id="1_qwcqe"]
+[ext_resource type="FontFile" uid="uid://d21taie0we6uj" path="res://assets/sprites/ui/fonts/pixelwarden.medium.ttf" id="2_0b1cv"]
+[ext_resource type="Texture2D" uid="uid://tg50p8uob41a" path="res://assets/sprites/ui/settings_menu/polzunki.png" id="2_mhswj"]
+[ext_resource type="Texture2D" uid="uid://c26ysuuf4oox1" path="res://assets/sprites/ui/settings_menu/TextureSliderRemake.png" id="2_x3vyp"]
+[ext_resource type="Texture2D" uid="uid://2qx13w2xhlog" path="res://assets/sprites/ui/Buttons.png" id="5_yu862"]
+
+[sub_resource type="DPITexture" id="DPITexture_x3vyp"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_0b1cv"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".37\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_yu862"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_ywggk"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"4\" height=\"8\"><path fill=\"#fff\" fill-opacity=\".25\" d=\"M1 0h2v16H1z\"/></svg>
+"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngbvi"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.4)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mishw"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h271e"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="Theme" id="Theme_7dpwb"]
+HSlider/constants/center_grabber = 0
+HSlider/constants/grabber_offset = 0
+HSlider/constants/tick_offset = 0
+HSlider/icons/grabber = SubResource("DPITexture_x3vyp")
+HSlider/icons/grabber_disabled = SubResource("DPITexture_0b1cv")
+HSlider/icons/grabber_highlight = SubResource("DPITexture_yu862")
+HSlider/icons/tick = SubResource("DPITexture_ywggk")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_ngbvi")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_mishw")
+HSlider/styles/slider = SubResource("StyleBoxFlat_h271e")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iii5b"]
+atlas = ExtResource("2_x3vyp")
+region = Rect2(224, 448, 52, 68)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhswj"]
+atlas = ExtResource("2_mhswj")
+region = Rect2(224, 452, 60, 88)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mhswj"]
+content_margin_top = 12.0
+content_margin_bottom = 12.0
+texture = ExtResource("2_mhswj")
+texture_margin_bottom = 3.0
+region_rect = Rect2(44, 64, 744, 103)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x3vyp"]
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+texture = ExtResource("2_mhswj")
+region_rect = Rect2(60, 340, 705, 44)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0b1cv"]
+texture = ExtResource("2_mhswj")
+region_rect = Rect2(60, 340, 704, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywggk"]
+atlas = ExtResource("5_yu862")
+region = Rect2(90, 535, 471, 136)
+
 [node name="settingsMenu" type="Control" unique_id=360961632]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qwcqe")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1290813260]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.47058824)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2094047322]
 layout_mode = 1
@@ -25,45 +135,123 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=79268264]
+custom_minimum_size = Vector2(500, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1397359776]
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_0b1cv")
 theme_override_font_sizes/font_size = 58
 text = "SETTINGS"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer" unique_id=28502231]
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer" unique_id=505024864]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer" unique_id=1918160103]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=822775624]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=93240496]
+[node name="GenVolLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=1212077599]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_0b1cv")
+theme_override_font_sizes/font_size = 23
+text = "GENERAL VOLUME"
+
+[node name="GenVolSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer" unique_id=102308919]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_7dpwb")
+theme_override_icons/grabber = SubResource("AtlasTexture_iii5b")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_mhswj")
+theme_override_styles/slider = SubResource("StyleBoxTexture_mhswj")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_x3vyp")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_0b1cv")
+value = 75.0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1973332280]
 layout_mode = 2
 
-[node name="Genera" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=1407545921]
-custom_minimum_size = Vector2(150, 0)
+[node name="VoiceVolLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2019946978]
+custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
-text = "General Volume"
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_0b1cv")
+theme_override_font_sizes/font_size = 23
+text = "VOICE VOLUME"
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer" unique_id=2117098382]
+[node name="VoiceVolSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2093778611]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_7dpwb")
+theme_override_icons/grabber = SubResource("AtlasTexture_iii5b")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_mhswj")
+theme_override_styles/slider = SubResource("StyleBoxTexture_mhswj")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_x3vyp")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_0b1cv")
+value = 75.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=309719804]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=443095298]
+[node name="SFXVolLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1471111268]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_0b1cv")
+theme_override_font_sizes/font_size = 23
+text = "SFX VOLUME"
+
+[node name="SFXVolSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer3" unique_id=448165745]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_7dpwb")
+theme_override_icons/grabber = SubResource("AtlasTexture_iii5b")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_mhswj")
+theme_override_styles/slider = SubResource("StyleBoxTexture_mhswj")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_x3vyp")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_0b1cv")
+value = 75.0
+
+[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer" unique_id=1882063501]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer2" unique_id=1645876989]
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=41402777]
 layout_mode = 2
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=779474985]
+[node name="BrightnessLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=245332597]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_0b1cv")
+theme_override_font_sizes/font_size = 23
+text = "BRIGHTNESS"
+
+[node name="BrightnessSlider" type="HSlider" parent="MarginContainer/VBoxContainer/HBoxContainer4" unique_id=55703510]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_7dpwb")
+theme_override_icons/grabber = SubResource("AtlasTexture_iii5b")
+theme_override_icons/grabber_highlight = SubResource("AtlasTexture_mhswj")
+theme_override_styles/slider = SubResource("StyleBoxTexture_mhswj")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_x3vyp")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_0b1cv")
+value = 75.0
+
+[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer" unique_id=2023396221]
 layout_mode = 2
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer/HBoxContainer3" unique_id=2047321162]
+[node name="Back" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=274810705]
 layout_mode = 2
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=948243050]
-layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_ywggk")

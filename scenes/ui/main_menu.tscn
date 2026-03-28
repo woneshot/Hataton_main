@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://dkwgpxp3rsfh8"]
 
 [ext_resource type="Script" uid="uid://dikhomo6dsibc" path="res://scripts/objects/main_menu.gd" id="1_sl1te"]
+[ext_resource type="Texture2D" uid="uid://c7m1fh34r0bp2" path="res://assets/sprites/ui/main_menu/btn_continue_atlas.tres" id="2_m1kxf"]
+[ext_resource type="PackedScene" uid="uid://eppvw7a4crdt" path="res://scenes/ui/settings_menu.tscn" id="2_x2yvf"]
+[ext_resource type="Shader" uid="uid://bh2fggpfmk372" path="res://assets/sprites/ui/main_menu/Shaders/main_menu_name_of_the_game.gdshader" id="3_uhagc"]
+[ext_resource type="Texture2D" uid="uid://ebn274n8rodq" path="res://assets/sprites/ui/main_menu/btn_settings_atlas.tres" id="3_x2yvf"]
+[ext_resource type="FontFile" uid="uid://d21taie0we6uj" path="res://assets/sprites/ui/fonts/pixelwarden.medium.ttf" id="4_btxxm"]
+[ext_resource type="Texture2D" uid="uid://037bhnktijcw" path="res://assets/sprites/ui/main_menu/btn_quit_atlas.tres" id="4_uhagc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_btxxm"]
+shader = ExtResource("3_uhagc")
+shader_parameter/wave_amplitude = 10.0
+shader_parameter/wave_frequency = 5.0
+shader_parameter/wave_length = 50.0
 
 [node name="mainMenu" type="Control" unique_id=793932312]
 layout_mode = 3
@@ -10,6 +22,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sl1te")
+
+[node name="settingsMenu" parent="." unique_id=360961632 instance=ExtResource("2_x2yvf")]
+visible = false
+layout_mode = 1
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1209150673]
 layout_mode = 1
@@ -37,30 +53,45 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=111478906]
+[node name="nameOfTheGame" type="Label" parent="MarginContainer/VBoxContainer" unique_id=111478906]
+material = SubResource("ShaderMaterial_btxxm")
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_btxxm")
 theme_override_font_sizes/font_size = 56
-text = "nameOfTheGame"
+text = "EX PARVO MAGNUM"
 
 [node name="Separator" type="Control" parent="MarginContainer/VBoxContainer" unique_id=747725085]
 layout_mode = 2
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer" unique_id=537762618]
+[node name="BtnNewGame" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=537159144]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "PLAY
-"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_m1kxf")
 
-[node name="Settings" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2033327871]
+[node name="BtnSettings" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=808891369]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "SETTINGS
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_x2yvf")
 
-"
-
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1904760840]
+[node name="BtnQuit" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=1644179671]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "EXIT
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_uhagc")
 
-"
+[node name="MenuParticles" type="CPUParticles2D" parent="." unique_id=129000990]
+position = Vector2(575, 353)
+amount = 50
+lifetime = 5.0
+speed_scale = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(600, 500)
+direction = Vector2(1, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
