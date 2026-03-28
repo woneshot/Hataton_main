@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://672kylrnkbdi"]
 
+[ext_resource type="Material" uid="uid://dd3m3dhsc88lc" path="res://materials/grass_mat.tres" id="1_rb37m"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_idii0"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_13gn3"]
@@ -44,6 +46,7 @@ points = PackedVector3Array(-0.0018174945, -0.0006189283, 0.0016530576, 0.001837
 [node name="трава" type="MeshInstance3D" parent="трава (2)" unique_id=58620337]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_onovq")
+surface_material_override/0 = ExtResource("1_rb37m")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="трава (2)/трава" unique_id=1402370964]
 collision_layer = 2
