@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://mni1k11h4t4q"]
 
+[ext_resource type="Material" uid="uid://dvux8p03fdxmu" path="res://materials/broom_mat.tres" id="1_lxsmo"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ulvtn"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_ghuk4"]
@@ -44,6 +46,7 @@ data = PackedVector3Array(-0.0018999999, 0.0028, -0.0044, -0.0018, 0.0026, -0.00
 [node name="метла" type="MeshInstance3D" parent="Метла" unique_id=2010478587]
 transform = Transform3D(13.425179, 0, 0, 0, -1.600406e-06, 22.299019, 0, -13.425178, -2.6582504e-06, 0.0005160433, -0.0036933124, -0.00061925227)
 mesh = SubResource("ArrayMesh_fko2i")
+surface_material_override/0 = ExtResource("1_lxsmo")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Метла/метла" unique_id=332505271]
 collision_layer = 2

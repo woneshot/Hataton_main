@@ -1,0 +1,8 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://b5yb048qm37xn"]
+
+[ext_resource type="Texture2D" uid="uid://bwpd3aijvt7uv" path="res://assets/textures/Spruce/base_color (17).png" id="1_bn8fb"]
+[ext_resource type="Texture2D" uid="uid://vhm4d0prkni4" path="res://assets/textures/Spruce/ORMO (17).png" id="2_xoaho"]
+
+[resource]
+albedo_texture = ExtResource("1_bn8fb")
+orm_texture = ExtResource("2_xoaho")

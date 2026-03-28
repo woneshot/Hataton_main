@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://bhww37o5ae3tg"]
 
+[ext_resource type="Material" uid="uid://cr64bphchxgl6" path="res://materials/fireplace_mat.tres" id="1_8glup"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtdd4"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vhncy"]
@@ -45,6 +47,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 [node name="камни_и_бревна2" type="MeshInstance3D" parent="камни_и_бревна" unique_id=458199078]
 transform = Transform3D(4.855808, -1.4159692e-15, -5.765542e-15, 1.0782059e-15, 6.3769593, 1.9603551e-06, 1.0782057e-15, -4.8144705e-07, 25.965693, 0, 0, 0)
 mesh = SubResource("ArrayMesh_cb34q")
+surface_material_override/0 = ExtResource("1_8glup")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="камни_и_бревна/камни_и_бревна2" unique_id=198083385]
 transform = Transform3D(0.99999994, 4.454349e-24, 0, 4.6983214e-25, 1, 2.842171e-14, 0, -1.7763568e-15, 0.99999994, 0, 0, 0)

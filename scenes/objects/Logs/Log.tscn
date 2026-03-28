@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://bcvoqq8sh7vgc"]
 
+[ext_resource type="Material" uid="uid://bi1hoywra52uy" path="res://materials/log_with_branch_mat.tres" id="1_bl5c7"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxs03"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_f84mn"]
@@ -44,10 +46,12 @@ data = PackedVector3Array(0.0047, 0.0081, 0.0067, 0.005, 0.0072, 0.009699999, 0,
 [node name="бревно1" type="MeshInstance3D" parent="Бревно1" unique_id=752547857]
 transform = Transform3D(5.9604645e-06, -2.0861626e-05, 257.7677, -100, 5.9604645e-06, 2.3046228e-05, -8.940697e-06, -100, -6.145661e-05, 0, 1.0084155, 0)
 mesh = SubResource("ArrayMesh_w2k5x")
+surface_material_override/0 = ExtResource("1_bl5c7")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Бревно1/бревно1" unique_id=1682534410]
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Бревно1/бревно1/StaticBody3D" unique_id=733936171]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_bi82n")
