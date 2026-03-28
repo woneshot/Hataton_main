@@ -25,8 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://4utgib0jkrcs" path="res://scenes/prefabs/guard.tscn" id="23_ap3tq"]
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="24_0vrmj"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5fec"]
-albedo_color = Color(0.79976636, 0.6833624, 0.27960286, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vrmj"]
+albedo_color = Color(0.70792764, 0.45963377, 0.13657984, 1)
 albedo_texture = ExtResource("5_ppksh")
 normal_enabled = true
 normal_scale = 1.49
@@ -144,7 +144,7 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Scene" unique_id=1931232024]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -0.3076235, 0.22552489, -0.22145587)
-material_override = SubResource("StandardMaterial3D_v5fec")
+material_override = SubResource("StandardMaterial3D_0vrmj")
 use_collision = true
 collision_layer = 2
 collision_mask = 0
@@ -359,8 +359,8 @@ compositor = SubResource("Compositor_lfypb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Scene" unique_id=188939019]
 transform = Transform3D(0.70710677, 0.35355335, -0.61237234, 0, 0.8660253, 0.49999997, 0.70710677, -0.35355335, 0.61237234, 0, 11.104045, 0)
-light_color = Color(2.3471618, 1.6403211, 1.0796863, 1)
-light_energy = 0.8
+light_color = Color(1.649424, 1.8293494, 2.1399646, 1)
+light_energy = 0.5
 light_indirect_energy = 0.3
 light_bake_mode = 1
 shadow_enabled = true
