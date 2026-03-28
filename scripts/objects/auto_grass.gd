@@ -3,15 +3,15 @@ extends Node3D
 var object_scene = preload("res://scenes/objects/Enviroment/Grass.tscn")
 
 func _ready():
-	for i in range(200
+	for i in range(2000
 	):
 		spawn_object()
 
 func spawn_object():
 	var new_object = object_scene.instantiate()
 	
-	var x = randf_range(-50, 50)
-	var z = randf_range(-25, 100)
+	var x = randf_range(-400, 400)
+	var z = randf_range(-400, 400)
 	var y = 0
 	
 	new_object.position = Vector3(x, y, z)
