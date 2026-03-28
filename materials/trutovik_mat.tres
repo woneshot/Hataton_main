@@ -1,0 +1,8 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://bc5ykpsme3dxf"]
+
+[ext_resource type="Texture2D" uid="uid://dcg368ocdenby" path="res://assets/textures/Trurovik/base_color (41).png" id="1_lm72i"]
+[ext_resource type="Texture2D" uid="uid://bqnpii3urtdtw" path="res://assets/textures/Trurovik/ORMO (41).png" id="2_wlbry"]
+
+[resource]
+albedo_texture = ExtResource("1_lm72i")
+orm_texture = ExtResource("2_wlbry")
