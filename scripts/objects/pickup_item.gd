@@ -44,7 +44,9 @@ func interact() -> void:
 	if not quest_active:
 		return
 	
-	# Нельзя брать если уже есть предмет
+	if Events.get_flag("level_completed"):
+		return
+	
 	if Events.current_item != "":
 		return
 	

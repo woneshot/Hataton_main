@@ -10,6 +10,7 @@ modulate_color = Color(0.019607844, 0.019607844, 0.019607844, 0.6627451)
 
 [node name="DialogueUI" type="CanvasLayer" unique_id=742846960 groups=["dialog_ui"]]
 script = ExtResource("1_y3syv")
+chars_per_second = 20.0
 
 [node name="DialogRoot" type="Control" parent="." unique_id=408055747]
 layout_mode = 3

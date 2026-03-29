@@ -1,9 +1,11 @@
 [gd_scene format=4 uid="uid://bmqin3vwxa45m"]
 
+[ext_resource type="Script" uid="uid://yh85ytqjfifs" path="res://scripts/objects/level.gd" id="1_gk0wo"]
 [ext_resource type="PackedScene" uid="uid://cutnmp0xg5fx1" path="res://scenes/objects/Mushrooms/Poganka.tscn" id="1_nx62o"]
 [ext_resource type="Script" uid="uid://6purojar8bge" path="res://scripts/objects/camera_rig.gd" id="1_v5fec"]
 [ext_resource type="PackedScene" uid="uid://b8lxnovkqkwqu" path="res://scenes/objects/Rocks/RockSmall.tscn" id="2_esma0"]
 [ext_resource type="PackedScene" uid="uid://d2wjlkuulf1c2" path="res://scenes/objects/Rocks/RockMid.tscn" id="3_l6dvu"]
+[ext_resource type="Texture2D" uid="uid://ck45m2lmntlys" path="res://assets/normal_maps/Hero/hero_slash_n.png" id="4_5f4ky"]
 [ext_resource type="Texture2D" uid="uid://ojr4fn3hm7dk" path="res://assets/FLOOR.jpeg" id="5_ppksh"]
 [ext_resource type="PackedScene" uid="uid://d4jq553341tg" path="res://scenes/objects/Bones/Bone.tscn" id="6_l6dvu"]
 [ext_resource type="Texture2D" uid="uid://c86pi6v6pteeg" path="res://assets/FLOOR_N.png" id="6_v5fec"]
@@ -25,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://ci8ky1tjwcx6w" path="res://scenes/objects/Trees/Enter.tscn" id="20_ppksh"]
 [ext_resource type="PackedScene" uid="uid://4utgib0jkrcs" path="res://scenes/prefabs/guard.tscn" id="23_ap3tq"]
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="24_0vrmj"]
+[ext_resource type="PackedScene" uid="uid://cuekfhmsyam7s" path="res://scenes/ui/screen_effects.tscn" id="26_81xp3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vrmj"]
 albedo_color = Color(0.70792764, 0.45963377, 0.13657984, 1)
@@ -126,6 +129,9 @@ adjustment_saturation = 0.85
 [sub_resource type="Compositor" id="Compositor_lfypb"]
 
 [node name="StumpLevelSmall" type="Node3D" unique_id=713548402]
+script = ExtResource("1_gk0wo")
+monologue_flag = "level1"
+monologue_lines = Array[String](["Не могу поверить, что это правда произошло"])
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=252267071 groups=["camera_rig"]]
 script = ExtResource("1_v5fec")
@@ -136,6 +142,7 @@ camera_angle = -20.0
 
 [node name="Player" parent="." unique_id=140876529 instance=ExtResource("17_e84iw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2465315, 10.264954, 0)
+norm_attack_2 = ExtResource("4_5f4ky")
 
 [node name="SceneTransition" parent="." unique_id=1645615911 groups=["interactable"] instance=ExtResource("19_cy82g")]
 transform = Transform3D(6.666303, 0, 0, 0, 3.3322558, 0, 0, 0, 2, -0.40571046, 0.27713323, -20.96393)
@@ -377,3 +384,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.388364, 0.86918235, -16.57
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8805294, 0.86918235, -16.78031)
 
 [node name="DialogueUI" parent="." unique_id=742846960 instance=ExtResource("24_0vrmj")]
+
+[node name="ScreenEffects" parent="." unique_id=1867351135 instance=ExtResource("26_81xp3")]

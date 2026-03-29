@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://brfw3lg8re4fc"]
 
 [ext_resource type="PackedScene" uid="uid://cqm5708dlaook" path="res://scenes/prefabs/PickupItem.tscn" id="1_bd02e"]
+[ext_resource type="Material" uid="uid://bkpiy5ktffciu" path="res://materials/crystal1_mat.tres" id="2_bd02e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljvgm"]
 
@@ -46,6 +47,7 @@ transform = Transform3D(3.35, 0, 0, 0, 3.35, 0, 0, 0, 3.35, 0, 0, 0)
 [node name="Кристалл" type="MeshInstance3D" parent="ModelHolder/Кристалл" index="0" unique_id=457306236]
 transform = Transform3D(8.941891, 0, 0, 0, -1.0659564e-06, 8.94189, 0, -8.94189, -1.0659564e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_mgkn1")
+surface_material_override/0 = ExtResource("2_bd02e")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ModelHolder/Кристалл/Кристалл" index="0" unique_id=1896536728]
 collision_layer = 2

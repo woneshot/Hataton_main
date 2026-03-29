@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqm5708dlaook" path="res://scenes/prefabs/PickupItem.tscn" id="1_tpo04"]
 [ext_resource type="PackedScene" uid="uid://xh73bla45nmh" path="res://models/Weapon/меч.fbx" id="2_81dwt"]
+[ext_resource type="Material" uid="uid://dhxdb1650ax1i" path="res://materials/sword_mat.tres" id="3_81dwt"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tpo04"]
 points = PackedVector3Array(0.20405716, -0.11415485, -0.0061091366, 0.20405716, 0.1120534, 0.0057918993, 0.20405716, 0.1120534, -0.0061091366, 0.7932966, 0.004883477, 0.0057918993, 0.01354149, -0.006984928, 0.023650445, 0.01354149, 0.004883477, -0.023972344, 0.72775406, 0.004883477, -0.012061985, 0.67419416, -0.060569894, 0.0057918993, 0.16827013, -0.102242164, 0.011744748, 0.68014526, 0.058468442, 0.0057918993, 0.18620385, 0.034665205, 0.023650445, 0.18620385, -0.03081031, 0.023650445, 0.18620385, -0.03081031, -0.023972344, 0.67419416, -0.060569894, -0.0061091366, 0.18620385, 0.028708858, -0.023972344, -0.028196633, -0.012941273, -0.0061091366, 0.68014526, 0.058468442, -0.0061091366, -0.02216512, 0.022752512, 0.0057918993, 0.73370516, 0.004883477, 0.011744748, 0.16827013, 0.10609706, 0.011744748, 0.16827013, 0.10014071, -0.012061985, 0.16827013, -0.102242164, -0.012061985, 0.68014526, -0.03081031, 0.011744748, -0.016214013, -0.024853963, 0.0057918993, 0.67419416, -0.03081031, -0.012061985, -0.02216512, 0.022752512, -0.0061091366, 0.78726506, -0.006984928, -0.0061091366, 0.20405716, -0.11415485, 0.0057918993, 0.68014526, 0.028708858, -0.012061985, 0.68014526, 0.028708858, 0.011744748, 0.17422123, -0.11415485, -0.0061091366, 0.01354149, -0.006984928, -0.023972344)
@@ -12,7 +13,10 @@ item_id = "sword"
 [node name="меч" parent="ModelHolder" parent_id_path=PackedInt32Array(1216435176) index="0" unique_id=2089027015 instance=ExtResource("2_81dwt")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="ModelHolder/меч/меч" parent_id_path=PackedInt32Array(2089027015, 1052717692) index="0" unique_id=316264001]
+[node name="меч" parent="ModelHolder/меч" index="0" unique_id=795697343]
+surface_material_override/0 = ExtResource("3_81dwt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="ModelHolder/меч/меч" index="0" unique_id=316264001]
 collision_layer = 2
 collision_mask = 0
 

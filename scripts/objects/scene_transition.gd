@@ -30,9 +30,8 @@ func interact() -> void:
 	
 	var fade = get_tree().get_first_node_in_group("screen_effects")
 	if fade:
-		await fade.fade_out(0.5)
-	else:
-		await get_tree().create_timer(0.5).timeout
+		await fade.fade_out(0.7)        # Плавно темнеет 0.7 сек
+		await get_tree().create_timer(0.3).timeout  # Пауза в темноте
 	
 	get_tree().change_scene_to_packed(target_scene)
 

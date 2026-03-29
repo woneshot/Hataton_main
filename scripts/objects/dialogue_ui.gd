@@ -66,7 +66,9 @@ func _on_dialogue_started(new_lines: Array[String], new_actor_name: String, new_
 
 func set_dialog_source(source: Node3D) -> void:
 	dialog_source = source
-	voice_player = source.get_node_or_null("AudioStreamPlayer3D")
+	voice_player = source.get_node_or_null("SfxPlayer")
+	if not voice_player:
+		voice_player = source.get_node_or_null("AudioStreamPlayer3D")
 
 func _show_line() -> void:
 	if current_line_index >= lines.size():

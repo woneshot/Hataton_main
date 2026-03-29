@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b8lxnovkqkwqu" path="res://scenes/objects/Rocks/RockSmall.tscn" id="5_gyh53"]
 [ext_resource type="PackedScene" uid="uid://bpl2an1gb7wvq" path="res://scenes/objects/Bones/Skull.tscn" id="6_a1dtm"]
 [ext_resource type="PackedScene" uid="uid://cix7hrqpexcmf" path="res://scenes/objects/Mushrooms/Muhomor.tscn" id="7_6pa8d"]
-[ext_resource type="PackedScene" uid="uid://d04ibs84t56b2" path="res://scenes/objects/Chest.tscn" id="8_7fh15"]
+[ext_resource type="PackedScene" uid="uid://bfotets2yv467" path="res://scenes/objects/Enviroment/Chest.tscn" id="8_7fh15"]
 [ext_resource type="PackedScene" uid="uid://d2wjlkuulf1c2" path="res://scenes/objects/Rocks/RockMid.tscn" id="9_08rq1"]
 [ext_resource type="PackedScene" uid="uid://d4jq553341tg" path="res://scenes/objects/Bones/Bone.tscn" id="10_eueyj"]
 [ext_resource type="PackedScene" uid="uid://djj2qsbrttnk0" path="res://scenes/objects/Bottles/Bottle1.tscn" id="11_rv1ks"]

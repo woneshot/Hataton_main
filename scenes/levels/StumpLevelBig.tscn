@@ -22,6 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://cigbeho856dvr" path="res://scenes/prefabs/CameraRig.tscn" id="17_jkc3g"]
 [ext_resource type="PackedScene" uid="uid://672kylrnkbdi" path="res://scenes/objects/Enviroment/Grass.tscn" id="18_jkc3g"]
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="22_wa3u7"]
+[ext_resource type="PackedScene" uid="uid://phdfmw58m5ho" path="res://scenes/prefabs/SceneTransition.tscn" id="23_tbso1"]
+[ext_resource type="PackedScene" uid="uid://cuekfhmsyam7s" path="res://scenes/ui/screen_effects.tscn" id="24_mv2jo"]
+[ext_resource type="PackedScene" uid="uid://dxrfavi2pjo5s" path="res://scenes/levels/RatScene.tscn" id="24_wa3u7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyj73"]
 albedo_color = Color(0.70792764, 0.45963377, 0.13657984, 1)
@@ -885,3 +888,78 @@ light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.05
 shadow_opacity = 0.9
+
+[node name="Many_grass" type="Node3D" parent="." unique_id=930449816]
+transform = Transform3D(4.6955194, 0, -3.7352517, 0, 6, 0, 3.7352517, 0, 4.6955194, -4.2154927, 0, 1.6653332)
+
+[node name="Grass8" parent="Many_grass" unique_id=1969464763 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60678, 0, -1.8000729)
+
+[node name="Grass9" parent="Many_grass" unique_id=74729862 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21911985, 0, -6.331784)
+
+[node name="Grass10" parent="Many_grass" unique_id=491377345 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3160534, 0, -1.3095872)
+
+[node name="Grass11" parent="Many_grass" unique_id=1883614813 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8465304, 0, 4.2517643)
+
+[node name="Grass12" parent="Many_grass" unique_id=1150003711 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1296744, 0, 1.831543)
+
+[node name="Grass13" parent="Many_grass" unique_id=1953437388 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.1296744, 0, 1.831543)
+
+[node name="Grass14" parent="Many_grass" unique_id=707797021 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.469501, 0, -9.377138)
+
+[node name="Grass15" parent="Many_grass" unique_id=383839213 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.436636, 1.2715658e-06, 2.6676922)
+
+[node name="Grass16" parent="Many_grass" unique_id=24359440 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(-0.10164672, 0, 0.9948206, 0, 1, 0, -0.9948206, 0, -0.10164672, 1.4857693, 0, 11.147182)
+
+[node name="Grass17" parent="Many_grass" unique_id=419552585 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(-0.10164672, 0, 0.9948206, 0, 1, 0, -0.9948206, 0, -0.10164672, 4.1661053, 0, -10.056099)
+
+[node name="Grass18" parent="Many_grass" unique_id=947770406 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(-0.10164672, 0, 0.9948206, 0, 1, 0, -0.9948206, 0, -0.10164672, 14.545887, 0, -5.864309)
+
+[node name="Grass19" parent="Many_grass" unique_id=147307685 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(-0.10164672, 0, 0.9948206, 0, 1, 0, -0.9948206, 0, -0.10164672, -11.601588, 0, 6.437504)
+
+[node name="Grass20" parent="Many_grass" unique_id=697826800 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(-0.10164672, 0, 0.9948206, 0, 1, 0, -0.9948206, 0, -0.10164672, 4.714638, 0, 5.190795)
+
+[node name="Grass21" parent="Many_grass" unique_id=1353591948 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(-0.10164672, 0, 0.9948206, 0, 1, 0, -0.9948206, 0, -0.10164672, -4.4958777, 0, 0.022247255)
+
+[node name="Grass22" parent="Many_grass" unique_id=1752023775 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(0.99439895, 0, -0.105691254, 0, 1, 0, 0.105691254, 0, 0.99439895, -4.4958777, 0, 0.022247255)
+
+[node name="Grass23" parent="Many_grass" unique_id=1687732719 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(0.99439895, 0, -0.105691254, 0, 1, 0, 0.105691254, 0, 0.99439895, -3.165974, -1.2715658e-06, -4.506375)
+
+[node name="Grass24" parent="Many_grass" unique_id=1889298584 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(0.99439895, 0, -0.105691254, 0, 1, 0, 0.105691254, 0, 0.99439895, 8.790384, -1.2715658e-06, 4.894566)
+
+[node name="Grass25" parent="Many_grass" unique_id=999523648 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(0.99439895, 0, -0.105691254, 0, 1, 0, 0.105691254, 0, 0.99439895, 2.2543805, -1.2715658e-06, 1.1930206)
+
+[node name="Grass26" parent="Many_grass" unique_id=819999051 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(0.99439895, 0, -0.105691254, 0, 1, 0, 0.105691254, 0, 0.99439895, 9.401003, 0, -2.624298)
+
+[node name="Grass27" parent="Many_grass" unique_id=2004467310 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(0.99439895, 0, -0.105691254, 0, 1, 0, 0.105691254, 0, 0.99439895, 7.1809516, -1.2715658e-06, -8.352648)
+
+[node name="Grass28" parent="Many_grass" unique_id=407995746 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(0.99439895, 0, -0.105691254, 0, 1, 0, 0.105691254, 0, 0.99439895, -5.6621537, 0, 5.8857136)
+
+[node name="Grass29" parent="Many_grass" unique_id=1798413184 instance=ExtResource("18_jkc3g")]
+transform = Transform3D(0.99439895, 0, -0.105691254, 0, 1, 0, 0.105691254, 0, 0.99439895, -5.6621537, 0, 5.8857136)
+
+[node name="SceneTransition" parent="." unique_id=1645615911 instance=ExtResource("23_tbso1")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.5961943, 0.67470133, 0.30392432)
+target_scene = ExtResource("24_wa3u7")
+
+[node name="ScreenEffects" parent="." unique_id=1867351135 instance=ExtResource("24_mv2jo")]
