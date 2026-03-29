@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dt4k34nheg2di"]
 
 [ext_resource type="Script" uid="uid://cobsrjly6yy48" path="res://scripts/objects/cutscene.gd" id="1_rn7xi"]
+[ext_resource type="AudioStream" uid="uid://e7g1pd8u51cx" path="res://assets/audio/voice/intro/intro.mp3" id="2_k2les"]
 
 [node name="Cutscene" type="Control" unique_id=374138236]
 layout_mode = 3
@@ -10,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rn7xi")
-slide_duration = 5.0
+slide_duration = 12.5
 
 [node name="Background" type="ColorRect" parent="." unique_id=1871532954]
 layout_mode = 1
@@ -29,3 +30,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 stretch_mode = 6
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=360432874]
+stream = ExtResource("2_k2les")
+autoplay = true
+bus = &"Voice"

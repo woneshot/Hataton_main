@@ -3,7 +3,7 @@ extends Control
 # Время показа каждого слайда (без учёта фейдов)
 @export var slide_duration: float = 15.0
 @export var fade_duration: float = 1.0
-@export var next_scene: String = "res://scenes/levels/location_1.tscn"
+@export var next_scene: String = "res://scenes/levels/StumpLevelSmall.tscn"
 
 @onready var slide_image: TextureRect = $SlideImage
 

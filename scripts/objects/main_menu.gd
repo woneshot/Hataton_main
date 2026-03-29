@@ -2,7 +2,7 @@ extends Control
 
 # --- РЕСУРСЫ ---
 const SETTINGS_SCENE = preload("res://scenes/ui/settings_menu.tscn")
-const LEVEL_1_PATH = "res://scenes/levels/level_1.tscn"
+const LEVEL_1_PATH = "res://scenes/ui/cutscene.tscn"
 
 # --- НАСТРОЙКИ АНИМАЦИИ ---
 @export var fade_duration: float = 0.5

@@ -29,6 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://b8rxsy6johw3s" path="res://assets/sprites/penta.png" id="27_tbmve"]
 [ext_resource type="PackedScene" uid="uid://x10q6qkf3pef" path="res://scenes/prefabs/witch.tscn" id="28_s704v"]
 [ext_resource type="AudioStream" uid="uid://dk0k1nh8naix1" path="res://assets/audio/music/boss/boss.mp3" id="29_y1fno"]
+[ext_resource type="PackedScene" uid="uid://weyevgnn5wsa" path="res://scenes/ui/pause_menu.tscn" id="30_jsaaf"]
+[ext_resource type="PackedScene" uid="uid://tlgi1uhbbukl" path="res://scenes/ui/hud.tscn" id="31_oojrr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji324"]
 albedo_texture = ExtResource("1_1qrmc")
@@ -424,3 +426,7 @@ detection_range = 8.0
 stream = ExtResource("29_y1fno")
 autoplay = true
 bus = &"Music"
+
+[node name="HUD" parent="." unique_id=71050882 instance=ExtResource("31_oojrr")]
+
+[node name="PauseMenu" parent="." unique_id=36232428 instance=ExtResource("30_jsaaf")]

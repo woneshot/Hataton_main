@@ -409,20 +409,25 @@ func _die() -> void:
 	if sfx_death:
 		sfx_player.stream = sfx_death
 		sfx_player.play()
-	
+
 	last_anim_name = ""
 	_set_anim_and_normal("death", norm_death)
-	
+
 	var pixel_offset = 4.0 * sprite.pixel_size
 	var tween = create_tween()
 	tween.tween_property(sprite, "position:y", sprite.position.y - pixel_offset, 0.15)
-	
+
 	Events.set_flag("boss_killed")
-	
+
 	await sprite.animation_finished
 	await get_tree().create_timer(2.0).timeout
+
+	# Сначала запоминаем ссылку на дерево, потом удаляемся, потом меняем сцену
+	var tree = get_tree()
 	if is_instance_valid(self):
 		queue_free()
+	await tree.process_frame
+	tree.change_scene_to_file("res://scenes/levels/DioramaLevel.tscn")
 
 # ==========================================
 # СПРАЙТ НАПРАВЛЕНИЕ И ВИЗУАЛ

@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://eppvw7a4crdt"]
+[gd_scene format=3 uid="uid://kctp1eink6ca"]
 
 [ext_resource type="Script" uid="uid://cvcqxwnmrxiji" path="res://scripts/objects/settings_menu.gd" id="1_qwcqe"]
 [ext_resource type="FontFile" uid="uid://d21taie0we6uj" path="res://assets/sprites/ui/fonts/pixelwarden.medium.ttf" id="2_0b1cv"]

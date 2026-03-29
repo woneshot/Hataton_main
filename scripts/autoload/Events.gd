@@ -18,6 +18,7 @@ signal player_damaged(new_health: int)
 
 signal scene_transition_requested(scene_path: String)
 signal pause_toggled(is_paused: bool)
+# Этот сигнал будут слушать все, кому интересно здоровье игрока (включая твой HUD)
 
 # ==========================================
 # СОСТОЯНИЯ

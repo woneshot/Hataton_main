@@ -28,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="24_0vrmj"]
 [ext_resource type="PackedScene" uid="uid://cuekfhmsyam7s" path="res://scenes/ui/screen_effects.tscn" id="26_81xp3"]
 [ext_resource type="AudioStream" uid="uid://sdscmv8e7afv" path="res://assets/audio/music/forest/forest/forest.mp3" id="28_5f4ky"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="29_q4y8v"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="30_eh7ee"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vrmj"]
 albedo_color = Color(0.70792764, 0.45963377, 0.13657984, 1)
@@ -390,3 +392,8 @@ light_bake_mode = 1
 shadow_enabled = true
 shadow_bias = 0.05
 shadow_opacity = 0.9
+
+[node name="PauseMenu" parent="." unique_id=36232428 instance=ExtResource("29_q4y8v")]
+layer = 2
+
+[node name="HUD" parent="." unique_id=71050882 instance=ExtResource("30_eh7ee")]

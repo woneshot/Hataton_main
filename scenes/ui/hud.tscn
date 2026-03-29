@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bnawyqvgugsbm"]
+[gd_scene format=3 uid="uid://tlgi1uhbbukl"]
 
 [ext_resource type="Script" uid="uid://bnndixeb7c2ym" path="res://scripts/objects/hud.gd" id="1_0mwgc"]
 [ext_resource type="Texture2D" uid="uid://dwgsngtatpc8q" path="res://assets/sprites/ui/HealthBar.png" id="2_hqnrr"]
@@ -14,8 +14,9 @@ filter_clip = true
 atlas = ExtResource("2_hqnrr")
 region = Rect2(180, 612, 644, 120)
 
-[node name="HUD" type="CanvasLayer" unique_id=71050882]
+[node name="HUD" type="CanvasLayer" unique_id=71050882 node_paths=PackedStringArray("health_bar")]
 script = ExtResource("1_0mwgc")
+health_bar = NodePath("MarginContainer/TextureProgressBar")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=69200907]
 anchors_preset = 15
@@ -35,7 +36,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = SubResource("Theme_bo48s")
 max_value = 10.0
-value = 10.0
+value = 6.0
 nine_patch_stretch = true
 texture_under = SubResource("AtlasTexture_8qguk")
 texture_progress = SubResource("AtlasTexture_136eg")

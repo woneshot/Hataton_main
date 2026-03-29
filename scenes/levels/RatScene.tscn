@@ -41,6 +41,8 @@
 [ext_resource type="PackedScene" uid="uid://phdfmw58m5ho" path="res://scenes/prefabs/SceneTransition.tscn" id="38_dmh13"]
 [ext_resource type="AudioStream" uid="uid://sdscmv8e7afv" path="res://assets/audio/music/forest/forest/forest.mp3" id="40_7gfaq"]
 [ext_resource type="PackedScene" uid="uid://liw84wqms3a7" path="res://scenes/levels/HouseOutside.tscn" id="40_hidw2"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="42_cqthm"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="43_np1uw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn26d"]
 albedo_color = Color(0.3603736, 0.1989896, 0.064097874, 1)
@@ -610,3 +612,8 @@ required_flag = "level_completed"
 stream = ExtResource("40_7gfaq")
 autoplay = true
 bus = &"Music"
+
+[node name="PauseMenu" parent="." unique_id=36232428 instance=ExtResource("42_cqthm")]
+layer = 2
+
+[node name="HUD" parent="." unique_id=71050882 instance=ExtResource("43_np1uw")]

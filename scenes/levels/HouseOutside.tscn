@@ -45,6 +45,8 @@
 [ext_resource type="Script" uid="uid://c2yspqbw3tt3v" path="res://scripts/objects/pixies.gd" id="43_7iaqa"]
 [ext_resource type="Script" uid="uid://cuju6wg3s2q7d" path="res://scripts/objects/smokr.gd" id="44_lkscn"]
 [ext_resource type="AudioStream" uid="uid://sdscmv8e7afv" path="res://assets/audio/music/forest/forest/forest.mp3" id="45_bodc2"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="46_4g0q1"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="47_yyc8q"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rw3u5"]
 albedo_color = Color(0.29817647, 0.13689324, 0.020204976, 1)
@@ -1137,3 +1139,8 @@ script = ExtResource("44_lkscn")
 stream = ExtResource("45_bodc2")
 autoplay = true
 bus = &"Music"
+
+[node name="PauseMenu" parent="." unique_id=36232428 instance=ExtResource("46_4g0q1")]
+layer = 2
+
+[node name="HUD" parent="." unique_id=71050882 instance=ExtResource("47_yyc8q")]

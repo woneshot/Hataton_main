@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://du0jmsq82uey" path="res://scenes/levels/StumpLevelBig.tscn" id="25_yj5xa"]
 [ext_resource type="PackedScene" uid="uid://cuekfhmsyam7s" path="res://scenes/ui/screen_effects.tscn" id="26_bbupe"]
 [ext_resource type="AudioStream" uid="uid://2yq8qy23ypvq" path="res://assets/audio/music/pixie/pixie/pixie.mp3" id="27_yj5xa"]
+[ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="28_u7f2e"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="29_xdt3k"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_june8"]
 albedo_color = Color(0.33550367, 0.16747612, 0.021100136, 1)
@@ -607,3 +609,8 @@ required_flag = "level_completed1"
 stream = ExtResource("27_yj5xa")
 autoplay = true
 bus = &"Music"
+
+[node name="PauseMenu" parent="." unique_id=36232428 instance=ExtResource("28_u7f2e")]
+layer = 2
+
+[node name="HUD" parent="." unique_id=71050882 instance=ExtResource("29_xdt3k")]

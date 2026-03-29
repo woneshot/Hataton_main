@@ -83,12 +83,12 @@ size_flags_vertical = 4
 texture_normal = ExtResource("4_uhagc")
 
 [node name="MenuParticles" type="CPUParticles2D" parent="." unique_id=129000990]
-position = Vector2(575, 353)
+position = Vector2(963, 553)
 amount = 50
 lifetime = 5.0
 speed_scale = 2.0
 emission_shape = 3
-emission_rect_extents = Vector2(600, 500)
+emission_rect_extents = Vector2(1000, 600)
 direction = Vector2(1, -1)
 gravity = Vector2(0, 0)
 initial_velocity_min = 10.0
