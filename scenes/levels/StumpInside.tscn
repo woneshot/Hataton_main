@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://c3mq4ujfopdca" path="res://assets/Wood_normal.jpeg" id="1_lhb3i"]
 [ext_resource type="PackedScene" uid="uid://d0l4uq4k35l7c" path="res://scenes/objects/Enviroment/Table.tscn" id="1_r0uic"]
-[ext_resource type="Script" path="res://scripts/objects/flicker_light.gd" id="1_us011"]
-[ext_resource type="Script" path="res://scripts/objects/level.gd" id="1_ylfxn"]
+[ext_resource type="Script" uid="uid://c8gmjn2bq3ofr" path="res://scripts/objects/flicker_light.gd" id="1_us011"]
+[ext_resource type="Script" uid="uid://yh85ytqjfifs" path="res://scripts/objects/level.gd" id="1_ylfxn"]
 [ext_resource type="PackedScene" uid="uid://bjqamx0y2hlgh" path="res://scenes/objects/Enviroment/Branch.tscn" id="2_1pep5"]
 [ext_resource type="Material" uid="uid://drouv5vft42gd" path="res://materials/borovik_mat.tres" id="3_myoyn"]
 [ext_resource type="Material" uid="uid://bbugoxts3g45i" path="res://materials/poganka_mat.tres" id="4_june8"]
@@ -23,6 +23,9 @@
 [ext_resource type="Script" uid="uid://cmh16l07msnnj" path="res://scripts/objects/vex_spawner.gd" id="20_lhb3i"]
 [ext_resource type="PackedScene" uid="uid://dg654x02fsoqq" path="res://scenes/prefabs/chaser_pixie.tscn" id="21_8f83a"]
 [ext_resource type="PackedScene" uid="uid://b3t5nbdqcb3c" path="res://scenes/prefabs/shooter_pixie.tscn" id="22_ylfxn"]
+[ext_resource type="PackedScene" uid="uid://phdfmw58m5ho" path="res://scenes/prefabs/SceneTransition.tscn" id="24_tnnun"]
+[ext_resource type="PackedScene" uid="uid://du0jmsq82uey" path="res://scenes/levels/StumpLevelBig.tscn" id="25_yj5xa"]
+[ext_resource type="PackedScene" uid="uid://cuekfhmsyam7s" path="res://scenes/ui/screen_effects.tscn" id="26_bbupe"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_june8"]
 albedo_color = Color(0.33550367, 0.16747612, 0.021100136, 1)
@@ -578,7 +581,7 @@ enemies_to_spawn = Array[PackedScene]([ExtResource("21_8f83a"), ExtResource("21_
 spawn_points = [NodePath("SpawnPoint_1"), NodePath("SpawnPoint_2"), NodePath("SpawnPoint_3"), NodePath("SpawnPoint_4"), NodePath("SpawnPoint_5")]
 
 [node name="SpawnPoint_1" type="Marker3D" parent="WaveSpawner" unique_id=574948468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2259645, 0.31907463, 9.814255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2259645, 0.49792385, 9.814255)
 
 [node name="SpawnPoint_2" type="Marker3D" parent="WaveSpawner" unique_id=869937442]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.168188, 0.47598267, 9.752035)
@@ -591,3 +594,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6884899, 0, 14.504316)
 
 [node name="SpawnPoint_5" type="Marker3D" parent="WaveSpawner" unique_id=1705675632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.102376, 0, 15.368653)
+
+[node name="SceneTransition" parent="." unique_id=1645615911 instance=ExtResource("24_tnnun")]
+transform = Transform3D(2.1319802, 0, 0, 0, 1.905827, 0, 0, 0, 1, 0, 0.676137, 19.489523)
+target_scene = ExtResource("25_yj5xa")
+required_flag = "level_completed1"
+
+[node name="ScreenEffects" parent="." unique_id=1867351135 instance=ExtResource("26_bbupe")]

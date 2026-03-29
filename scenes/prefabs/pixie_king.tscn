@@ -16,7 +16,7 @@
 
 [sub_resource type="Resource" id="Resource_qse75"]
 script = ExtResource("2_qse75")
-condition_type = 2
+condition_type = 3
 condition_value = "defeated_vex"
 lines = Array[String](["Ты сделал достаточно. Я признаю тебя", "Как только ты покинешь мои владения, мои чары вступят в силу", "Заклятие отступит частично. Это все, что я могу сделать", "Это все, что я могу сделать"])
 voice_lines = Array[AudioStream]([ExtResource("3_okcmy"), ExtResource("4_0pd0n"), ExtResource("5_mkd03"), ExtResource("6_vcvhe")])
@@ -25,7 +25,7 @@ metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="Resource" id="Resource_sh86x"]
 script = ExtResource("2_qse75")
-condition_type = 2
+condition_type = 3
 condition_value = "vex_attack"
 lines = Array[String](["Как вы посмели, мерзкие Вексы!"])
 voice_lines = Array[AudioStream]([ExtResource("7_w13h1")])
