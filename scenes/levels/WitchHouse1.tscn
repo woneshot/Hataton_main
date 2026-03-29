@@ -1,0 +1,420 @@
+[gd_scene format=3 uid="uid://bi6vlpryoyyp7"]
+
+[ext_resource type="Texture2D" uid="uid://w0vb5egeoxyg" path="res://assets/Gemini_Generated_Image_5ndiqs5ndiqs5ndi-fotor-20260329112952.png" id="1_1qrmc"]
+[ext_resource type="PackedScene" uid="uid://d0l4uq4k35l7c" path="res://scenes/objects/Enviroment/Table.tscn" id="1_ryxif"]
+[ext_resource type="Texture2D" uid="uid://c3mq4ujfopdca" path="res://assets/Wood_normal.jpeg" id="1_xn6gs"]
+[ext_resource type="PackedScene" uid="uid://c876i337qwb56" path="res://scenes/objects/Enviroment/shelf.tscn" id="2_2vok1"]
+[ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="2_6auyr"]
+[ext_resource type="Texture2D" uid="uid://b6lrajmurcg5y" path="res://assets/Gemini_Generated_Image_vo7z67vo7z67vo7z.jpeg" id="2_n2jjb"]
+[ext_resource type="PackedScene" uid="uid://cigbeho856dvr" path="res://scenes/prefabs/CameraRig.tscn" id="3_2vok1"]
+[ext_resource type="PackedScene" uid="uid://e4ge11ac7sxp" path="res://scenes/objects/Enviroment/Exit.tscn" id="3_tho6a"]
+[ext_resource type="PackedScene" uid="uid://djj2qsbrttnk0" path="res://scenes/objects/Bottles/Bottle1.tscn" id="8_nj6dw"]
+[ext_resource type="PackedScene" uid="uid://buyxed27r6b74" path="res://scenes/objects/Bottles/Bottle2.tscn" id="9_dpxq5"]
+[ext_resource type="PackedScene" uid="uid://bhgw6tn5k3qq7" path="res://scenes/objectsWTCollision/Mushrooms/MuhomorNCol.tscn" id="9_x60gx"]
+[ext_resource type="PackedScene" uid="uid://mni1k11h4t4q" path="res://scenes/objects/Enviroment/Broom.tscn" id="10_djhm6"]
+[ext_resource type="PackedScene" uid="uid://cnx5lpn0lx6vi" path="res://scenes/objectsWTCollision/Mushrooms/PogankaNCol.tscn" id="10_thmod"]
+[ext_resource type="PackedScene" uid="uid://3s2cbjijo1qq" path="res://scenes/objects/Enviroment/Crystall1.tscn" id="11_x60gx"]
+[ext_resource type="PackedScene" uid="uid://sqb0oq6cc11p" path="res://scenes/objectsWTCollision/Bones/BoneNCol.tscn" id="11_xt0yc"]
+[ext_resource type="PackedScene" uid="uid://82mnkcviwd0e" path="res://scenes/objectsWTCollision/Bones/SkullNCol.tscn" id="12_7vkuh"]
+[ext_resource type="PackedScene" uid="uid://b46qgod3qnwqj" path="res://scenes/objectsWTCollision/Mushrooms/BorovikNCol.tscn" id="13_mkmw2"]
+[ext_resource type="PackedScene" uid="uid://byejev5f40we3" path="res://scenes/objects/Enviroment/Kotel.tscn" id="14_7vkuh"]
+[ext_resource type="PackedScene" uid="uid://bp02vb0gswq5m" path="res://scenes/objectsWTCollision/Rocks/RockSmallNCol.tscn" id="14_kf5yi"]
+[ext_resource type="PackedScene" uid="uid://bbmj2ds65qhwu" path="res://scenes/objectsWTCollision/Mushrooms/TrutovikNCol.tscn" id="16_djhm6"]
+[ext_resource type="PackedScene" uid="uid://bfotets2yv467" path="res://scenes/objects/Enviroment/Chest.tscn" id="17_mkmw2"]
+[ext_resource type="PackedScene" uid="uid://o1al72fphsm0" path="res://scenes/objectsWTCollision/Enviroment/GrassNCol.tscn" id="17_x60gx"]
+[ext_resource type="PackedScene" uid="uid://bjqamx0y2hlgh" path="res://scenes/objects/Enviroment/Branch.tscn" id="19_djhm6"]
+[ext_resource type="PackedScene" uid="uid://dodx8qtxmsbu2" path="res://scenes/objects/Enviroment/Candle.tscn" id="21_shyiv"]
+[ext_resource type="PackedScene" uid="uid://bpl2an1gb7wvq" path="res://scenes/objects/Bones/Skull.tscn" id="22_tbmve"]
+[ext_resource type="PackedScene" uid="uid://dkxaynfbuh8fk" path="res://scenes/objects/Bones/SkullWithoutJaw.tscn" id="23_s704v"]
+[ext_resource type="Texture2D" uid="uid://b8rxsy6johw3s" path="res://assets/sprites/penta.png" id="27_tbmve"]
+[ext_resource type="PackedScene" uid="uid://x10q6qkf3pef" path="res://scenes/prefabs/witch.tscn" id="28_s704v"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji324"]
+albedo_texture = ExtResource("1_1qrmc")
+normal_enabled = true
+normal_texture = ExtResource("2_n2jjb")
+uv1_scale = Vector3(3.465, 3.465, 3.465)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6ghs"]
+albedo_color = Color(0.31480968, 0.1857372, 0.041482784, 1)
+normal_enabled = true
+normal_texture = ExtResource("1_xn6gs")
+uv1_scale = Vector3(-2.67, -2.67, -2.67)
+distance_fade_mode = 2
+distance_fade_min_distance = 7.0
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_6gtgy"]
+rayleigh_color = Color(0, 0, 0, 1)
+turbidity = 1.0
+
+[sub_resource type="Sky" id="Sky_r0uic"]
+sky_material = SubResource("PhysicalSkyMaterial_6gtgy")
+
+[sub_resource type="Environment" id="Environment_ryxif"]
+background_mode = 2
+sky = SubResource("Sky_r0uic")
+fog_mode = 1
+fog_density = 1.0
+volumetric_fog_density = 0.0808
+
+[node name="WitchHouse" type="Node3D" unique_id=1760332721]
+
+[node name="Scene" type="Node3D" parent="." unique_id=1818888728]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scene" unique_id=1109042355]
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(20, 0.01, 20)
+material = SubResource("StandardMaterial3D_ji324")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Scene" unique_id=1121132778]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2, 10)
+material_override = SubResource("StandardMaterial3D_o6ghs")
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(0.1, 4, 20)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Scene" unique_id=625657781]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 2, -9.870226)
+material_override = SubResource("StandardMaterial3D_o6ghs")
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(0.1, 4, 20)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Scene" unique_id=1768827796]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 9.935113, 2, 0.064886615)
+material_override = SubResource("StandardMaterial3D_o6ghs")
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(0.1, 4, 20)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Scene" unique_id=502308411]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -9.935113, 2, 0.06488748)
+material_override = SubResource("StandardMaterial3D_o6ghs")
+use_collision = true
+collision_layer = 2
+collision_mask = 0
+size = Vector3(0.1, 4, 20)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Scene" unique_id=127851591]
+environment = SubResource("Environment_ryxif")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Scene" unique_id=660496642]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.96414363, -1.8225393)
+light_color = Color(0.20452657, 0.13023955, 0.24393377, 1)
+light_energy = 0.842
+sky_mode = 1
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Scene" unique_id=975431263]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 8, -5)
+light_color = Color(0.8352941, 0.92156863, 0.92941177, 1)
+light_energy = 10.0
+shadow_enabled = true
+spot_range = 63.79171
+spot_angle = 50.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Scene" unique_id=1456638389]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 5, 8, 0)
+light_color = Color(0.8352941, 0.92156863, 0.92941177, 1)
+light_energy = 10.0
+shadow_enabled = true
+spot_range = 63.79171
+spot_angle = 50.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Scene" unique_id=136168482]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 8, 5)
+light_color = Color(0.8352941, 0.92156863, 0.92941177, 1)
+light_energy = 10.0
+shadow_enabled = true
+spot_range = 63.79171
+spot_angle = 50.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Scene" unique_id=1414842324]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -5, 8, 0)
+light_color = Color(0.8352941, 0.92156863, 0.92941177, 1)
+light_energy = 10.0
+shadow_enabled = true
+spot_range = 63.79171
+spot_angle = 50.0
+
+[node name="Выход" parent="Scene" unique_id=1733062473 instance=ExtResource("3_tho6a")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 9.212977)
+
+[node name="столы" type="Node3D" parent="Scene" unique_id=1301212200]
+
+[node name="Table2" parent="Scene/столы" unique_id=1141721898 instance=ExtResource("1_ryxif")]
+transform = Transform3D(3, 0, 0, 0, 0.55807596, 0, 0, 0, 1, -6.429907, 0, -7.811331)
+
+[node name="Table3" parent="Scene/столы" unique_id=1332846030 instance=ExtResource("1_ryxif")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 6.675668, 0, -7.811331)
+
+[node name="Table5" parent="Scene/столы" unique_id=99473160 instance=ExtResource("1_ryxif")]
+transform = Transform3D(-5.2453665e-08, 0, -1.1999999, 0, 1.1999999, 0, 1.1999999, 0, -5.2453665e-08, -6.9512825, 0, 7.927429)
+
+[node name="Table4" parent="Scene/столы" unique_id=663135104 instance=ExtResource("1_ryxif")]
+transform = Transform3D(3, 0, 0, 0, 0.55807596, 0, 0, 0, 1, 6.757496, 0, 8.575446)
+
+[node name="полки" type="Node3D" parent="Scene" unique_id=2031111659]
+
+[node name="Полка" parent="Scene/полки" unique_id=1316107170 instance=ExtResource("2_2vok1")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -9.409693, 0.005002022, -5.3763385)
+
+[node name="Полка3" parent="Scene/полки" unique_id=910686356 instance=ExtResource("2_2vok1")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -9.409693, 0.005002022, -2.562129)
+
+[node name="Полка4" parent="Scene/полки" unique_id=672785390 instance=ExtResource("2_2vok1")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -9.409693, 0.005002022, 0.22750932)
+
+[node name="Полка5" parent="Scene/полки" unique_id=1453721202 instance=ExtResource("2_2vok1")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -9.409693, 0.005002022, 3.0414712)
+
+[node name="Полка6" parent="Scene/полки" unique_id=1490967353 instance=ExtResource("2_2vok1")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -9.409693, 0.005002022, 5.8431654)
+
+[node name="Полка2" parent="Scene/полки" unique_id=431717457 instance=ExtResource("2_2vok1")]
+transform = Transform3D(-1.2, 0, -1.8119498e-07, 0, 1.2, 0, 1.8119498e-07, 0, -1.2, 9.5, 0.005002022, -5.3763385)
+
+[node name="Полка7" parent="Scene/полки" unique_id=1861338383 instance=ExtResource("2_2vok1")]
+transform = Transform3D(-1.2, 0, -1.8119498e-07, 0, 1.2, 0, 1.8119498e-07, 0, -1.2, 9.551216, 0.005002022, -2.562129)
+
+[node name="Полка8" parent="Scene/полки" unique_id=717516942 instance=ExtResource("2_2vok1")]
+transform = Transform3D(-1.2, 0, -1.8119498e-07, 0, 1.2, 0, 1.8119498e-07, 0, -1.2, 9.551216, 0.005002022, 0.22750932)
+
+[node name="Полка9" parent="Scene/полки" unique_id=432650193 instance=ExtResource("2_2vok1")]
+transform = Transform3D(-1.2, 0, -1.8119498e-07, 0, 1.2, 0, 1.8119498e-07, 0, -1.2, 9.551216, 0.005002022, 3.0414712)
+
+[node name="Полка10" parent="Scene/полки" unique_id=1414605760 instance=ExtResource("2_2vok1")]
+transform = Transform3D(-1.2, 0, -1.8119498e-07, 0, 1.2, 0, 1.8119498e-07, 0, -1.2, 9.551216, 0.005002022, 5.8431654)
+
+[node name="Объекты сцены" type="Node3D" parent="Scene" unique_id=436511958]
+
+[node name="Bottle1" parent="Scene/Объекты сцены" unique_id=841237556 instance=ExtResource("8_nj6dw")]
+transform = Transform3D(-0.101316765, 0.9948542, 0, -0.9948542, -0.101316765, 0, 0, 0, 1, 4.3215346, 0.8507745, 7.8236036)
+
+[node name="Bottle2" parent="Scene/Объекты сцены" unique_id=97781611 instance=ExtResource("9_dpxq5")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 5.5690703, 0.98745567, 7.862355)
+
+[node name="Bottle3" parent="Scene/Объекты сцены" unique_id=1948470986 instance=ExtResource("9_dpxq5")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -5.030664, 0.98745567, -7.4792624)
+
+[node name="Broom" parent="Scene/Объекты сцены" unique_id=1410580319 instance=ExtResource("10_djhm6")]
+transform = Transform3D(0.9543968, 0.2985411, 0, -0.2985411, 0.9543968, 0, 0, 0, 1, -1.0806599, 0.40836012, 9.597312)
+
+[node name="Crystall" parent="Scene/Объекты сцены" unique_id=1355351704 instance=ExtResource("11_x60gx")]
+transform = Transform3D(0.9849378, 0.070444204, 0.15790868, -0.17290904, 0.4012697, 0.8994916, 0, -0.9132471, 0.40740615, 9.399499, 1.270201, 3.3386908)
+
+[node name="Crystall2" parent="Scene/Объекты сцены" unique_id=332055861 instance=ExtResource("11_x60gx")]
+transform = Transform3D(0.35348383, -0.8271251, 0.43693644, -0.17290904, 0.4012697, 0.8994917, -0.9193214, -0.393506, -0.0011750311, -9.325127, 1.270201, -5.380997)
+
+[node name="Crystall3" parent="Scene/Объекты сцены" unique_id=535180808 instance=ExtResource("11_x60gx")]
+transform = Transform3D(-0.68281007, -0.5512267, 0.11464966, 0.07165877, 0.0936651, 0.8771071, -0.5584446, 0.6860036, -0.027633054, -9.325127, 0.64630795, -5.6984673)
+
+[node name="Crystall4" parent="Scene/Объекты сцены" unique_id=342683948 instance=ExtResource("11_x60gx")]
+transform = Transform3D(-0.71557355, 0.520741, 0.002852399, 0.07165877, 0.0936651, 0.877107, 0.515795, 0.7094227, -0.11789825, -9.325127, 2.3788514, -5.0981483)
+
+[node name="Kotel" parent="Scene/Объекты сцены" unique_id=1750264284 instance=ExtResource("14_7vkuh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7203832, 0.37709197, -9.201122)
+
+[node name="MuhomorNCol" parent="Scene/Объекты сцены" unique_id=342972634 instance=ExtResource("9_x60gx")]
+transform = Transform3D(1, 0, 0, 0, 0.4352311, -0.9003188, 0, 0.9003188, 0.4352311, 9.526527, 0.6223548, 0)
+
+[node name="MuhomorNCol2" parent="Scene/Объекты сцены" unique_id=757145161 instance=ExtResource("9_x60gx")]
+transform = Transform3D(-0.7350329, -0.6104445, -0.29510036, 0, 0.4352311, -0.9003188, 0.67803144, -0.66176397, -0.3199092, 9.59296, 0.6223548, 0.0059058815)
+
+[node name="PogankaNCol" parent="Scene/Объекты сцены" unique_id=1880157394 instance=ExtResource("10_thmod")]
+transform = Transform3D(1, 0, 0, 0, 0.59138, 0.806393, 0, -0.806393, 0.59138, 9.384428, 1.204926, -5.4721203)
+
+[node name="PogankaNCol2" parent="Scene/Объекты сцены" unique_id=77986612 instance=ExtResource("10_thmod")]
+transform = Transform3D(1, 0, 0, 0, 0.59138, 0.806393, 0, -0.806393, 0.59138, 9.542942, 1.204926, 0.5225811)
+
+[node name="PogankaNCol3" parent="Scene/Объекты сцены" unique_id=1728305807 instance=ExtResource("10_thmod")]
+transform = Transform3D(-0.33596128, -0.7595221, 0.5570066, 4.1217255e-08, 0.59138, 0.806393, -0.94187593, 0.2709168, -0.19868079, 9.528532, 1.204926, 5.681483)
+
+[node name="PogankaNCol4" parent="Scene/Объекты сцены" unique_id=1740480185 instance=ExtResource("10_thmod")]
+transform = Transform3D(0.995329, 0.07784971, -0.057092212, 0, 0.59138, 0.806393, 0.09654065, -0.8026264, 0.5886177, -9.349012, 1.204926, -2.5179992)
+
+[node name="PogankaNCol6" parent="Scene/Объекты сцены" unique_id=121461244 instance=ExtResource("10_thmod")]
+transform = Transform3D(0.21268934, -0.78794265, 0.57784915, 2.8771356e-09, 0.59138, 0.806393, -0.9771198, -0.17151117, 0.12578024, -9.349012, 1.204926, -2.9863856)
+
+[node name="PogankaNCol7" parent="Scene/Объекты сцены" unique_id=1738252637 instance=ExtResource("10_thmod")]
+transform = Transform3D(-0.9982232, -0.048049092, 0.03523753, -3.4615006e-09, 0.59138, 0.806393, -0.05958526, 0.80496037, -0.5903293, -9.349012, 2.400594, -2.1908405)
+
+[node name="PogankaNCol8" parent="Scene/Объекты сцены" unique_id=521451647 instance=ExtResource("10_thmod")]
+transform = Transform3D(-0.5996384, 0.6453331, -0.4732643, 1.7361401e-10, 0.59138, 0.806393, 0.80027103, 0.4835443, -0.3546142, -9.349012, 0.5953151, -2.4411297)
+
+[node name="PogankaNCol5" parent="Scene/Объекты сцены" unique_id=466098690 instance=ExtResource("10_thmod")]
+transform = Transform3D(-0.9772126, -0.17116734, 0.12552811, 6.601647e-09, 0.59138, 0.806393, -0.21226296, 0.78801745, -0.577904, -9.291371, 1.204926, 0.23437548)
+
+[node name="BoneNCol" parent="Scene/Объекты сцены" unique_id=879504802 instance=ExtResource("11_xt0yc")]
+transform = Transform3D(0.2621386, 0, 0.96503025, 0, 1, 0, -0.96503025, 0, 0.2621386, 9.25807, 0.6307703, 2.8884408)
+
+[node name="BoneNCol2" parent="Scene/Объекты сцены" unique_id=1563696945 instance=ExtResource("11_xt0yc")]
+transform = Transform3D(0.2621386, 0, 0.96503025, 0, 1, 0, -0.96503025, 0, 0.2621386, -9.302313, 1.7900969, -5.0610037)
+
+[node name="BoneNCol3" parent="Scene/Объекты сцены" unique_id=155240707 instance=ExtResource("11_xt0yc")]
+transform = Transform3D(-0.6560064, 0, 0.7547554, 0, 1, 0, -0.7547554, 0, -0.6560064, 9.410973, 0.63077056, -2.7955458)
+
+[node name="BoneNCol4" parent="Scene/Объекты сцены" unique_id=633465269 instance=ExtResource("11_xt0yc")]
+transform = Transform3D(0.12697801, 0, 0.9919055, 0.13025916, 0.99133974, -0.016675025, -0.98331535, 0.13132212, 0.12587835, 9.367362, 0.645733, -2.741413)
+
+[node name="SkullNCol" parent="Scene/Объекты сцены" unique_id=897440610 instance=ExtResource("12_7vkuh")]
+transform = Transform3D(0.6482798, -0.53773457, 0.53905016, 0.6384321, 0.7696783, 0, -0.4148951, 0.34414685, 0.8422737, -8.818589, 0.08378902, 1.1846061)
+
+[node name="BorovikNCol" parent="Scene/Объекты сцены" unique_id=1034141589 instance=ExtResource("13_mkmw2")]
+transform = Transform3D(0.25028753, 0.26189265, 0.93207747, -0.722943, 0.69090766, 0, -0.64397943, -0.6738389, 0.36225903, -6.2673154, 1.6948898, 7.258018)
+
+[node name="BorovikNCol2" parent="Scene/Объекты сцены" unique_id=715048182 instance=ExtResource("13_mkmw2")]
+transform = Transform3D(0.25028753, 0.26189265, 0.93207747, -0.722943, 0.69090766, 0, -0.64397943, -0.6738389, 0.36225903, -7.9730887, 1.6948898, 7.3159256)
+
+[node name="MuhomorNCol3" parent="Scene/Объекты сцены" unique_id=867462134 instance=ExtResource("9_x60gx")]
+transform = Transform3D(0.49644375, 0.8680689, 0, -0.8680689, 0.49644375, 0, 0, 0, 1, -6.0920124, 1.7067373, 7.855645)
+
+[node name="MuhomorNCol4" parent="Scene/Объекты сцены" unique_id=1845167782 instance=ExtResource("9_x60gx")]
+transform = Transform3D(-0.031535175, -0.0551416, -0.99798054, -0.868069, 0.4964438, 0, 0.49544114, 0.8663157, -0.063522145, -9.323717, 1.767314, 5.762977)
+
+[node name="MuhomorNCol5" parent="Scene/Объекты сцены" unique_id=403777681 instance=ExtResource("9_x60gx")]
+transform = Transform3D(-0.031535175, -0.0551416, -0.99798054, -0.868069, 0.4964438, 0, 0.49544114, 0.8663157, -0.063522145, -9.291622, 1.767314, -0.03093195)
+
+[node name="MuhomorNCol6" parent="Scene/Объекты сцены" unique_id=382557081 instance=ExtResource("9_x60gx")]
+transform = Transform3D(-0.20729001, -0.362462, 0.90865415, -0.868069, 0.4964438, 1.8588836e-09, -0.45109567, -0.7887743, -0.41754997, -9.291622, 2.3989017, 0.40462422)
+
+[node name="BoneNCol5" parent="Scene/Объекты сцены" unique_id=1190631923 instance=ExtResource("11_xt0yc")]
+transform = Transform3D(0.76879966, -0.088089444, 2.8984802, 0.11662339, 2.9971287, 0.06015407, -2.8974724, 0.097261384, 0.7714883, -3.939055, 0.029004361, -5.7531567)
+
+[node name="BoneNCol6" parent="Scene/Объекты сцены" unique_id=417869474 instance=ExtResource("11_xt0yc")]
+transform = Transform3D(2.9764276, -0.1143428, 0.35749942, 0.11516345, 2.9977891, 2.7000233e-09, -0.3572359, 0.013723617, 2.9786224, 8.63995, 0.029004838, 1.9671073)
+
+[node name="BoneNCol7" parent="Scene/Объекты сцены" unique_id=1620927142 instance=ExtResource("11_xt0yc")]
+transform = Transform3D(2.4277203, -0.09326359, -1.7599648, 0.11516345, 2.997789, 3.9577768e-09, 1.7586677, -0.0675612, 2.4295104, -5.3606153, 0.029004838, 5.84635)
+
+[node name="RockSmallNCol" parent="Scene/Объекты сцены" unique_id=934146003 instance=ExtResource("14_kf5yi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.638674, 0.0050001144, -0.85912323)
+
+[node name="RockSmallNCol2" parent="Scene/Объекты сцены" unique_id=10880121 instance=ExtResource("14_kf5yi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0824316, 0.005001068, 8.578408)
+
+[node name="Broom2" parent="Scene/Объекты сцены" unique_id=1105700761 instance=ExtResource("10_djhm6")]
+transform = Transform3D(1.1242416, 0.652749, 0, -0.652749, 1.1242416, 0, 0, 0, 1.2999998, 2.6110797, 0.49587977, -9.536461)
+
+[node name="Branch" parent="Scene/Объекты сцены" unique_id=622877612 instance=ExtResource("19_djhm6")]
+transform = Transform3D(0.70682096, 0.38642818, -1.8305948, -0.9594058, 1.754862, 0, 1.6062206, 0.8781416, 0.8055573, 5.9561195, 1.7443863, -6.6599255)
+
+[node name="RockSmallNCol3" parent="Scene/Объекты сцены" unique_id=1372090449 instance=ExtResource("14_kf5yi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.793052, 0.0049996376, 4.864191)
+
+[node name="RockSmallNCol4" parent="Scene/Объекты сцены" unique_id=999149395 instance=ExtResource("14_kf5yi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9332592, 0.0050001144, -8.013246)
+
+[node name="TrutovikNCol" parent="Scene/Объекты сцены" unique_id=1713155812 instance=ExtResource("16_djhm6")]
+transform = Transform3D(-0.33787322, 0, -0.21410671, 0, 0.4, 0, 0.21410671, 0, -0.33787322, 9.476933, 1.1454741, -2.6948388)
+
+[node name="GrassNCol" parent="Scene/Объекты сцены" unique_id=231161701 instance=ExtResource("17_x60gx")]
+transform = Transform3D(1, 0, 0, 0, -0.9941736, 0.10779107, 0, -0.10779107, -0.9941736, -9.299878, 0.88883126, 3.3596885)
+
+[node name="GrassNCol2" parent="Scene/Объекты сцены" unique_id=83581985 instance=ExtResource("17_x60gx")]
+transform = Transform3D(1, 0, 0, 0, 0.8011075, 0.5985203, 0, -0.5985203, 0.8011075, -9.299878, 1.7851372, 2.8704495)
+
+[node name="Свеча (2)" parent="Scene/Объекты сцены" unique_id=945019069 instance=ExtResource("21_shyiv")]
+transform = Transform3D(0.095, 0, 0, 0, 0.095, 0, 0, 0, 0.095, 9.322541, 1.7882581, 2.7860942)
+
+[node name="Свеча (2)2" parent="Scene/Объекты сцены" unique_id=1058501844 instance=ExtResource("21_shyiv")]
+transform = Transform3D(0.072270416, 0, 0.03430724, 0, 0.08, 0, -0.03430724, 0, 0.072270416, 7.2022676, 0.8897678, 7.75788)
+
+[node name="Свеча (2)4" parent="Scene/Объекты сцены" unique_id=1965674885 instance=ExtResource("21_shyiv")]
+transform = Transform3D(0.072270416, 0, 0.03430724, 0, 0.08, 0, -0.03430724, 0, 0.072270416, 6.8265657, 0.8897678, 7.881753)
+
+[node name="Свеча (2)5" parent="Scene/Объекты сцены" unique_id=1650068214 instance=ExtResource("21_shyiv")]
+transform = Transform3D(0.10840562, 0, 0.051460862, 0, 0.12, 0, -0.051460862, 0, 0.10840562, 7.0382643, 0.8897678, 8.20512)
+
+[node name="Свеча (2)6" parent="Scene/Объекты сцены" unique_id=2114012009 instance=ExtResource("21_shyiv")]
+transform = Transform3D(0.056115545, 0, 0.05701793, 0, 0.08, 0, -0.05701793, 0, 0.056115545, 7.711854, 0.8897678, -9.045806)
+
+[node name="Свеча (2)7" parent="Scene/Объекты сцены" unique_id=17501292 instance=ExtResource("21_shyiv")]
+transform = Transform3D(0.056115545, 0, 0.05701793, 0, 0.08, 0, -0.05701793, 0, 0.056115545, 7.401446, 0.8897678, -8.800565)
+
+[node name="Свеча (2)8" parent="Scene/Объекты сцены" unique_id=976286044 instance=ExtResource("21_shyiv")]
+transform = Transform3D(0.08417332, 0, 0.0855269, 0, 0.12, 0, -0.0855269, 0, 0.08417332, 7.71123, 0.8897678, -8.569445)
+
+[node name="Свеча (2)9" parent="Scene/Объекты сцены" unique_id=2136727533 instance=ExtResource("21_shyiv")]
+transform = Transform3D(0.056115545, 0, 0.05701793, 0, 0.08, 0, -0.05701793, 0, 0.056115545, -6.8507404, 0.8897678, -8.5613)
+
+[node name="Свеча (2)10" parent="Scene/Объекты сцены" unique_id=1906369451 instance=ExtResource("21_shyiv")]
+transform = Transform3D(0.056115545, 0, 0.05701793, 0, 0.08, 0, -0.05701793, 0, 0.056115545, -7.1611485, 0.8897678, -8.316059)
+
+[node name="Свеча (2)11" parent="Scene/Объекты сцены" unique_id=998415472 instance=ExtResource("21_shyiv")]
+transform = Transform3D(0.08417332, 0, 0.0855269, 0, 0.12, 0, -0.0855269, 0, 0.08417332, -6.8513646, 0.8897678, -8.084939)
+
+[node name="Свеча (2)12" parent="Scene/Объекты сцены" unique_id=1743055700 instance=ExtResource("21_shyiv")]
+transform = Transform3D(-0.016042441, 0, 0.09363567, 0, 0.095, 0, -0.09363567, 0, -0.016042441, -5.6276503, 0.8897678, -8.545404)
+
+[node name="Свеча (2)13" parent="Scene/Объекты сцены" unique_id=358814315 instance=ExtResource("21_shyiv")]
+transform = Transform3D(-0.016042441, 0, 0.09363567, 0, 0.095, 0, -0.09363567, 0, -0.016042441, -5.6098714, 0.8897678, -8.150208)
+
+[node name="Свеча (2)14" parent="Scene/Объекты сцены" unique_id=1980517747 instance=ExtResource("21_shyiv")]
+transform = Transform3D(-0.016042441, 0, 0.09363567, 0, 0.095, 0, -0.09363567, 0, -0.016042441, -5.2413397, 0.8897678, -8.2666855)
+
+[node name="Свеча (2)15" parent="Scene/Объекты сцены" unique_id=932172593 instance=ExtResource("21_shyiv")]
+transform = Transform3D(-0.016042441, 0, 0.09363567, 0, 0.095, 0, -0.09363567, 0, -0.016042441, -6.785165, 1.6654241, 7.4661026)
+
+[node name="Свеча (2)16" parent="Scene/Объекты сцены" unique_id=591621791 instance=ExtResource("21_shyiv")]
+transform = Transform3D(-0.016042441, 0, 0.09363567, 0, 0.095, 0, -0.09363567, 0, -0.016042441, -6.767386, 1.6654241, 7.8612986)
+
+[node name="Свеча (2)17" parent="Scene/Объекты сцены" unique_id=1120392809 instance=ExtResource("21_shyiv")]
+transform = Transform3D(-0.016042441, 0, 0.09363567, 0, 0.095, 0, -0.09363567, 0, -0.016042441, -6.3988543, 1.6654241, 7.7448215)
+
+[node name="Свеча (2)3" parent="Scene/Объекты сцены" unique_id=1844356508 instance=ExtResource("21_shyiv")]
+transform = Transform3D(0.07, 0, 0, 0, 0.07, 0, 0, 0, 0.07, 7.2022676, 0.46164173, 8.081657)
+
+[node name="Skull" parent="Scene" unique_id=194086902 instance=ExtResource("22_tbmve")]
+transform = Transform3D(-0.42890358, 0, 0.9033503, 0, 1, 0, -0.9033503, 0, -0.42890358, -3.9076858, 0.8284194, -8.137684)
+
+[node name="череп_безчелюстный" parent="Scene" unique_id=376375826 instance=ExtResource("23_s704v")]
+transform = Transform3D(-0.65966064, 0, -0.7515636, 0, 1, 0, 0.7515636, 0, -0.65966064, 5.94916, 1.7342958, -7.232976)
+
+[node name="Player" parent="." unique_id=140876529 instance=ExtResource("2_6auyr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7683716e-07, 0.8952353, 8.398499)
+
+[node name="CameraRig" parent="." unique_id=252267071 instance=ExtResource("3_2vok1")]
+
+[node name="Chest" parent="." unique_id=272723466 instance=ExtResource("17_mkmw2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.192111, -0.016687095, -9.052851)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=771831616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01667738, -6.476158)
+pixel_size = 0.003
+axis = 1
+texture = ExtResource("27_tbmve")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=1855004446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1064014, 0.016677856, -3.673852)
+pixel_size = 0.003
+axis = 1
+texture = ExtResource("27_tbmve")
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=93524547]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.13031, 0.01668024, -3.9252458)
+pixel_size = 0.003
+axis = 1
+texture = ExtResource("27_tbmve")
+
+[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=856389654]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1271348, 0.016678333, 3.4369864)
+pixel_size = 0.003
+axis = 1
+texture = ExtResource("27_tbmve")
+
+[node name="Sprite3D5" type="Sprite3D" parent="." unique_id=766749040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.322966, 0.016678333, 3.3677697)
+pixel_size = 0.003
+axis = 1
+alpha_cut = 1
+texture_filter = 0
+texture = ExtResource("27_tbmve")
+
+[node name="Witch" parent="." unique_id=372944410 instance=ExtResource("28_s704v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7125516)
+detection_range = 8.0

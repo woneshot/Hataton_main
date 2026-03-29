@@ -3,25 +3,24 @@
 [ext_resource type="Texture2D" uid="uid://esao8gupu5eu" path="res://assets/sprites/wolf_bro/wolf_bro_universal.png" id="1_8h1ar"]
 [ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_87wqs"]
 [ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_o3wq8"]
+[ext_resource type="AudioStream" uid="uid://ctdpdjf1qibvr" path="res://assets/audio/voice/wolf/3.mp3" id="3_tifb7"]
 [ext_resource type="Texture2D" uid="uid://bhfvc8668evx7" path="res://assets/normal_maps/Wolf/wolf_bro_universal_n.png" id="3_ys60g"]
+[ext_resource type="AudioStream" uid="uid://dnu5n8wo2k4du" path="res://assets/audio/voice/wolf/0.mp3" id="4_mqqr4"]
+[ext_resource type="AudioStream" uid="uid://cpfj8tnth72n5" path="res://assets/audio/voice/wolf/1.mp3" id="5_ngnn2"]
+[ext_resource type="AudioStream" uid="uid://c57vodj0gxybs" path="res://assets/audio/voice/wolf/2.mp3" id="6_qfs5l"]
 
 [sub_resource type="Resource" id="Resource_btfe3"]
 script = ExtResource("2_o3wq8")
 condition_type = 3
 condition_value = "wolf_is_dying"
 lines = Array[String](["Кха... Я же просто хотел помочь..."])
-metadata/_custom_type_script = "uid://ttk42w6474wt"
-
-[sub_resource type="Resource" id="Resource_o3wq8"]
-script = ExtResource("2_o3wq8")
-condition_type = 3
-condition_value = "easy_boss"
-lines = Array[String](["Если боишься схватки с ведьмой, можешь сбежать", "По это тропе сможешь выйти из леса", "Выбор за тобой..."])
+voice_lines = Array[AudioStream]([ExtResource("3_tifb7")])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="Resource" id="Resource_ys60g"]
 script = ExtResource("2_o3wq8")
 lines = Array[String](["Псс... Я слышал ты хочешь отомстить ведьме за свое унижение", "Я помогу тебе. Не спрашивай почему", "Теперь бой с ведьмой дастся тебе немного проще. Удачи!"])
+voice_lines = Array[AudioStream]([ExtResource("4_mqqr4"), ExtResource("5_ngnn2"), ExtResource("6_qfs5l")])
 set_flags = Array[String](["easy_boss"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
@@ -470,7 +469,7 @@ collision_mask = 2
 script = ExtResource("1_87wqs")
 npc_type = 4
 actor_name = "Зверолюд-незнакомец"
-dialogue_entries = Array[ExtResource("2_o3wq8")]([SubResource("Resource_btfe3"), SubResource("Resource_o3wq8"), SubResource("Resource_ys60g")])
+dialogue_entries = Array[ExtResource("2_o3wq8")]([SubResource("Resource_btfe3"), SubResource("Resource_ys60g")])
 cast_after_flag = "easy_boss"
 force_dialogue_flag = "wolf_is_dying"
 norm_idle = ExtResource("3_ys60g")

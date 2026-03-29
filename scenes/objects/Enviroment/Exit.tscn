@@ -8,7 +8,7 @@ points = PackedVector3Array(-0.27123064, 0.05367823, 0.18831803, -0.14919822, -0
 
 [node name="Exit" unique_id=836583894 instance=ExtResource("1_3ypyq")]
 
-[node name="Выход" parent="." index="0" unique_id=378986258]
+[node name="Выход" parent="." index="0" unique_id=448864525]
 surface_material_override/0 = ExtResource("2_gstbf")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Выход" index="0" unique_id=563455896]

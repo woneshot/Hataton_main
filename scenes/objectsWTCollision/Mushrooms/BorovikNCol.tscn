@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b46qgod3qnwqj"]
+
+[ext_resource type="PackedScene" uid="uid://ppojgpiamtt7" path="res://models/Mushrooms/Боровик.fbx" id="1_6oe4h"]
+[ext_resource type="Material" uid="uid://drouv5vft42gd" path="res://materials/borovik_mat.tres" id="2_g27tf"]
+
+[node name="BorovikNCol" type="Node3D" unique_id=1034141589]
+
+[node name="Боровик" parent="." unique_id=1339585513 instance=ExtResource("1_6oe4h")]
+
+[node name="боровик" parent="Боровик" index="0" unique_id=801930985]
+surface_material_override/0 = ExtResource("2_g27tf")
+
+[editable path="Боровик"]

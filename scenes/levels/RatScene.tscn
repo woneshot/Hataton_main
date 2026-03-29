@@ -598,3 +598,4 @@ shadow_opacity = 0.9
 
 [node name="SceneTransition" parent="." unique_id=1645615911 instance=ExtResource("38_dmh13")]
 transform = Transform3D(2.6815333, 0, 1.7065405, 0, 1.3074598, 0, -0.42711225, 0, 10.714149, -1.2640439, 0.54536164, -14.26834)
+required_flag = "level_complited"

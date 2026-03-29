@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bbmj2ds65qhwu"]
+
+[ext_resource type="PackedScene" uid="uid://db7s74khevlbt" path="res://models/Mushrooms/Трутовик.fbx" id="1_gu2qx"]
+[ext_resource type="Material" uid="uid://bc5ykpsme3dxf" path="res://materials/trutovik_mat.tres" id="2_ho61k"]
+
+[node name="TrutovikNCol" type="Node3D" unique_id=1713155812]
+
+[node name="Трутовик" parent="." unique_id=954068270 instance=ExtResource("1_gu2qx")]
+
+[node name="трутовик" parent="Трутовик" index="0" unique_id=108950218]
+surface_material_override/0 = ExtResource("2_ho61k")
+
+[node name="Трутовик2" parent="." unique_id=4359869 instance=ExtResource("1_gu2qx")]
+
+[node name="трутовик" parent="Трутовик2" index="0" unique_id=108950218]
+surface_material_override/0 = ExtResource("2_ho61k")
+
+[editable path="Трутовик"]
+[editable path="Трутовик2"]
