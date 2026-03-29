@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cd8v1i10kpxsp"]
+
+[ext_resource type="Texture2D" uid="uid://bi1ia40ggga4g" path="res://textures/stone/base color.png" id="1_3i0nl"]
+[ext_resource type="Texture2D" uid="uid://cshmdqnw1dw8l" path="res://textures/stone/ORM.png" id="2_3qxvb"]
+
+[resource]
+albedo_texture = ExtResource("1_3i0nl")
+ao_enabled = true
+ao_texture = ExtResource("2_3qxvb")
+texture_filter = 0

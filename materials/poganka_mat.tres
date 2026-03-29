@@ -1,9 +1,12 @@
 [gd_resource type="ORMMaterial3D" format=3 uid="uid://bbugoxts3g45i"]
 
 [ext_resource type="Texture2D" uid="uid://ck8kwgiswm1a2" path="res://assets/textures/Poganka/base_color (37).png" id="1_muhkh"]
+[ext_resource type="Texture2D" uid="uid://b1tg814i5qj4j" path="res://assets/textures/Poganka/ORMO (37).png" id="2_muhkh"]
 
 [resource]
 albedo_texture = ExtResource("1_muhkh")
+orm_texture = ExtResource("2_muhkh")
+texture_filter = 0
 distance_fade_mode = 2
 distance_fade_min_distance = 4.0
 distance_fade_max_distance = 6.0

@@ -6,6 +6,7 @@
 [resource]
 albedo_texture = ExtResource("1_8if2x")
 orm_texture = ExtResource("2_4bx2f")
+texture_filter = 0
 distance_fade_mode = 2
 distance_fade_min_distance = 4.0
 distance_fade_max_distance = 6.0

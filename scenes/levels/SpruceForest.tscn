@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://7e1ky4ndaro5"]
+
+[ext_resource type="PackedScene" uid="uid://0ej7cjkqqui8" path="res://scenes/objects/Trees/Spruce.tscn" id="1_bhgyf"]
+[ext_resource type="PackedScene" uid="uid://b1xmewe7vhjxm" path="res://scenes/objects/Trees/TreeNormal.tscn" id="2_i11bq"]
+
+[node name="SpruceForest" type="Node3D" unique_id=1783022147]
+
+[node name="Spruce" parent="." unique_id=1468090612 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4767075, 0, 0.66661596)
+
+[node name="Spruce2" parent="." unique_id=910171173 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(1.17, 0, 0, 0, 1.17, 0, 0, 0, 1.17, 0.11489487, 0, -7.6467338)
+
+[node name="Spruce3" parent="." unique_id=334593880 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.414441, 0, -6.148523)
+
+[node name="Spruce4" parent="." unique_id=1073169368 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(0.87, 0, 0, 0, 0.87, 0, 0, 0, 0.87, 4.458753, 0, -8.709789)
+
+[node name="Spruce5" parent="." unique_id=1173855652 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1770153, 0, -3.7566295)
+
+[node name="Spruce6" parent="." unique_id=1486143485 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(0.87, 0, 0, 0, 0.87, 0, 0, 0, 0.87, -8.138668, 0, 6.1645017)
+
+[node name="Spruce7" parent="." unique_id=144498848 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(1.17, 0, 0, 0, 1.17, 0, 0, 0, 1.17, -3.7752275, 0, -11.535454)
+
+[node name="Spruce8" parent="." unique_id=1681300010 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5153179, 0, 2.3271413)
+
+[node name="Spruce9" parent="." unique_id=1857694315 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(1.1695508, -0.015668869, 0.028378889, 0.015953446, 1.1698339, -0.011571639, -0.028219892, 0.011954155, 1.1695985, 5.758742, 0, 6.916246)
+
+[node name="Spruce10" parent="." unique_id=965442174 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8834653, 0, 0.08998442)
+
+[node name="Spruce11" parent="." unique_id=567460973 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5428734, 0, -2.2836766)
+
+[node name="Spruce12" parent="." unique_id=1256950953 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0394497, 0, -3.8300614)
+
+[node name="Spruce13" parent="." unique_id=1064604444 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(0.87, 0, 0, 0, 0.87, 0, 0, 0, 0.87, 0.74598217, 0, 9.943445)
+
+[node name="Spruce14" parent="." unique_id=1139453267 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2274446, 0, 6.2437873)
+
+[node name="Spruce15" parent="." unique_id=1857227720 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(0.87, 0, 0, 0, 0.87, 0, 0, 0, 0.87, -6.7739162, 0, 1.7446513)
+
+[node name="Spruce16" parent="." unique_id=1857400449 instance=ExtResource("1_bhgyf")]
+transform = Transform3D(0.87, 0, 0, 0, 0.87, 0, 0, 0, 0.87, 6.1448793, 0, 11.34778)
+
+[node name="TreeNormal" parent="." unique_id=1734442354 instance=ExtResource("2_i11bq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.041151, 0, 5.935182)
+
+[node name="TreeNormal2" parent="." unique_id=595047512 instance=ExtResource("2_i11bq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0075674, 0, -4.049274)
+
+[node name="TreeNormal3" parent="." unique_id=340304301 instance=ExtResource("2_i11bq")]
+transform = Transform3D(1.13, 0, 0, 0, 1.13, 0, 0, 0, 1.13, -7.060444, 0, -8.519356)
+
+[node name="TreeNormal4" parent="." unique_id=1200000938 instance=ExtResource("2_i11bq")]
+transform = Transform3D(1.065, 0, 0, 0, 1.065, 0, 0, 0, 1.065, 5.0203247, 0, 2.7240624)

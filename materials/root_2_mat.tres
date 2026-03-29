@@ -6,3 +6,4 @@
 [resource]
 albedo_texture = ExtResource("1_602ql")
 orm_texture = ExtResource("2_d08hm")
+texture_filter = 0

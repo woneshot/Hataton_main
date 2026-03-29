@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://djf8ks0nxvt25"]
+
+[ext_resource type="PackedScene" uid="uid://bo1a3l0h4v7o2" path="res://models/fire.fbx" id="1_7s2qi"]
+[ext_resource type="Script" uid="uid://qlj03qrpr6kf" path="res://scripts/prefabs/campfire.gd" id="2_bcnt7"]
+[ext_resource type="Material" uid="uid://cbaqn6gsska2x" path="res://materials/fire_mat.tres" id="3_ulp66"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4wpew"]
+height = 0.27180666
+radius = 0.4
+
+[sub_resource type="Gradient" id="Gradient_7s2qi"]
+offsets = PackedFloat32Array(0, 0.49666667, 1)
+colors = PackedColorArray(0.957589, 0, 0.16248775, 1, 0.86675555, 0.6221078, 3.85046e-07, 1, 0.9615491, 0.45810628, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_bcnt7"]
+gradient = SubResource("Gradient_7s2qi")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l5cdx"]
+emission_shape_scale = Vector3(0.3, 0.3, 0.3)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 2, 0)
+color_ramp = SubResource("GradientTexture1D_bcnt7")
+turbulence_enabled = true
+turbulence_noise_strength = 0.56
+turbulence_noise_scale = 0.272
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3rq1"]
+albedo_color = Color(1, 0.30980393, 0, 1)
+emission_enabled = true
+emission = Color(0.7707919, 0.053493164, 4.813075e-07, 1)
+emission_energy_multiplier = 8.79
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_j2xvu"]
+material = SubResource("StandardMaterial3D_p3rq1")
+size = Vector2(0.02, 0.02)
+
+[node name="fire" unique_id=1963208066 instance=ExtResource("1_7s2qi")]
+script = ExtResource("2_bcnt7")
+
+[node name="Star001" parent="." index="0" unique_id=1087503479]
+surface_material_override/0 = ExtResource("3_ulp66")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=430579074]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=606263694]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017650988, 0.103722125, -0.015869904)
+shape = SubResource("CylinderShape3D_4wpew")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="2" unique_id=1552050005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26265612, -0.020214617)
+light_color = Color(1, 0.5764706, 0, 1)
+light_energy = 6.0
+shadow_enabled = true
+shadow_blur = 3.0
+omni_range = 7.0
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3" unique_id=748545115]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19450074, -0.031436086)
+cast_shadow = 0
+amount = 12
+lifetime = 2.0
+preprocess = 5.0
+speed_scale = 0.65
+randomness = 0.52
+process_material = SubResource("ParticleProcessMaterial_l5cdx")
+draw_pass_1 = SubResource("QuadMesh_j2xvu")

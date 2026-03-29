@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cayyq0pheqntf"]
+
+[ext_resource type="PackedScene" uid="uid://b5vdjlltvem68" path="res://models/woods.fbx" id="1_v6ssl"]
+[ext_resource type="Material" uid="uid://dxd7ivn3yjnus" path="res://materials/woods_mat.tres" id="2_k66ms"]
+
+[node name="woods" unique_id=577766784 instance=ExtResource("1_v6ssl")]
+
+[node name="Box001" parent="." index="0" unique_id=6442546]
+transform = Transform3D(0.46, 0, 0, 0, -2.0107239e-08, 0.46, 0, -0.46, -2.0107239e-08, 0, 0.04525416, 0)
+surface_material_override/0 = ExtResource("2_k66ms")

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://4pb80emqyyio"]
+
+[ext_resource type="Script" uid="uid://drw1pk2acv5j7" path="res://scripts/UI/dialog_manager.gd" id="1_5akau"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ek0c"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[node name="DialogManager" type="CanvasLayer" unique_id=20368248]
+follow_viewport_scale = 0.001
+script = ExtResource("1_5akau")
+
+[node name="Panel" type="Panel" parent="." unique_id=1092736681]
+offset_left = 304.0
+offset_top = 400.0
+offset_right = 464.0
+offset_bottom = 432.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_1ek0c")
+
+[node name="DialogText" type="Label" parent="Panel" unique_id=221640310]
+layout_mode = 0
+offset_left = -1.335144e-05
+offset_right = 222.22072
+offset_bottom = 66.666626
+scale = Vector2(0.7200049, 0.48000002)
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

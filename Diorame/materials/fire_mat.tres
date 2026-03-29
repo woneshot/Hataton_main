@@ -1,0 +1,15 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://cbaqn6gsska2x"]
+
+[ext_resource type="Texture2D" uid="uid://c7wpt8utnytn6" path="res://textures/fire/base color.png" id="1_cdmii"]
+[ext_resource type="Texture2D" uid="uid://blx7g8yjnjdsj" path="res://textures/fire/emission.png" id="2_4s1ki"]
+[ext_resource type="Texture2D" uid="uid://bcsm1ggxkq47j" path="res://textures/fire/ORM.png" id="3_36ybs"]
+
+[resource]
+albedo_texture = ExtResource("1_cdmii")
+orm_texture = ExtResource("3_36ybs")
+emission_enabled = true
+emission = Color(0.7649327, 0.76493275, 0.76493275, 1)
+emission_energy_multiplier = 9.51
+emission_operator = 1
+emission_texture = ExtResource("2_4s1ki")
+texture_filter = 0
