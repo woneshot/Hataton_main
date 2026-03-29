@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dxrfavi2pjo5s"]
 
-[ext_resource type="Script" path="res://scripts/objects/level.gd" id="1_dmh13"]
+[ext_resource type="Script" uid="uid://yh85ytqjfifs" path="res://scripts/objects/level.gd" id="1_dmh13"]
 [ext_resource type="PackedScene" uid="uid://bcvoqq8sh7vgc" path="res://scenes/objects/Logs/Log.tscn" id="1_ei8ch"]
 [ext_resource type="Texture2D" uid="uid://ojr4fn3hm7dk" path="res://assets/FLOOR.jpeg" id="1_q05cq"]
 [ext_resource type="Texture2D" uid="uid://c86pi6v6pteeg" path="res://assets/FLOOR_N.png" id="2_q7g3g"]
@@ -20,25 +20,25 @@
 [ext_resource type="PackedScene" uid="uid://bthiexl7k4a36" path="res://scenes/objects/Enviroment/House.tscn" id="15_7fh15"]
 [ext_resource type="PackedScene" uid="uid://b1xmewe7vhjxm" path="res://scenes/objects/Trees/TreeNormal.tscn" id="16_08rq1"]
 [ext_resource type="PackedScene" uid="uid://0ej7cjkqqui8" path="res://scenes/objects/Trees/Spruce.tscn" id="17_eueyj"]
-[ext_resource type="Script" path="res://scripts/objects/kotel_fire.gd" id="17_rn26d"]
+[ext_resource type="Script" uid="uid://bcstr1lr2e1mb" path="res://scripts/objects/kotel_fire.gd" id="17_rn26d"]
 [ext_resource type="PackedScene" uid="uid://cpy65r1078nt3" path="res://scenes/objects/Trees/TreeNaked.tscn" id="18_rv1ks"]
-[ext_resource type="Script" path="res://scripts/objects/flicker_light.gd" id="18_viwgy"]
+[ext_resource type="Script" uid="uid://c8gmjn2bq3ofr" path="res://scripts/objects/flicker_light.gd" id="18_viwgy"]
 [ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="19_eueyj"]
 [ext_resource type="PackedScene" uid="uid://cigbeho856dvr" path="res://scenes/prefabs/CameraRig.tscn" id="20_rv1ks"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/crystall1_item.tscn" id="21_61akd"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/crystall2_item.tscn" id="22_yxr15"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/bone_item.tscn" id="23_s6yrj"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/skool_item.tscn" id="24_fy4ph"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/stone_item.tscn" id="25_dqbwq"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/sword_item.tscn" id="26_28s52"]
+[ext_resource type="PackedScene" uid="uid://b0r3x5drtc6hs" path="res://scenes/prefabs/crystall1_item.tscn" id="21_61akd"]
+[ext_resource type="PackedScene" uid="uid://brfw3lg8re4fc" path="res://scenes/prefabs/crystall2_item.tscn" id="22_yxr15"]
+[ext_resource type="PackedScene" uid="uid://c5h7puho6ql5e" path="res://scenes/prefabs/bone_item.tscn" id="23_s6yrj"]
+[ext_resource type="PackedScene" uid="uid://ba2ulbvf88w00" path="res://scenes/prefabs/skool_item.tscn" id="24_fy4ph"]
+[ext_resource type="PackedScene" uid="uid://brd7mo8mbj7ur" path="res://scenes/prefabs/stone_item.tscn" id="25_dqbwq"]
+[ext_resource type="PackedScene" uid="uid://doxyjut5wn535" path="res://scenes/prefabs/sword_item.tscn" id="26_28s52"]
 [ext_resource type="PackedScene" uid="uid://ckr8arm6c7vm" path="res://scenes/prefabs/rat_bro.tscn" id="27_yxr15"]
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="28_s6yrj"]
 [ext_resource type="PackedScene" uid="uid://cutnmp0xg5fx1" path="res://scenes/objects/Mushrooms/Poganka.tscn" id="29_0pqlh"]
 [ext_resource type="Material" uid="uid://drouv5vft42gd" path="res://materials/borovik_mat.tres" id="30_s5438"]
 [ext_resource type="PackedScene" uid="uid://672kylrnkbdi" path="res://scenes/objects/Enviroment/Grass.tscn" id="31_q05cq"]
-[ext_resource type="PackedScene" uid="uid://cu28pcygne4va" path="res://scenes/objects/Trees/Enter.tscn" id="32_q7g3g"]
+[ext_resource type="PackedScene" uid="uid://ci8ky1tjwcx6w" path="res://scenes/objects/Trees/Enter.tscn" id="32_q7g3g"]
 [ext_resource type="PackedScene" uid="uid://cuekfhmsyam7s" path="res://scenes/ui/screen_effects.tscn" id="37_ix5yp"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/SceneTransition.tscn" id="38_dmh13"]
+[ext_resource type="PackedScene" uid="uid://phdfmw58m5ho" path="res://scenes/prefabs/SceneTransition.tscn" id="38_dmh13"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn26d"]
 albedo_color = Color(0.3603736, 0.1989896, 0.064097874, 1)
@@ -601,4 +601,4 @@ shadow_opacity = 0.9
 
 [node name="SceneTransition" parent="." unique_id=1645615911 instance=ExtResource("38_dmh13")]
 transform = Transform3D(2.6815333, 0, 1.7065405, 0, 1.3074598, 0, -0.42711225, 0, 10.714149, -1.2640439, 0.54536164, -14.26834)
-required_flag = "level_complited"
+required_flag = "level_completed"
