@@ -78,7 +78,7 @@ var last_anim_name: String = ""
 
 @onready var visuals = $Visuals
 @onready var sprite: AnimatedSprite3D = $Visuals/Sprite
-@onready var audio_player = $ArrowSfxPlayer
+@onready var audio_player = $SfxPlayer
 
 func _ready() -> void:
 	_init_visuals()
