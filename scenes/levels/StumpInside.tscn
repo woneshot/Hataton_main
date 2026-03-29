@@ -27,7 +27,6 @@ normal_enabled = true
 normal_scale = 2.92
 normal_texture = ExtResource("1_lhb3i")
 uv1_scale = Vector3(4.18, 4.18, 4.18)
-texture_filter = 0
 distance_fade_mode = 2
 distance_fade_min_distance = 4.0
 distance_fade_max_distance = 8.0

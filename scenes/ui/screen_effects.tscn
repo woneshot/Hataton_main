@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://cuekfhmsyam7s"]
 
-[node name="ScreenEffects" type="CanvasLayer" unique_id=1867351135]
+[ext_resource type="Script" uid="uid://dmwo4goqniktq" path="res://scripts/objects/screen_effects.gd" id="1_2eevt"]
+
+[node name="ScreenEffects" type="CanvasLayer" unique_id=1867351135 groups=["screen_effects"]]
+layer = 128
+script = ExtResource("1_2eevt")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=375957498]
 anchors_preset = 15

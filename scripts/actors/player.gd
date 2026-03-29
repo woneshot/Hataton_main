@@ -35,6 +35,7 @@ extends CharacterBody3D
 @export var norm_idle: Texture2D
 @export var norm_run: Texture2D
 @export var norm_attack: Texture2D
+@export var norm_attack_2: Texture2D 
 @export var norm_dash: Texture2D
 @export var norm_hurt: Texture2D
 @export var norm_death: Texture2D
@@ -259,11 +260,14 @@ func _attack() -> void:
 	facing_change_timer = 0.0
 	_update_facing_direction(dir_to_mouse)
 
-	var attack_variant = str(randi_range(1, 2))
-	var anim_name = "attack_" + current_facing + "_" + attack_variant
+	var attack_variant = randi_range(1, 2)
+	var anim_name = "attack_" + current_facing + "_" + str(attack_variant)
+	
+	# Выбираем нормалку по варианту
+	var norm_sheet = norm_attack if attack_variant == 1 else norm_attack_2
 
 	last_anim_name = ""
-	_set_anim_and_normal(anim_name, norm_attack)
+	_set_anim_and_normal(anim_name, norm_sheet)
 
 	if sfx_attack:
 		sfx_player.stream = sfx_attack

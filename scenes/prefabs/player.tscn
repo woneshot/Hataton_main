@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://jpbackmxgn4t" path="res://assets/normal_maps/Hero/hero_walk_n.png" id="3_gkb8g"]
 [ext_resource type="Texture2D" uid="uid://fk5ynlvoq07u" path="res://assets/normal_maps/Hero/hero_islash_n.png" id="4_c1k3r"]
 [ext_resource type="Texture2D" uid="uid://cj5lwmmvcfke5" path="res://assets/sprites/main/hero_hurt.png" id="4_r053x"]
+[ext_resource type="Texture2D" uid="uid://ck45m2lmntlys" path="res://assets/normal_maps/Hero/hero_slash_n.png" id="5_gkb8g"]
 [ext_resource type="Texture2D" uid="uid://bewx7a1egeomu" path="res://assets/sprites/main/hero_idle.png" id="5_jybep"]
 [ext_resource type="Texture2D" uid="uid://mvusrmn5f77u" path="res://assets/normal_maps/Hero/hero_thrust_n.png" id="5_xtlg4"]
 [ext_resource type="Texture2D" uid="uid://b7qlqgejtot4q" path="res://assets/sprites/main/hero_walk.png" id="6_50rl7"]
@@ -962,6 +963,7 @@ dash_duration = 0.4
 norm_idle = ExtResource("2_lagtt")
 norm_run = ExtResource("3_gkb8g")
 norm_attack = ExtResource("4_c1k3r")
+norm_attack_2 = ExtResource("5_gkb8g")
 norm_dash = ExtResource("5_xtlg4")
 norm_death = ExtResource("6_va4sl")
 
@@ -979,11 +981,11 @@ draw_pass_1 = SubResource("QuadMesh_r053x")
 cast_shadow = 2
 offset = Vector2(0, -3.72)
 pixel_size = 0.03
-billboard = 1
+billboard = 2
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_6v0jn")
-animation = &"dash_right"
+animation = &"attack_up_1"
 
 [node name="ItemAboveHead" type="Sprite3D" parent="Visuals" unique_id=1798970287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0703503, 0)

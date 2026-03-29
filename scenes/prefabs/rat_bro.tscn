@@ -3,7 +3,23 @@
 [ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_1gcud"]
 [ext_resource type="Texture2D" uid="uid://diracb8usdyno" path="res://assets/sprites/rat_bro/rat_bro_universal.png" id="1_1qwof"]
 [ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_tyrh8"]
+[ext_resource type="AudioStream" uid="uid://ci5fh3lnen8wx" path="res://assets/audio/voice/rat/0.mp3" id="3_3hbgi"]
 [ext_resource type="Texture2D" uid="uid://jb8l0ddpe1ph" path="res://assets/normal_maps/Rat/rat_bro_universal_n.png" id="3_7ugjo"]
+[ext_resource type="AudioStream" uid="uid://c7dyqvux821yi" path="res://assets/audio/voice/rat/14.mp3" id="3_tf68x"]
+[ext_resource type="AudioStream" uid="uid://c0gg246kqc05t" path="res://assets/audio/voice/rat/15.mp3" id="4_0grta"]
+[ext_resource type="AudioStream" uid="uid://db2tvkd01bpov" path="res://assets/audio/voice/rat/1.mp3" id="4_y7e38"]
+[ext_resource type="AudioStream" uid="uid://b1x02q6og8ggu" path="res://assets/audio/voice/rat/2.mp3" id="5_7lsds"]
+[ext_resource type="AudioStream" uid="uid://l4sqart7qteq" path="res://assets/audio/voice/rat/11.mp3" id="5_vaq0m"]
+[ext_resource type="AudioStream" uid="uid://bwdt66fajg6j" path="res://assets/audio/voice/rat/12.mp3" id="6_44hwb"]
+[ext_resource type="AudioStream" uid="uid://brd3c1yttun5p" path="res://assets/audio/voice/rat/3.mp3" id="6_yrpaq"]
+[ext_resource type="AudioStream" uid="uid://cn6j11y7ixulr" path="res://assets/audio/voice/rat/13.mp3" id="7_8wwga"]
+[ext_resource type="AudioStream" uid="uid://o833553eoici" path="res://assets/audio/voice/rat/4.mp3" id="7_qcinp"]
+[ext_resource type="AudioStream" uid="uid://830ipx2rlvwl" path="res://assets/audio/voice/rat/10.mp3" id="8_7sarw"]
+[ext_resource type="AudioStream" uid="uid://btgq4e5ue1am0" path="res://assets/audio/voice/rat/5.mp3" id="8_o3opj"]
+[ext_resource type="AudioStream" uid="uid://cm3sdw0hq5xug" path="res://assets/audio/voice/rat/9.mp3" id="9_542xy"]
+[ext_resource type="AudioStream" uid="uid://c3q2bl2lv421e" path="res://assets/audio/voice/rat/7.mp3" id="10_ohqgr"]
+[ext_resource type="AudioStream" uid="uid://f7ulwdweo1de" path="res://assets/audio/voice/rat/8.mp3" id="11_so2v5"]
+[ext_resource type="AudioStream" uid="uid://c6a04dukcdini" path="res://assets/audio/voice/rat/6.mp3" id="12_dbrt0"]
 
 [sub_resource type="Resource" id="Resource_tyrh8"]
 script = ExtResource("2_tyrh8")
@@ -11,6 +27,7 @@ condition_type = 3
 condition_value = "three_items"
 required_flag = "level_completed"
 lines = Array[String](["Да, моя магия не сверкает. Извини, дружище!", "А теперь, отойди-ка от меня. Не дай бог раздавишь"])
+voice_lines = Array[AudioStream]([ExtResource("3_tf68x"), ExtResource("4_0grta")])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="Resource" id="Resource_y71e6"]
@@ -18,6 +35,7 @@ script = ExtResource("2_tyrh8")
 condition_type = 2
 required_flag = "three_items"
 lines = Array[String](["Да, это оно! В точности, как я описывал", "Ну и долго же ты копался! Ха-ха!", "Приготовься, может немного покалывать!"])
+voice_lines = Array[AudioStream]([ExtResource("5_vaq0m"), ExtResource("6_44hwb"), ExtResource("7_8wwga")])
 set_flags = Array[String](["level_completed"])
 consume_item = true
 metadata/_custom_type_script = "uid://ttk42w6474wt"
@@ -27,6 +45,7 @@ script = ExtResource("2_tyrh8")
 condition_type = 2
 required_flag = "two_items"
 lines = Array[String](["Ты что, слепой?! Я же четко сказал, что нужно принести!!!"])
+voice_lines = Array[AudioStream]([ExtResource("8_7sarw")])
 set_flags = Array[String](["three_items"])
 consume_item = true
 metadata/_custom_type_script = "uid://ttk42w6474wt"
@@ -36,6 +55,7 @@ script = ExtResource("2_tyrh8")
 condition_type = 2
 required_flag = "one_item"
 lines = Array[String](["Опять не то! Ты меня вообще слушал?"])
+voice_lines = Array[AudioStream]([ExtResource("9_542xy")])
 set_flags = Array[String](["two_items"])
 consume_item = true
 metadata/_custom_type_script = "uid://ttk42w6474wt"
@@ -45,6 +65,7 @@ script = ExtResource("2_tyrh8")
 condition_type = 2
 required_flag = "quest_started"
 lines = Array[String](["Даже Крот поймет, что это не та штука!", "Эх... Скучаю по нему, хороший был парень..."])
+voice_lines = Array[AudioStream]([ExtResource("10_ohqgr"), ExtResource("11_so2v5")])
 set_flags = Array[String](["one_item"])
 consume_item = true
 metadata/_custom_type_script = "uid://ttk42w6474wt"
@@ -54,11 +75,13 @@ script = ExtResource("2_tyrh8")
 condition_type = 3
 condition_value = "quest_started"
 lines = Array[String](["Ну так ты будешь шевелиться?"])
+voice_lines = Array[AudioStream]([ExtResource("12_dbrt0")])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="Resource" id="Resource_7ugjo"]
 script = ExtResource("2_tyrh8")
 lines = Array[String](["Привет, друг! Не видел тебя *кашляет* здесь раньше!", "Ага, значит поганная ведьма и над тобой поиздеваться успела", "Она погубила много моих друзей ради своих зелий *кашляет*", "Так, что я помогу тебе просто так. Тебе нужно всего лишь принести мне...", "Эээ... Ну самую крутую штуку с моего хранилища. Да, именно ее, ты сразу ее увидишь", "Я бы сам с радостью сходил, но как видишь *кашляет* ноги не те уже ха-ха-ха"])
+voice_lines = Array[AudioStream]([ExtResource("3_3hbgi"), ExtResource("4_y7e38"), ExtResource("5_7lsds"), ExtResource("6_yrpaq"), ExtResource("7_qcinp"), ExtResource("8_o3opj")])
 set_flags = Array[String](["quest_started"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
