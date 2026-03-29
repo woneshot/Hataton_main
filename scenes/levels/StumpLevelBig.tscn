@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://du0jmsq82uey"]
 
 [ext_resource type="PackedScene" uid="uid://cutnmp0xg5fx1" path="res://scenes/objects/Mushrooms/Poganka.tscn" id="1_lnrgy"]
+[ext_resource type="Script" path="res://scripts/objects/level.gd" id="1_wa3u7"]
 [ext_resource type="PackedScene" uid="uid://b8lxnovkqkwqu" path="res://scenes/objects/Rocks/RockSmall.tscn" id="2_3y4bc"]
 [ext_resource type="PackedScene" uid="uid://d2wjlkuulf1c2" path="res://scenes/objects/Rocks/RockMid.tscn" id="3_htage"]
 [ext_resource type="PackedScene" uid="uid://d4jq553341tg" path="res://scenes/objects/Bones/Bone.tscn" id="6_3y4bc"]
@@ -13,16 +14,16 @@
 [ext_resource type="Texture2D" uid="uid://ojr4fn3hm7dk" path="res://assets/FLOOR.jpeg" id="12_xsrrs"]
 [ext_resource type="Texture2D" uid="uid://c86pi6v6pteeg" path="res://assets/FLOOR_N.png" id="13_ajt3b"]
 [ext_resource type="PackedScene" uid="uid://l2qdkhoeonxj" path="res://scenes/objects/Rocks/RockBig.tscn" id="13_vyj73"]
-[ext_resource type="Script" uid="uid://cxmw6hswtyt6g" path="res://scripts/objects/auto_grass.gd" id="14_tbso1"]
+[ext_resource type="Script" path="res://scripts/objects/auto_grass.gd" id="14_tbso1"]
 [ext_resource type="PackedScene" uid="uid://bfotets2yv467" path="res://scenes/objects/Enviroment/Chest.tscn" id="14_xsrrs"]
 [ext_resource type="PackedScene" uid="uid://byejev5f40we3" path="res://scenes/objects/Enviroment/Kotel.tscn" id="15_ajt3b"]
-[ext_resource type="PackedScene" uid="uid://ci8ky1tjwcx6w" path="res://scenes/objects/Trees/Enter.tscn" id="15_heega"]
+[ext_resource type="PackedScene" uid="uid://cu28pcygne4va" path="res://scenes/objects/Trees/Enter.tscn" id="15_heega"]
 [ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="16_heega"]
 [ext_resource type="Material" uid="uid://drouv5vft42gd" path="res://materials/borovik_mat.tres" id="16_xsrrs"]
 [ext_resource type="PackedScene" uid="uid://cigbeho856dvr" path="res://scenes/prefabs/CameraRig.tscn" id="17_jkc3g"]
 [ext_resource type="PackedScene" uid="uid://672kylrnkbdi" path="res://scenes/objects/Enviroment/Grass.tscn" id="18_jkc3g"]
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="22_wa3u7"]
-[ext_resource type="PackedScene" uid="uid://phdfmw58m5ho" path="res://scenes/prefabs/SceneTransition.tscn" id="23_tbso1"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/SceneTransition.tscn" id="23_tbso1"]
 [ext_resource type="PackedScene" uid="uid://cuekfhmsyam7s" path="res://scenes/ui/screen_effects.tscn" id="24_mv2jo"]
 [ext_resource type="PackedScene" uid="uid://dxrfavi2pjo5s" path="res://scenes/levels/RatScene.tscn" id="24_wa3u7"]
 
@@ -125,6 +126,8 @@ adjustment_saturation = 0.85
 [sub_resource type="Compositor" id="Compositor_0c07m"]
 
 [node name="StumpLevelBig" type="Node3D" unique_id=1097703287]
+script = ExtResource("1_wa3u7")
+monologue_lines = Array[String](["Фуххх... Похоже это будет не так просто"])
 
 [node name="Scene" type="Node3D" parent="." unique_id=2132333424]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)

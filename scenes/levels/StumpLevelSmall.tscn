@@ -1,6 +1,6 @@
-[gd_scene format=4 uid="uid://bmqin3vwxa45m"]
+[gd_scene format=4 uid="uid://gmbyh8mbaebn"]
 
-[ext_resource type="Script" uid="uid://yh85ytqjfifs" path="res://scripts/objects/level.gd" id="1_gk0wo"]
+[ext_resource type="Script" path="res://scripts/objects/level.gd" id="1_gk0wo"]
 [ext_resource type="PackedScene" uid="uid://cutnmp0xg5fx1" path="res://scenes/objects/Mushrooms/Poganka.tscn" id="1_nx62o"]
 [ext_resource type="Script" uid="uid://6purojar8bge" path="res://scripts/objects/camera_rig.gd" id="1_v5fec"]
 [ext_resource type="PackedScene" uid="uid://b8lxnovkqkwqu" path="res://scenes/objects/Rocks/RockSmall.tscn" id="2_esma0"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ojr4fn3hm7dk" path="res://assets/FLOOR.jpeg" id="5_ppksh"]
 [ext_resource type="PackedScene" uid="uid://d4jq553341tg" path="res://scenes/objects/Bones/Bone.tscn" id="6_l6dvu"]
 [ext_resource type="Texture2D" uid="uid://c86pi6v6pteeg" path="res://assets/FLOOR_N.png" id="6_v5fec"]
-[ext_resource type="Script" uid="uid://cxmw6hswtyt6g" path="res://scripts/objects/auto_grass.gd" id="7_r5wn2"]
+[ext_resource type="Script" path="res://scripts/objects/auto_grass.gd" id="7_r5wn2"]
 [ext_resource type="PackedScene" uid="uid://bthiexl7k4a36" path="res://scenes/objects/Enviroment/House.tscn" id="7_t3aqv"]
 [ext_resource type="PackedScene" uid="uid://b1xmewe7vhjxm" path="res://scenes/objects/Trees/TreeNormal.tscn" id="8_fysms"]
 [ext_resource type="PackedScene" uid="uid://0ej7cjkqqui8" path="res://scenes/objects/Trees/Spruce.tscn" id="9_e84iw"]
@@ -21,9 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://byejev5f40we3" path="res://scenes/objects/Enviroment/Kotel.tscn" id="15_ap3tq"]
 [ext_resource type="PackedScene" uid="uid://672kylrnkbdi" path="res://scenes/objects/Enviroment/Grass.tscn" id="16_e84iw"]
 [ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="17_e84iw"]
-[ext_resource type="PackedScene" uid="uid://phdfmw58m5ho" path="res://scenes/prefabs/SceneTransition.tscn" id="19_cy82g"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/SceneTransition.tscn" id="19_cy82g"]
 [ext_resource type="PackedScene" uid="uid://dg15p5tq81mgs" path="res://scenes/levels/StumpInside.tscn" id="20_lfypb"]
-[ext_resource type="PackedScene" uid="uid://ci8ky1tjwcx6w" path="res://scenes/objects/Trees/Enter.tscn" id="20_ppksh"]
+[ext_resource type="PackedScene" uid="uid://cu28pcygne4va" path="res://scenes/objects/Trees/Enter.tscn" id="20_ppksh"]
 [ext_resource type="PackedScene" uid="uid://4utgib0jkrcs" path="res://scenes/prefabs/guard.tscn" id="23_ap3tq"]
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="24_0vrmj"]
 [ext_resource type="PackedScene" uid="uid://cuekfhmsyam7s" path="res://scenes/ui/screen_effects.tscn" id="26_81xp3"]
@@ -130,7 +130,7 @@ adjustment_saturation = 0.85
 [node name="StumpLevelSmall" type="Node3D" unique_id=713548402]
 script = ExtResource("1_gk0wo")
 monologue_flag = "level1"
-monologue_lines = Array[String](["Не могу поверить, что это правда произошло"])
+monologue_lines = Array[String](["Не могу поверить, что это правда произошло", "Я обязательно доберусь до нее!"])
 
 [node name="CameraRig" type="Node3D" parent="." unique_id=252267071 groups=["camera_rig"]]
 script = ExtResource("1_v5fec")

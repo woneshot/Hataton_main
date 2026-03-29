@@ -4,12 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://b6fjxunhxgomn" path="res://assets/sprites/pixie king/pixie_king_idle.png" id="1_j5xny"]
 [ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_qse75"]
 [ext_resource type="Texture2D" uid="uid://djskyt01gta1g" path="res://assets/normal_maps/Pixie King/pixie_king_idle_n.png" id="3_deb0d"]
+[ext_resource type="AudioStream" uid="uid://b0gd5h1d70gvr" path="res://assets/audio/voice/king/5.mp3" id="3_okcmy"]
+[ext_resource type="AudioStream" uid="uid://cr8t4wfm52utu" path="res://assets/audio/voice/king/6.mp3" id="4_0pd0n"]
+[ext_resource type="AudioStream" uid="uid://clanhj865i7rd" path="res://assets/audio/voice/king/7.mp3" id="5_mkd03"]
+[ext_resource type="AudioStream" uid="uid://8cco67f5bn5h" path="res://assets/audio/voice/king/8.mp3" id="6_vcvhe"]
+[ext_resource type="AudioStream" uid="uid://cx5pn7r5o05uu" path="res://assets/audio/voice/king/4.mp3" id="7_w13h1"]
+[ext_resource type="AudioStream" uid="uid://cuujp8woslp7" path="res://assets/audio/voice/king/0.mp3" id="8_cndeh"]
+[ext_resource type="AudioStream" uid="uid://bs01sb18qumtk" path="res://assets/audio/voice/king/1.mp3" id="9_2w58g"]
+[ext_resource type="AudioStream" uid="uid://si5lqndh2mg1" path="res://assets/audio/voice/king/2.mp3" id="10_d52dm"]
+[ext_resource type="AudioStream" uid="uid://b56wdy5ahd8rk" path="res://assets/audio/voice/king/3.mp3" id="11_2fyeh"]
 
 [sub_resource type="Resource" id="Resource_qse75"]
 script = ExtResource("2_qse75")
 condition_type = 2
 condition_value = "defeated_vex"
-lines = Array[String](["Ты сделал достаточно. Я признаю тебя", "Как только ты покинешь мои владения, мои чары вступят в силу", "Заклятие отступит частично. Это все, что я могу сделать"])
+lines = Array[String](["Ты сделал достаточно. Я признаю тебя", "Как только ты покинешь мои владения, мои чары вступят в силу", "Заклятие отступит частично. Это все, что я могу сделать", "Это все, что я могу сделать"])
+voice_lines = Array[AudioStream]([ExtResource("3_okcmy"), ExtResource("4_0pd0n"), ExtResource("5_mkd03"), ExtResource("6_vcvhe")])
 set_flags = Array[String](["level_completed1"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
@@ -18,11 +28,13 @@ script = ExtResource("2_qse75")
 condition_type = 2
 condition_value = "vex_attack"
 lines = Array[String](["Как вы посмели, мерзкие Вексы!"])
+voice_lines = Array[AudioStream]([ExtResource("7_w13h1")])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="Resource" id="Resource_deb0d"]
 script = ExtResource("2_qse75")
 lines = Array[String](["Я понимаю твою трагедию, странник", "Но как ты знаешь, в этом мире ничего не бывает просто так", "Если бы ты мог как-нибудь мне помочь...", "О, нет! На нас напали Вексы!"])
+voice_lines = Array[AudioStream]([ExtResource("8_cndeh"), ExtResource("9_2w58g"), ExtResource("10_d52dm"), ExtResource("11_2fyeh")])
 set_flags = Array[String](["vex_attack"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 

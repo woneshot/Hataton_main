@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c3mq4ujfopdca" path="res://assets/Wood_normal.jpeg" id="1_lhb3i"]
 [ext_resource type="PackedScene" uid="uid://d0l4uq4k35l7c" path="res://scenes/objects/Enviroment/Table.tscn" id="1_r0uic"]
 [ext_resource type="Script" path="res://scripts/objects/flicker_light.gd" id="1_us011"]
+[ext_resource type="Script" path="res://scripts/objects/level.gd" id="1_ylfxn"]
 [ext_resource type="PackedScene" uid="uid://bjqamx0y2hlgh" path="res://scenes/objects/Enviroment/Branch.tscn" id="2_1pep5"]
 [ext_resource type="Material" uid="uid://drouv5vft42gd" path="res://materials/borovik_mat.tres" id="3_myoyn"]
 [ext_resource type="Material" uid="uid://bbugoxts3g45i" path="res://materials/poganka_mat.tres" id="4_june8"]
@@ -176,6 +177,8 @@ material = SubResource("StandardMaterial3D_if2ml")
 size = Vector3(75, 1, 75)
 
 [node name="StumpInside" type="Node3D" unique_id=1477246382]
+script = ExtResource("1_ylfxn")
+monologue_lines = Array[String](["Ого, внутри выглядит в разы лучше"])
 
 [node name="Node3D" type="Node3D" parent="." unique_id=2115118070]
 transform = Transform3D(0.67, 0, 0, 0, 0.67, 0, 0, 0, 0.67, 0, 0, 0)
