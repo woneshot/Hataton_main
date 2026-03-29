@@ -3,12 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://buj1pyspwjw0t" path="res://assets/sprites/main/hero_islash.png" id="1_06qtw"]
 [ext_resource type="Script" uid="uid://4mb8kb3bx48i" path="res://scripts/actors/player.gd" id="1_6v0jn"]
 [ext_resource type="Texture2D" uid="uid://cdolpcaw4g37n" path="res://assets/sprites/main/hero_slash.png" id="2_6o77n"]
+[ext_resource type="AudioStream" uid="uid://bwsisxmd3xjxo" path="res://assets/audio/sfx/sword.mp3" id="2_20t1h"]
 [ext_resource type="Texture2D" uid="uid://cuo1833nq2nqe" path="res://assets/normal_maps/Hero/hero_idle_n.png" id="2_lagtt"]
 [ext_resource type="Texture2D" uid="uid://b0xqtkg8mdktv" path="res://assets/sprites/main/hero_thrust.png" id="3_6v0jn"]
+[ext_resource type="AudioStream" uid="uid://m3bp21ubju8p" path="res://assets/audio/sfx/hurt_main.mp3" id="3_aal4f"]
 [ext_resource type="Texture2D" uid="uid://jpbackmxgn4t" path="res://assets/normal_maps/Hero/hero_walk_n.png" id="3_gkb8g"]
+[ext_resource type="AudioStream" uid="uid://1mdiinjw41us" path="res://assets/audio/sfx/dash.mp3" id="4_1a8bf"]
 [ext_resource type="Texture2D" uid="uid://fk5ynlvoq07u" path="res://assets/normal_maps/Hero/hero_islash_n.png" id="4_c1k3r"]
 [ext_resource type="Texture2D" uid="uid://cj5lwmmvcfke5" path="res://assets/sprites/main/hero_hurt.png" id="4_r053x"]
 [ext_resource type="Texture2D" uid="uid://ck45m2lmntlys" path="res://assets/normal_maps/Hero/hero_slash_n.png" id="5_gkb8g"]
+[ext_resource type="AudioStream" uid="uid://62q1mbktlo2r" path="res://assets/audio/sfx/pickup.mp3" id="5_gsvhg"]
 [ext_resource type="Texture2D" uid="uid://bewx7a1egeomu" path="res://assets/sprites/main/hero_idle.png" id="5_jybep"]
 [ext_resource type="Texture2D" uid="uid://mvusrmn5f77u" path="res://assets/normal_maps/Hero/hero_thrust_n.png" id="5_xtlg4"]
 [ext_resource type="Texture2D" uid="uid://b7qlqgejtot4q" path="res://assets/sprites/main/hero_walk.png" id="6_50rl7"]
@@ -960,6 +964,10 @@ dash_attack_range = 5.0
 dash_attack_angle = 0.5
 dash_speed = 15.0
 dash_duration = 0.4
+sfx_attack = ExtResource("2_20t1h")
+sfx_hurt = ExtResource("3_aal4f")
+sfx_dash = ExtResource("4_1a8bf")
+sfx_pickup = ExtResource("5_gsvhg")
 norm_idle = ExtResource("2_lagtt")
 norm_run = ExtResource("3_gkb8g")
 norm_attack = ExtResource("4_c1k3r")

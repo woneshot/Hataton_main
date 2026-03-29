@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://51bgi0i0i7wl" path="res://assets/audio/voice/pixie_rand/2.mp3" id="4_ocpux"]
 [ext_resource type="AudioStream" uid="uid://s1a38g8ikj2b" path="res://assets/audio/voice/pixie_rand/0.mp3" id="5_eexct"]
 [ext_resource type="AudioStream" uid="uid://dmcq3p60c86n4" path="res://assets/audio/voice/pixie_rand/1.mp3" id="6_b0vh5"]
+[ext_resource type="AudioStream" uid="uid://khj62ix3b7jo" path="res://assets/audio/sfx/arrow.mp3" id="9_ocpux"]
 
 [sub_resource type="Resource" id="Resource_vr86f"]
 script = ExtResource("2_vr86f")
@@ -455,7 +456,8 @@ texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_24pdk")
 animation = &"run_right"
 
-[node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=712505433]
+[node name="ArrowSfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=712505433]
+stream = ExtResource("9_ocpux")
 bus = &"Sfx"
 
 [node name="SfxPlayer2" type="AudioStreamPlayer3D" parent="." unique_id=2052872383]

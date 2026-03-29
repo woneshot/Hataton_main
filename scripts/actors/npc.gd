@@ -25,18 +25,23 @@ var cast_particles: GPUParticles3D = null
 @export var disappear_is_death: bool = false
 
 @export_group("Damage")
-@export var can_take_damage_from_enemies: bool = false  # AMBIENT, WOLF
-@export var can_take_damage_from_player: bool = false    # WOLF only
+@export var can_take_damage_from_enemies: bool = false
+@export var can_take_damage_from_player: bool = false
+
+@export_group("Audio")
+@export var sfx_hurt: AudioStream   # Сюда enemy_hurt.mp3
+@export var sfx_death: AudioStream  # Сюда death.mp3
 
 @export_group("RAT Specific")
-@export var dig_chance: float = 0.3  # Шанс начать копать вместо idle
+@export var dig_chance: float = 0.3
 @export var dig_duration_min: float = 2.0
 @export var dig_duration_max: float = 5.0
 
 @export_group("WOLF Specific")
-@export var cast_after_flag: String = ""  # После какого флага играть cast_ анимацию
-@export var force_dialogue_flag: String = ""  # Принудительный диалог по флагу
-@export var force_dialogue_entry_index: int = 0  # Какой entry использовать
+@export var cast_after_flag: String = ""
+@export var force_dialogue_flag: String = ""
+@export var force_dialogue_entry_index: int = 0
+@export var sfx_cast: AudioStream  # Звук фирменного каста Волка!
 
 @export_group("Death")
 @export var death_delay: float = 2.0
@@ -63,18 +68,17 @@ var wander_target: Vector3 = Vector3.ZERO
 var is_wandering: bool = false
 var force_dialogue_triggered: bool = false
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var last_move_dir: Vector3 = Vector3.BACK  # Запоминаем последнее направление движения
+var last_move_dir: Vector3 = Vector3.BACK
 
-# Антифликер
 var current_facing: String = "down"
-var facing_change_timer: float = 0.0 # SIIIIX SEVEEEEEEEEEEEEEEEEn
+var facing_change_timer: float = 0.0 
 const FACING_CHANGE_COOLDOWN: float = 0.1
 const FACING_HYSTERESIS: float = 1.5
 var last_anim_name: String = ""
 
 @onready var visuals = $Visuals
 @onready var sprite: AnimatedSprite3D = $Visuals/Sprite
-@onready var audio_player = $SfxPlayer
+@onready var audio_player = $ArrowSfxPlayer
 
 func _ready() -> void:
 	_init_visuals()
@@ -83,7 +87,6 @@ func _ready() -> void:
 	Events.dialogue_ended_ex.connect(_on_dialogue_ended)
 	sprite.animation_finished.connect(_on_sprite_animation_finished)
 	
-	# Партиклы каста — только если нода существует
 	cast_particles = get_node_or_null("CastParticles")
 	if cast_particles and npc_type == NPCType.WOLF:
 		_setup_cast_particles()
@@ -94,7 +97,6 @@ func _ready() -> void:
 		if Events.get_flag(disappear_on_flag):
 			_disappear()
 	
-	# WOLF: слушаем флаги для принудительного диалога
 	if force_dialogue_flag != "":
 		Events.world_flag_changed.connect(_on_force_dialogue_flag_changed)
 	
@@ -102,8 +104,6 @@ func _ready() -> void:
 		_start_idle_cycle()
 	elif npc_type == NPCType.RAT:
 		_start_idle_cycle()
-		
-
 
 func _process(_delta: float) -> void:
 	_update_sprite_normals()
@@ -117,7 +117,6 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# Каст или копание — стоим на месте
 	if is_casting or is_digging:
 		velocity.x = 0
 		velocity.z = 0
@@ -134,9 +133,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-# ==========================================
-# СПРАЙТ 4 НАПРАВЛЕНИЯ
-# ==========================================
 func _update_sprite_direction() -> void:
 	if not camera_rig or is_dead or is_casting or is_digging: return
 
@@ -149,9 +145,8 @@ func _update_sprite_direction() -> void:
 			face_dir = last_move_dir
 	elif is_wandering and velocity.length() > 0.1:
 		face_dir = Vector3(velocity.x, 0, velocity.z).normalized()
-		last_move_dir = face_dir  # Запоминаем
+		last_move_dir = face_dir 
 	else:
-		# Стоим — используем последнее направление, НЕ камеру
 		face_dir = last_move_dir
 
 	_update_facing_from_dir(face_dir)
@@ -191,9 +186,6 @@ func _update_facing_from_dir(dir: Vector3) -> void:
 		current_facing = new_facing
 		facing_change_timer = FACING_CHANGE_COOLDOWN
 
-# ==========================================
-# ВЗАИМОДЕЙСТВИЕ
-# ==========================================
 func interact() -> void:
 	if Events.is_in_dialogue or is_dead: return
 	is_talking = true
@@ -211,7 +203,6 @@ func interact() -> void:
 		dialog_ui.set_dialog_source(self)
 	Events.start_dialogue(current_entry.lines, actor_name, current_entry.voice_lines)
 
-# Принудительный диалог (без нажатия E, вызывается по флагу)
 func _force_dialogue(entry_index: int) -> void:
 	if Events.is_in_dialogue or is_dead: return
 	if entry_index >= dialogue_entries.size(): return
@@ -250,19 +241,14 @@ func _on_dialogue_ended(completed: bool) -> void:
 
 	current_entry = null
 	
-	# === НОВОЕ: Если мы говорили предсмертную фразу - умираем! ===
 	if is_invulnerable_during_death_speech and completed:
 		is_invulnerable_during_death_speech = false
 		_execute_death()
 		return
-	# =============================================================
 
 	if not is_dead and not is_casting:
 		_start_idle_cycle()
 
-# ==========================================
-# УСЛОВИЯ
-# ==========================================
 func _get_matching_entry() -> DialogueEntry:
 	for entry in dialogue_entries:
 		if _check_condition(entry):
@@ -276,17 +262,11 @@ func _check_condition(entry: DialogueEntry) -> bool:
 	match entry.condition_type:
 		DialogueEntry.ConditionType.NONE: return true
 		DialogueEntry.ConditionType.HAS_ITEM: return Events.has_item(entry.condition_value)
-		
-		# <-- НОВОЕ: Просто проверяем, что строка current_item не пустая
 		DialogueEntry.ConditionType.HAS_ANY_ITEM: return Events.current_item != "" 
-		
 		DialogueEntry.ConditionType.FLAG_TRUE: return Events.get_flag(entry.condition_value)
 		DialogueEntry.ConditionType.FLAG_FALSE: return not Events.get_flag(entry.condition_value)
 	return false
 
-# ==========================================
-# IDLE CYCLE (WANDER / STAND / DIG)
-# ==========================================
 func _start_idle_cycle() -> void:
 	if is_dead or is_talking or is_casting: return
 	
@@ -294,7 +274,6 @@ func _start_idle_cycle() -> void:
 	await get_tree().create_timer(wait_time).timeout
 	if not is_instance_valid(self) or is_talking or is_dead or is_casting: return
 	
-	# RAT: случайно выбираем wander / idle / dig
 	if npc_type == NPCType.RAT:
 		var roll = randf()
 		if roll < dig_chance:
@@ -304,11 +283,9 @@ func _start_idle_cycle() -> void:
 			_start_wander()
 			return
 		else:
-			# Просто стоим и перезапускаем цикл
 			_start_idle_cycle()
 			return
 	
-	# Остальные типы: wander если можно
 	if can_wander:
 		_start_wander()
 	else:
@@ -334,17 +311,11 @@ func _process_wander() -> void:
 		is_wandering = false
 		_start_idle_cycle()
 
-# ==========================================
-# RAT: КОПАНИЕ
-# ==========================================
 func _start_dig() -> void:
 	is_digging = true
 	velocity = Vector3.ZERO
-	
-	# Случайное направление копания
 	var directions = ["down", "up", "left", "right"]
 	current_facing = directions[randi() % directions.size()]
-	
 	last_anim_name = ""
 	_set_anim_and_normal("dig_" + current_facing, norm_dig)
 	
@@ -355,14 +326,19 @@ func _start_dig() -> void:
 		last_anim_name = ""
 		_start_idle_cycle()
 
-# ==========================================
-# WOLF: КАСТ АНИМАЦИЯ
-# ==========================================
 func _play_cast() -> void:
 	is_casting = true
 	velocity = Vector3.ZERO
 	last_anim_name = ""
 	_set_anim_and_normal("cast_" + current_facing, norm_cast)
+	
+	# Звук каста волка
+	if sfx_cast:
+		if AudioManager: # Если есть синглтон для звуков (как было в твоем коде)
+			AudioManager.play_sfx(sfx_cast, global_position)
+		else:            # Фолбэк на локальный плеер
+			audio_player.stream = sfx_cast
+			audio_player.play()
 	
 	if cast_particles:
 		cast_particles.emitting = true
@@ -372,50 +348,41 @@ func _on_sprite_animation_finished() -> void:
 	
 	if sprite.animation.begins_with("cast_"):
 		is_casting = false
-		
 		if cast_particles:
 			cast_particles.emitting = false
 		
 		last_anim_name = ""
 		_start_idle_cycle()
 
-# ==========================================
-# WOLF: ПРИНУДИТЕЛЬНЫЙ ДИАЛОГ ПО ФЛАГУ
-# ==========================================
 func _on_force_dialogue_flag_changed(flag_name: String, _value) -> void:
 	if flag_name == force_dialogue_flag and Events.get_flag(force_dialogue_flag):
 		if not force_dialogue_triggered:
 			force_dialogue_triggered = true
-			# Небольшая задержка чтобы не конфликтовать с другими диалогами
 			await get_tree().create_timer(0.5).timeout
 			if is_instance_valid(self) and not is_dead:
 				_force_dialogue(force_dialogue_entry_index)
 
-# ==========================================
-# УРОН
-# ==========================================
 func take_damage(_amount: int) -> void:
 	if is_dead: return
 	
 	match npc_type:
-		NPCType.GUARD: return   # Неубиваемый
-		NPCType.KING: return    # Неубиваемый
-		NPCType.RAT: return     # Неубиваемый
-		NPCType.AMBIENT: pass   # Может умереть (от врагов)
-		NPCType.WOLF: pass      # Может умереть (от всех)
+		NPCType.GUARD: return 
+		NPCType.KING: return  
+		NPCType.RAT: return   
+		NPCType.AMBIENT: pass 
+		NPCType.WOLF: pass    
 	
-	# === НОВОЕ: Если у NPC есть предсмертная фраза ===
+	if sfx_hurt and not is_invulnerable_during_death_speech:
+		audio_player.stream = sfx_hurt
+		audio_player.play()
+
 	if force_dialogue_flag != "":
-		# Ставим флаг, который запустит принудительный диалог
 		Events.set_flag(force_dialogue_flag)
-		# Делаем NPC бессмертным на время диалога, чтобы он успел договорить!
 		is_invulnerable_during_death_speech = true 
-		return # Прерываем обычную смерть. Он умрет ПОСЛЕ диалога.
-	# ==================================================
+		return 
 
-	_execute_death() # Обычная смерть (вынесли в отдельную функцию для удобства)
+	_execute_death() 
 
-# Выделили логику смерти в отдельную функцию
 func _execute_death() -> void:
 	is_dead = true
 	is_talking = false
@@ -423,6 +390,10 @@ func _execute_death() -> void:
 	is_digging = false
 	is_casting = false
 	velocity = Vector3.ZERO
+	
+	if sfx_death:
+		audio_player.stream = sfx_death
+		audio_player.play()
 	
 	_flash_red()
 	
@@ -443,9 +414,6 @@ func _flash_red() -> void:
 	var tween = create_tween()
 	tween.tween_property(sprite, "modulate", Color.WHITE, 0.25)
 
-# ==========================================
-# ИСЧЕЗНОВЕНИЕ (GUARD)
-# ==========================================
 func _on_flag_changed(flag_name: String, _value) -> void:
 	if flag_name == disappear_on_flag and Events.get_flag(disappear_on_flag):
 		_disappear()
@@ -457,9 +425,6 @@ func _disappear() -> void:
 		await sprite.animation_finished
 	queue_free()
 
-# ==========================================
-# ВИЗУАЛ
-# ==========================================
 func _init_visuals() -> void:
 	if not sprite: return
 	var mat = StandardMaterial3D.new()
@@ -497,42 +462,32 @@ func _update_sprite_normals() -> void:
 			normal_atlas_texture.region = visual_tex.region
 			sprite.material_override.normal_texture = normal_atlas_texture
 			
-			
 func _setup_cast_particles() -> void:
 	var mat = ParticleProcessMaterial.new()
-	
-	# Вихрь вокруг NPC
 	mat.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_RING
 	mat.emission_ring_radius = 0.8
 	mat.emission_ring_inner_radius = 0.2
 	mat.emission_ring_height = 0.1
 	mat.emission_ring_axis = Vector3.UP
-	
-	# Движение вверх по спирали
 	mat.direction = Vector3(0, 1, 0)
 	mat.spread = 30.0
 	mat.initial_velocity_min = 1.0
 	mat.initial_velocity_max = 2.5
 	mat.gravity = Vector3(0, -0.5, 0)
-	
-	# Вращение (вихрь)
 	mat.orbit_velocity_min = 2.0
 	mat.orbit_velocity_max = 4.0
 	
-	# Зелёно-голубой градиент
 	var gradient = Gradient.new()
 	gradient.set_offset(0, 0.0)
-	gradient.set_color(0, Color(0.2, 1.0, 0.5, 1.0))   # Зелёный старт
-	gradient.add_point(0.3, Color(0.0, 0.9, 0.8, 0.9))  # Бирюзовый
-	gradient.add_point(0.7, Color(0.1, 0.6, 1.0, 0.6))  # Голубой
+	gradient.set_color(0, Color(0.2, 1.0, 0.5, 1.0))
+	gradient.add_point(0.3, Color(0.0, 0.9, 0.8, 0.9))
+	gradient.add_point(0.7, Color(0.1, 0.6, 1.0, 0.6))
 	gradient.set_offset(1, 1.0)
-	gradient.set_color(1, Color(0.0, 0.8, 1.0, 0.0))    # Прозрачный конец
-	
+	gradient.set_color(1, Color(0.0, 0.8, 1.0, 0.0))
 	var color_ramp = GradientTexture1D.new()
 	color_ramp.gradient = gradient
 	mat.color_ramp = color_ramp
 	
-	# Размер: мелкие → крупнее → исчезают
 	var scale_curve = Curve.new()
 	scale_curve.add_point(Vector2(0.0, 0.3))
 	scale_curve.add_point(Vector2(0.3, 1.0))
@@ -550,14 +505,11 @@ func _setup_cast_particles() -> void:
 	cast_particles.randomness = 0.3
 	cast_particles.fixed_fps = 30
 	cast_particles.one_shot = false
-	cast_particles.position = Vector3(0, 0.5, 0)  # Центр тела NPC
+	cast_particles.position = Vector3(0, 0.5, 0)
 	
-	# Меш партиклов — маленькие квадратики
 	var quad = QuadMesh.new()
 	quad.size = Vector2(0.08, 0.08)
 	cast_particles.draw_pass_1 = quad
-	
-	# Материал квадратиков — светящийся, billboard
 	var draw_mat = StandardMaterial3D.new()
 	draw_mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	draw_mat.emission_enabled = true

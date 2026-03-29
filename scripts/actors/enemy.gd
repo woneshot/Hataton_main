@@ -18,6 +18,7 @@ enum MobType { CHASER, SHOOTER }
 
 @export_group("Shooter Only")
 @export var projectile_scene: PackedScene
+@export var sfx_arrow: AudioStream  # Звук полёта стрелы (на damage_point)
 
 @export_group("Audio")
 @export var sfx_attack: AudioStream
@@ -238,11 +239,13 @@ func _deal_damage() -> void:
 		dir_to_player.y = 0
 		dir_to_player = dir_to_player.normalized()
 		
-		# Угол между направлением начала атаки и текущим положением игрока
 		var angle_to_player = attack_facing_dir.angle_to(dir_to_player)
 		
+		# Звук стрелы через AudioManager (не перебивает sfx_attack)
+		if sfx_arrow:
+			AudioManager.play_sfx(sfx_arrow, global_position)
+		
 		if angle_to_player > deg_to_rad(45): 
-			# Игрок убежал из конуса 90 градусов - стреляем прямо
 			var p = projectile_scene.instantiate()
 			get_parent().add_child(p)
 			p.global_position = global_position + Vector3(0, 0.8, 0)
@@ -250,7 +253,6 @@ func _deal_damage() -> void:
 				var target = global_position + attack_facing_dir * 10.0 + Vector3(0, 0.8, 0)
 				p.launch(target, self)
 		else:
-			# Игрок в конусе - стреляем в него
 			var p = projectile_scene.instantiate()
 			get_parent().add_child(p)
 			p.global_position = global_position + Vector3(0, 0.8, 0)

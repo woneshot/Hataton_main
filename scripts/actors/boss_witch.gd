@@ -25,10 +25,11 @@ extends CharacterBody3D
 @export var faun_scene: PackedScene
 
 @export_group("Audio")
-@export var sfx_cast: AudioStream
-@export var sfx_hurt: AudioStream
-@export var sfx_death: AudioStream
-@export var sfx_explosion: AudioStream
+@export var sfx_cast_mobs: AudioStream      # Звук призыва мобов
+@export var sfx_cast_fireball: AudioStream  # СЮДА КЛАДЕШЬ fireball.mp3
+@export var sfx_hurt: AudioStream           # СЮДА КЛАДЕШЬ enemy_hurt.mp3
+@export var sfx_death: AudioStream          # СЮДА КЛАДЕШЬ death.mp3
+@export var sfx_explosion: AudioStream      # Звук взрыва (bullet hell)
 
 @export_group("Normal Maps (Sprite Sheets)")
 @export var norm_idle: Texture2D
@@ -78,8 +79,6 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	camera_rig = get_tree().get_first_node_in_group("camera_rig")
 	sprite.animation_finished.connect(_on_sprite_animation_finished)
-	
-	# УБРАЛИ проверку флага отсюда
 		
 	if shield_particles:
 		shield_particles.emitting = false
@@ -143,7 +142,7 @@ func _physics_process(delta: float) -> void:
 		if dist < detection_range:
 			_start_fight()
 			move_and_slide()
-			return  # ← ФИКС: не даём idle перебить cast-анимацию
+			return
 
 	_set_anim_and_normal("idle_" + current_facing, norm_idle)
 	move_and_slide()
@@ -151,8 +150,6 @@ func _physics_process(delta: float) -> void:
 # ==========================================
 # НАЧАЛО БОЯ
 # ==========================================
-
-
 func _start_next_phase() -> void:
 	current_phase += 1
 	
@@ -174,8 +171,9 @@ func _start_cast() -> void:
 	if shield_particles:
 		shield_particles.emitting = true
 	
-	if sfx_cast:
-		sfx_player.stream = sfx_cast
+	# Звук призыва мобов (в начале анимации)
+	if sfx_cast_mobs:
+		sfx_player.stream = sfx_cast_mobs
 		sfx_player.play()
 	
 	last_anim_name = ""
@@ -269,15 +267,16 @@ func _start_fireball_cast() -> void:
 		if dir_to_player.length() > 0.01:
 			_update_facing_from_dir(dir_to_player)
 	
-	if sfx_cast:
-		sfx_player.stream = sfx_cast
-		sfx_player.play()
-	
 	last_anim_name = ""
 	_set_anim_and_normal("cast_" + current_facing, norm_cast)
 
 func _cast_fireballs() -> void:
 	if fireball_scene == null or is_dead: return
+	
+	# ИГРАЕМ ЗВУК ИМЕННО ЗДЕСЬ - В МОМЕНТ ВЫЛЕТА ФАЕРБОЛОВ!
+	if sfx_cast_fireball:
+		sfx_player.stream = sfx_cast_fireball
+		sfx_player.play()
 	
 	for i in fireball_count:
 		var angle = TAU * float(i) / float(fireball_count)
@@ -298,7 +297,6 @@ func _on_sprite_animation_finished() -> void:
 	if is_dead or is_enraged: return
 	
 	if sprite.animation.begins_with("cast_"):
-		# Страховка: если анимация проскочила, спавним принудительно
 		if is_casting and not cast_spawned_this_anim:
 			cast_spawned_this_anim = true
 			_spawn_phase_enemies()
@@ -307,7 +305,7 @@ func _on_sprite_animation_finished() -> void:
 			is_casting = false
 		elif is_casting_fireballs:
 			is_casting_fireballs = false
-			_cast_fireballs()
+			_cast_fireballs() # Здесь вызывается функция спавна и звука фаербола
 		
 		last_anim_name = ""
 		_set_anim_and_normal("idle_" + current_facing, norm_idle)
@@ -325,6 +323,7 @@ func _explode() -> void:
 	if shield_particles:
 		shield_particles.emitting = true
 	
+	# Звук взрыва/перехода в ярость
 	if sfx_explosion:
 		sfx_player.stream = sfx_explosion
 		sfx_player.play()
@@ -353,6 +352,11 @@ func _enrage_barrage_loop() -> void:
 				var target = global_position + dir * 15.0 + Vector3(0, 0.8, 0)
 				fireball.launch(target, self)
 	
+	# (Опционально) Если хочешь, чтобы звук фаербола играл и во время "Bullet Hell":
+	# if sfx_cast_fireball:
+	# 	sfx_player.stream = sfx_cast_fireball
+	# 	sfx_player.play()
+	
 	enrage_angle_offset += 0.15
 	Events.camera_shake_requested.emit(0.1, 0.3)
 	
@@ -370,6 +374,7 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	_flash_red()
 	
+	# Звук получения урона
 	if sfx_hurt:
 		sfx_player.stream = sfx_hurt
 		sfx_player.play()
@@ -400,6 +405,7 @@ func _die() -> void:
 			enemy.take_damage(999)
 	spawned_enemies.clear()
 	
+	# Звук смерти
 	if sfx_death:
 		sfx_player.stream = sfx_death
 		sfx_player.play()
@@ -419,7 +425,7 @@ func _die() -> void:
 		queue_free()
 
 # ==========================================
-# СПРАЙТ НАПРАВЛЕНИЕ
+# СПРАЙТ НАПРАВЛЕНИЕ И ВИЗУАЛ
 # ==========================================
 func _update_facing_from_dir(dir: Vector3) -> void:
 	if facing_change_timer > 0.0: return
@@ -447,9 +453,6 @@ func _update_facing_from_dir(dir: Vector3) -> void:
 		current_facing = new_facing
 		facing_change_timer = FACING_CHANGE_COOLDOWN
 
-# ==========================================
-# ВИЗУАЛ
-# ==========================================
 func _init_visuals() -> void:
 	if not sprite: return
 	var mat = StandardMaterial3D.new()

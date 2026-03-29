@@ -24,9 +24,10 @@ extends CharacterBody3D
 @export var dash_unlock_flag: String = ""
 
 @export_group("Audio")
-@export var sfx_attack: AudioStream
-@export var sfx_hurt: AudioStream
-@export var sfx_dash: AudioStream
+@export var sfx_attack: AudioStream # Сюда кладешь sword.wav
+@export var sfx_hurt: AudioStream   # Сюда кладешь hurt_main.wav
+@export var sfx_dash: AudioStream   # Сюда кладешь dash.wav
+@export var sfx_pickup: AudioStream # Сюда кладешь pickup.wav
 
 # ==========================================
 # ВИЗУАЛ: АТЛАС-НОРМАЛИ (Раздел 4)
@@ -78,7 +79,14 @@ func _ready() -> void:
 	_init_visuals()
 	camera_rig = get_tree().get_first_node_in_group("camera_rig")
 	_update_item_visual()
-	Events.item_picked_up.connect(func(_id): _update_item_visual())
+	
+	# Поднятие предмета (добавили звук)
+	Events.item_picked_up.connect(func(_id): 
+		_update_item_visual()
+		if sfx_pickup:
+			sfx_player.stream = sfx_pickup
+			sfx_player.play()
+	)
 	Events.item_used.connect(func(_id): _update_item_visual())
 	Events.world_flag_changed.connect(_on_world_flag_changed)
 
@@ -90,7 +98,6 @@ func _process(_delta: float) -> void:
 	else:
 		dash_vfx.emitting = can_dash and _is_dash_unlocked()
 	
-	# Вращение предмета над головой
 	if item_above_head.visible:
 		item_above_head.rotate_y(_delta * 2.0)
 
@@ -108,27 +115,22 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	# --- ЛОГИКА ДИАЛОГОВ И МОНОЛОГОВ ---
 	if Events.is_in_dialogue:
 		var dialog_ui = get_tree().get_first_node_in_group("dialog_ui")
 		var is_monologue = (dialog_ui != null and dialog_ui.dialog_source == null)
 		
 		if is_monologue:
-			# МОНОЛОГ: Стоим на месте, не реагируем на WASD
 			velocity.x = 0
 			velocity.z = 0
-			_update_idle_facing() # Разрешаем только крутить камеру и видеть спину
+			_update_idle_facing() 
 			_set_anim_and_normal("idle_" + current_facing, norm_idle)
 			move_and_slide()
 			return
 		else:
-			# РАЗГОВОР С NPC: Двигаться можно
 			_handle_movement()
-			# Если остановились - смотрим на NPC
 			if velocity.length() < 0.1:
 				_face_dialog_source_or_camera()
 	else:
-		# Обычная игра
 		if is_dashing:
 			velocity.x = dash_direction.x * dash_speed
 			velocity.z = dash_direction.z * dash_speed
@@ -179,7 +181,6 @@ func _handle_movement() -> void:
 		if velocity.length() > 0.1:
 			_set_anim_and_normal("run_" + current_facing, norm_run)
 		else:
-			# Стоим — пересчитываем facing по камере
 			_update_idle_facing()
 			_set_anim_and_normal("idle_" + current_facing, norm_idle)
 
@@ -215,7 +216,6 @@ func _update_facing_direction(dir: Vector3) -> void:
 func _update_idle_facing() -> void:
 	if not camera_rig: return
 
-	# Берём запомненное мировое направление и пересчитываем через текущий угол камеры
 	var local_dir = last_move_dir.rotated(Vector3.UP, -camera_rig.global_rotation.y)
 
 	var abs_x = abs(local_dir.x)
@@ -262,13 +262,12 @@ func _attack() -> void:
 
 	var attack_variant = randi_range(1, 2)
 	var anim_name = "attack_" + current_facing + "_" + str(attack_variant)
-	
-	# Выбираем нормалку по варианту
 	var norm_sheet = norm_attack if attack_variant == 1 else norm_attack_2
 
 	last_anim_name = ""
 	_set_anim_and_normal(anim_name, norm_sheet)
 
+	# ЗВУК АТАКИ (ВЗМАХА). Играется сразу в момент нажатия
 	if sfx_attack:
 		sfx_player.stream = sfx_attack
 		sfx_player.play()
@@ -292,6 +291,8 @@ func _check_player_damage_point() -> void:
 	if progress >= damage_point:
 		damage_dealt_this_attack = true
 		_hit_enemies_in_arc(attack_direction_cache, attack_range, attack_angle)
+		# СОВЕТ ПО ТАЙМИНГАМ: Если у тебя есть звук удара ПО ВРАГУ (impact),
+		# его нужно проигрывать не здесь, а внутри функции take_damage у самого врага!
 
 # ==========================================
 # ДЭШ
@@ -322,6 +323,7 @@ func _dash() -> void:
 	last_anim_name = ""
 	_set_anim_and_normal("dash_" + current_facing, norm_dash)
 
+	# Звук дэша
 	if sfx_dash:
 		sfx_player.stream = sfx_dash
 		sfx_player.play()
@@ -350,9 +352,6 @@ func _facing_to_vector() -> Vector3:
 		local_dir = local_dir.rotated(Vector3.UP, camera_rig.global_rotation.y)
 	return local_dir
 
-# ==========================================
-# НАНЕСЕНИЕ УРОНА
-# ==========================================
 func _hit_enemies_in_arc(direction: Vector3, hit_range: float, hit_angle: float) -> void:
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	for enemy in enemies:
@@ -380,9 +379,6 @@ func _hit_enemies_in_arc(direction: Vector3, hit_range: float, hit_angle: float)
 			npc.take_damage(1)
 			Events.camera_shake_requested.emit(0.1, 0.1)
 
-# ==========================================
-# УТИЛИТЫ
-# ==========================================
 func _get_mouse_world_pos() -> Vector3:
 	var cam = get_viewport().get_camera_3d()
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -392,9 +388,6 @@ func _get_mouse_world_pos() -> Vector3:
 	var t = (global_position.y - origin.y) / normal.y
 	return origin + normal * t
 
-# ==========================================
-# ВЗАИМОДЕЙСТВИЕ
-# ==========================================
 func _interact() -> void:
 	if interact_ray.is_colliding():
 		for i in interact_ray.get_collision_count():
@@ -412,6 +405,7 @@ func take_damage(amount: int) -> void:
 	Events.player_damaged.emit(health)
 	Events.camera_shake_requested.emit(0.2, 0.15)
 
+	# Звук получения урона (и смерти, если здоровье упало до 0)
 	if sfx_hurt:
 		sfx_player.stream = sfx_hurt
 		sfx_player.play()
@@ -451,9 +445,6 @@ func heal(amount: int) -> void:
 	health = min(health + amount, max_health)
 	Events.player_damaged.emit(health)
 
-# ==========================================
-# ПРЕДМЕТ НАД ГОЛОВОЙ
-# ==========================================
 func _update_item_visual() -> void:
 	if Events.current_item == "":
 		item_above_head.hide()
@@ -463,9 +454,6 @@ func _update_item_visual() -> void:
 			item_above_head.texture = load(tex_path)
 			item_above_head.show()
 
-# ==========================================
-# ВИЗУАЛ
-# ==========================================
 func _init_visuals() -> void:
 	if not sprite: return
 	var mat = StandardMaterial3D.new()
@@ -503,12 +491,7 @@ func _update_sprite_normals() -> void:
 			normal_atlas_texture.region = visual_tex.region
 			sprite.material_override.normal_texture = normal_atlas_texture
 			
-			
 func _on_world_flag_changed(flag_name: String, value) -> void:
 	if value == true:
 		if flag_name == "level_completed1" or flag_name == "level_completed2":
-			heal(max_health) # Восстанавливаем полное ХП
-			
-			# Если есть звук хила или партиклы - можно добавить сюда
-			if sfx_dash: # Временная затычка звуком дэша (или добавь sfx_heal)
-				pass
+			heal(max_health)

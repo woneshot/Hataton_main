@@ -8,6 +8,9 @@
 [ext_resource type="AudioStream" uid="uid://dnu5n8wo2k4du" path="res://assets/audio/voice/wolf/0.mp3" id="4_mqqr4"]
 [ext_resource type="AudioStream" uid="uid://cpfj8tnth72n5" path="res://assets/audio/voice/wolf/1.mp3" id="5_ngnn2"]
 [ext_resource type="AudioStream" uid="uid://c57vodj0gxybs" path="res://assets/audio/voice/wolf/2.mp3" id="6_qfs5l"]
+[ext_resource type="AudioStream" uid="uid://bc7k2w6x7cujh" path="res://assets/audio/sfx/castwolf.mp3" id="7_mqqr4"]
+[ext_resource type="AudioStream" uid="uid://cbfjtq45r4373" path="res://assets/audio/sfx/enemy_hurt.mp3" id="7_qfs5l"]
+[ext_resource type="AudioStream" uid="uid://bv1kjdyji2wdv" path="res://assets/audio/sfx/death_enemy.mp3" id="8_isp1w"]
 
 [sub_resource type="Resource" id="Resource_btfe3"]
 script = ExtResource("2_o3wq8")
@@ -470,8 +473,11 @@ script = ExtResource("1_87wqs")
 npc_type = 4
 actor_name = "Зверолюд-незнакомец"
 dialogue_entries = Array[ExtResource("2_o3wq8")]([SubResource("Resource_btfe3"), SubResource("Resource_ys60g")])
+sfx_hurt = ExtResource("7_qfs5l")
+sfx_death = ExtResource("8_isp1w")
 cast_after_flag = "easy_boss"
 force_dialogue_flag = "wolf_is_dying"
+sfx_cast = ExtResource("7_mqqr4")
 norm_idle = ExtResource("3_ys60g")
 norm_run = ExtResource("3_ys60g")
 norm_cast = ExtResource("3_ys60g")
