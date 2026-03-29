@@ -680,6 +680,7 @@ process_material = SubResource("ParticleProcessMaterial_gq37u")
 draw_pass_1 = SubResource("QuadMesh_u548j")
 
 [node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1268325601]
+bus = &"Sfx"
 
 [node name="SpawnPoint1" type="Marker3D" parent="." unique_id=1932201573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1338835, 0, -3.0838375)

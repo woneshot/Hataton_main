@@ -740,3 +740,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 shape = SubResource("CylinderShape3D_ovxbf")
 
 [node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1075315628]
+bus = &"Sfx"

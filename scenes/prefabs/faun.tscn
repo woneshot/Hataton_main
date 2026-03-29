@@ -582,3 +582,4 @@ sprite_frames = SubResource("SpriteFrames_16ey1")
 animation = &"run_left"
 
 [node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1020219994]
+bus = &"Sfx"
