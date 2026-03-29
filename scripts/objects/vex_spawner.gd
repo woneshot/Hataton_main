@@ -38,7 +38,7 @@ func _start_wave() -> void:
 func _process(_delta: float) -> void:
 	if not is_active: return
 	
-	var alive = []
+	var alive: Array[Node] = []
 	for enemy in spawned_enemies:
 		if is_instance_valid(enemy) and not enemy.is_dead:
 			alive.append(enemy)

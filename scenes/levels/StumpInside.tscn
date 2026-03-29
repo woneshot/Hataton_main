@@ -19,7 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://dypnw37oqybv1" path="res://models/Enviroment/трон.tscn" id="14_87ldy"]
 [ext_resource type="PackedScene" uid="uid://cxdvo264qx5ph" path="res://scenes/objects/Enviroment/Torch.tscn" id="17_3nwm7"]
 [ext_resource type="PackedScene" uid="uid://b8lxnovkqkwqu" path="res://scenes/objects/Rocks/RockSmall.tscn" id="18_maytq"]
-[ext_resource type="Script" path="res://scripts/objects/vex_spawner.gd" id="20_lhb3i"]
+[ext_resource type="Script" uid="uid://cmh16l07msnnj" path="res://scripts/objects/vex_spawner.gd" id="20_lhb3i"]
+[ext_resource type="PackedScene" uid="uid://dg654x02fsoqq" path="res://scenes/prefabs/chaser_pixie.tscn" id="21_8f83a"]
+[ext_resource type="PackedScene" uid="uid://b3t5nbdqcb3c" path="res://scenes/prefabs/shooter_pixie.tscn" id="22_ylfxn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_june8"]
 albedo_color = Color(0.33550367, 0.16747612, 0.021100136, 1)
@@ -27,6 +29,7 @@ normal_enabled = true
 normal_scale = 2.92
 normal_texture = ExtResource("1_lhb3i")
 uv1_scale = Vector3(4.18, 4.18, 4.18)
+texture_filter = 0
 distance_fade_mode = 2
 distance_fade_min_distance = 4.0
 distance_fade_max_distance = 8.0
@@ -566,14 +569,16 @@ transform = Transform3D(-0.1439936, -3.51132e-08, -0.98957855, -1.3742892e-08, 1
 [node name="RockSmall12" parent="torches/stones" unique_id=177240666 instance=ExtResource("18_maytq")]
 transform = Transform3D(-0.26720467, -3.51132e-08, 0.96363974, -9.2329255e-10, 1.0000001, 3.6182076e-08, -0.9636399, 6.1646836e-16, -0.2672048, -0.046922207, 4.0233135e-07, 1.6331255)
 
-[node name="WaveSpawner" type="Node3D" parent="." unique_id=182457027]
+[node name="WaveSpawner" type="Node3D" parent="." unique_id=182457027 node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("20_lhb3i")
+enemies_to_spawn = Array[PackedScene]([ExtResource("21_8f83a"), ExtResource("21_8f83a"), ExtResource("22_ylfxn"), ExtResource("22_ylfxn"), ExtResource("22_ylfxn")])
+spawn_points = [NodePath("SpawnPoint_1"), NodePath("SpawnPoint_2"), NodePath("SpawnPoint_3"), NodePath("SpawnPoint_4"), NodePath("SpawnPoint_5")]
 
 [node name="SpawnPoint_1" type="Marker3D" parent="WaveSpawner" unique_id=574948468]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2259645, 0, 9.814255)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2259645, 0.31907463, 9.814255)
 
 [node name="SpawnPoint_2" type="Marker3D" parent="WaveSpawner" unique_id=869937442]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.168188, 0, 9.752035)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.168188, 0.47598267, 9.752035)
 
 [node name="SpawnPoint_3" type="Marker3D" parent="WaveSpawner" unique_id=327818954]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0905733, 0, 15.185938)
