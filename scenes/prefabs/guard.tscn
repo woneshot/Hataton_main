@@ -10,13 +10,15 @@
 
 [sub_resource type="Resource" id="Resource_nlr58"]
 script = ExtResource("2_nmi7j")
-condition_type = 2
+condition_type = 3
 condition_value = "talked_to_guard"
+lines = Array[String](["Либо проходи, либо проваливай!"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="Resource" id="Resource_nmi7j"]
 script = ExtResource("2_nmi7j")
 lines = Array[String](["Чего уставился?!"])
+set_flags = Array[String](["talked_to_guard"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kpa8f"]

@@ -980,7 +980,6 @@ cast_shadow = 2
 offset = Vector2(0, -3.72)
 pixel_size = 0.03
 billboard = 1
-shaded = true
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_6v0jn")

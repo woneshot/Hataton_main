@@ -9,3 +9,6 @@ albedo_texture = ExtResource("1_rribu")
 orm_texture = ExtResource("3_5v1l8")
 emission_enabled = true
 emission_texture = ExtResource("2_7427p")
+distance_fade_mode = 2
+distance_fade_min_distance = 2.0
+distance_fade_max_distance = 4.0
