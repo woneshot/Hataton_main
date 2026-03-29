@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://bthiexl7k4a36"]
 
+[ext_resource type="Material" uid="uid://d1wyu0edfqm81" path="res://materials/house_mat.tres" id="1_8ufej"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2pvj"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_c0hhu"]
@@ -45,6 +47,7 @@ transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 0, 0)
 [node name="дом" type="MeshInstance3D" parent="Дом" unique_id=470480724]
 transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.999985, 0, -99.999985, -1.1920929e-05, 0, 0, 0)
 mesh = SubResource("ArrayMesh_5e73p")
+surface_material_override/0 = ExtResource("1_8ufej")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Дом/дом" unique_id=1544989013]
 collision_layer = 2
