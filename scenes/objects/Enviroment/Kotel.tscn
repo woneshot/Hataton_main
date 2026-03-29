@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://byejev5f40we3"]
 
+[ext_resource type="Material" uid="uid://jilij08hfycm" path="res://materials/boiler_mat.tres" id="1_4djf1"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_014oc"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_sikky"]
@@ -44,6 +46,7 @@ points = PackedVector3Array(-0.01401051, -2.7418137e-06, -4.7124922e-07, -0.0134
 [node name="котел" type="MeshInstance3D" parent="котел (2)" unique_id=2078784981]
 transform = Transform3D(35.673286, 0, 0, 0, -4.252587e-06, 34.216583, 0, -35.673283, -4.078935e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_i05oq")
+surface_material_override/0 = ExtResource("1_4djf1")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="котел (2)/котел" unique_id=951518940]
 collision_layer = 2
