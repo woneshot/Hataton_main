@@ -1,0 +1,14 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://b6ebdhbb1o6xy"]
+
+[ext_resource type="Texture2D" uid="uid://b8bgh72d6ap3x" path="res://textures/bush1/base color.png" id="1_jxon6"]
+[ext_resource type="Texture2D" uid="uid://b223t466d6qgj" path="res://textures/bush1/ORM.png" id="2_aj52t"]
+[ext_resource type="Texture2D" uid="uid://cjyye6uw87836" path="res://textures/bush1/emission.png" id="2_rvq2f"]
+
+[resource]
+albedo_texture = ExtResource("1_jxon6")
+orm_texture = ExtResource("2_aj52t")
+emission = Color(0.17619357, 0.34760025, 0.20771092, 1)
+emission_energy_multiplier = 0.29
+emission_operator = 1
+emission_texture = ExtResource("2_rvq2f")
+texture_filter = 0

@@ -1,0 +1,7 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://dxd7ivn3yjnus"]
+
+[ext_resource type="Texture2D" uid="uid://cc8j5umhv0jcc" path="res://textures/woods/base color.png" id="1_yhsvt"]
+
+[resource]
+albedo_texture = ExtResource("1_yhsvt")
+texture_filter = 0

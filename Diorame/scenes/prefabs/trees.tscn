@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://mo5uej3n26qf"]
+
+[ext_resource type="PackedScene" uid="uid://bitv86vftayyp" path="res://scenes/prefabs/tree.tscn" id="1_7yiws"]
+
+[node name="Trees" type="Node3D" unique_id=1807317436]
+
+[node name="Tree" parent="." unique_id=312953780 instance=ExtResource("1_7yiws")]
+transform = Transform3D(4.2355847, 0, 1.1349217, 0, 4.385, 0, -1.1349217, 0, 4.2355847, 4, 0, 6)
+
+[node name="Tree2" parent="." unique_id=6627536 instance=ExtResource("1_7yiws")]
+transform = Transform3D(3.5983357, 0, -2.0775, 0, 4.155, 0, 2.0775, 0, 3.5983357, 0, 0, 8)
+
+[node name="Tree3" parent="." unique_id=548899940 instance=ExtResource("1_7yiws")]
+transform = Transform3D(2.828427, 0, 2.828427, 0, 4, 0, -2.828427, 0, 2.828427, -4, 0, 6)
+
+[node name="Tree4" parent="." unique_id=1365077826 instance=ExtResource("1_7yiws")]
+transform = Transform3D(2.3849998, 0, -4.1309414, 0, 4.77, 0, 4.1309414, 0, 2.3849998, -11, 0, -3)
+
+[node name="Tree5" parent="." unique_id=584934523 instance=ExtResource("1_7yiws")]
+transform = Transform3D(1.9999999, 0, 3.4641018, 0, 4, 0, -3.4641018, 0, 1.9999999, -10, 0, -14)
+
+[node name="Tree6" parent="." unique_id=1132859029 instance=ExtResource("1_7yiws")]
+transform = Transform3D(2.623366, 0, 2.623366, 0, 3.71, 0, -2.623366, 0, 2.623366, -2, 0, -12)
+
+[node name="Tree7" parent="." unique_id=294333828 instance=ExtResource("1_7yiws")]
+transform = Transform3D(3.390577, 0, 3.390577, 0, 4.795, 0, -3.390577, 0, 3.390577, 5, 0, -13)
+
+[node name="Tree8" parent="." unique_id=994369673 instance=ExtResource("1_7yiws")]
+transform = Transform3D(0.977042, 0, -3.64637, 0, 3.775, 0, 3.64637, 0, 0.977042, 10, 0, -9)
+
+[node name="Tree9" parent="." unique_id=277910314 instance=ExtResource("1_7yiws")]
+transform = Transform3D(1.9999999, 0, -3.4641018, 0, 4, 0, 3.4641018, 0, 1.9999999, 8, 0, 3)
+
+[node name="Tree10" parent="." unique_id=80258145 instance=ExtResource("1_7yiws")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 11, 0, -3)
