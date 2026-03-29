@@ -1,8 +1,8 @@
-[gd_scene format=4 uid="uid://6tfyv4kn5i55"]
+[gd_scene format=4 uid="uid://dg15p5tq81mgs"]
 
 [ext_resource type="Texture2D" uid="uid://c3mq4ujfopdca" path="res://assets/Wood_normal.jpeg" id="1_lhb3i"]
 [ext_resource type="PackedScene" uid="uid://d0l4uq4k35l7c" path="res://scenes/objects/Enviroment/Table.tscn" id="1_r0uic"]
-[ext_resource type="Script" uid="uid://c8gmjn2bq3ofr" path="res://scripts/objects/flicker_light.gd" id="1_us011"]
+[ext_resource type="Script" path="res://scripts/objects/flicker_light.gd" id="1_us011"]
 [ext_resource type="PackedScene" uid="uid://bjqamx0y2hlgh" path="res://scenes/objects/Enviroment/Branch.tscn" id="2_1pep5"]
 [ext_resource type="Material" uid="uid://drouv5vft42gd" path="res://materials/borovik_mat.tres" id="3_myoyn"]
 [ext_resource type="Material" uid="uid://bbugoxts3g45i" path="res://materials/poganka_mat.tres" id="4_june8"]

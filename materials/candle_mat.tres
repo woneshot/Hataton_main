@@ -9,3 +9,4 @@ albedo_texture = ExtResource("1_xj8th")
 orm_texture = ExtResource("3_3g2to")
 emission_enabled = true
 emission_texture = ExtResource("2_344r0")
+texture_filter = 0
