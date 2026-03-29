@@ -4,8 +4,10 @@
 [ext_resource type="Script" uid="uid://bgsojp0bnnjno" path="res://scripts/actors/npc.gd" id="1_kiter"]
 [ext_resource type="Texture2D" uid="uid://b3ww7endjm45h" path="res://assets/sprites/guard2/guard2_hurt.png" id="2_kiter"]
 [ext_resource type="Script" uid="uid://ttk42w6474wt" path="res://scripts/objects/dialogue_entry.gd" id="2_nmi7j"]
+[ext_resource type="AudioStream" uid="uid://ch42bm5bc5qeo" path="res://assets/audio/voice/guard/1.mp3" id="3_7f0p6"]
 [ext_resource type="Texture2D" uid="uid://bo2k06cqhvxa6" path="res://assets/normal_maps/Guard2/guard2_idle_n.png" id="3_nlr58"]
 [ext_resource type="Texture2D" uid="uid://db1f2awcpebmn" path="res://assets/sprites/guard2/guard2_idle.png" id="3_nmi7j"]
+[ext_resource type="AudioStream" uid="uid://galp51nikx6w" path="res://assets/audio/voice/guard/0.mp3" id="4_bca3m"]
 [ext_resource type="Texture2D" uid="uid://wvd7xxlbmj3n" path="res://assets/sprites/guard2/guard2_walk.png" id="4_nlr58"]
 
 [sub_resource type="Resource" id="Resource_nlr58"]
@@ -13,11 +15,13 @@ script = ExtResource("2_nmi7j")
 condition_type = 3
 condition_value = "talked_to_guard"
 lines = Array[String](["Либо проходи, либо проваливай!"])
+voice_lines = Array[AudioStream]([ExtResource("3_7f0p6")])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="Resource" id="Resource_nmi7j"]
 script = ExtResource("2_nmi7j")
 lines = Array[String](["Чего уставился?!"])
+voice_lines = Array[AudioStream]([ExtResource("4_bca3m")])
 set_flags = Array[String](["talked_to_guard"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
 

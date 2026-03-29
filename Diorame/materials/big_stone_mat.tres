@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://hi7i3x0xqt7f"]
 
-[ext_resource type="Texture2D" uid="uid://bpprlki1hfusu" path="res://textures/big_stone/base color.png" id="1_xp3bn"]
-[ext_resource type="Texture2D" uid="uid://cbttersciucjg" path="res://textures/big_stone/ORM.png" id="2_s6tge"]
+[ext_resource type="Texture2D" uid="uid://bpprlki1hfusu" path="res://Diorame/textures/big_stone/base color.png" id="1_xp3bn"]
+[ext_resource type="Texture2D" uid="uid://cbttersciucjg" path="res://Diorame/textures/big_stone/ORM.png" id="2_s6tge"]
 
 [resource]
 albedo_texture = ExtResource("1_xp3bn")
