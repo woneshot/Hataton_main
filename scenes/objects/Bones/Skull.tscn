@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://bpl2an1gb7wvq"]
 
+[ext_resource type="Material" uid="uid://uq3llgn1alcr" path="res://materials/skull_mat.tres" id="1_tj40x"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdbx3"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_h545t"]
@@ -44,6 +46,7 @@ data = PackedVector3Array(-0.0277, 0.0067999996, 0.038399998, -0.0011999999, 0.0
 [node name="череп" type="MeshInstance3D" parent="Череп" unique_id=1191652489]
 transform = Transform3D(4.826548, 0, 0, 0, -5.7536937e-07, 4.8265476, 0, -4.8265476, -5.7536937e-07, 0.05563746, -0.005364719, -1.0942367e-06)
 mesh = SubResource("ArrayMesh_3jj8g")
+surface_material_override/0 = ExtResource("1_tj40x")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Череп/череп" unique_id=2080067193]
 collision_layer = 2

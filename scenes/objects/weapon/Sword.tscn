@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://2rigjlf7grgt"]
 
+[ext_resource type="Material" uid="uid://dhxdb1650ax1i" path="res://materials/sword_mat.tres" id="1_d0726"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n1b73"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hib5y"]
@@ -44,6 +46,7 @@ data = PackedVector3Array(0.0219, 0.0126, 0, 0.0207, 0.011899999, 0.0023999999, 
 [node name="меч" type="MeshInstance3D" parent="меч" unique_id=1648330009]
 transform = Transform3D(-0.98142076, 0, 0, 0, -5.8497235e-08, -0.98142076, 0, 0.98142076, -5.8497235e-08, 0.38879472, 0, 0)
 mesh = SubResource("ArrayMesh_1d1ei")
+surface_material_override/0 = ExtResource("1_d0726")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="меч/меч" unique_id=1471524729]
 collision_layer = 2

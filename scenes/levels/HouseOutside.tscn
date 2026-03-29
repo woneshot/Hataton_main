@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dqlf0iu0r0l4o" path="res://scenes/objects/Logs/Log2.tscn" id="3_y2luq"]
 [ext_resource type="PackedScene" uid="uid://bpl2an1gb7wvq" path="res://scenes/objects/Bones/Skull.tscn" id="6_67hfy"]
 [ext_resource type="PackedScene" uid="uid://cix7hrqpexcmf" path="res://scenes/objects/Mushrooms/Muhomor.tscn" id="7_78ue5"]
-[ext_resource type="PackedScene" uid="uid://d04ibs84t56b2" path="res://scenes/objects/Chest.tscn" id="8_80ngx"]
+[ext_resource type="PackedScene" uid="uid://bfotets2yv467" path="res://scenes/objects/Enviroment/Chest.tscn" id="8_80ngx"]
 [ext_resource type="PackedScene" uid="uid://djj2qsbrttnk0" path="res://scenes/objects/Bottles/Bottle1.tscn" id="11_5yxws"]
 [ext_resource type="PackedScene" uid="uid://buyxed27r6b74" path="res://scenes/objects/Bottles/Bottle2.tscn" id="13_jk1mp"]
 [ext_resource type="PackedScene" uid="uid://byejev5f40we3" path="res://scenes/objects/Enviroment/Kotel.tscn" id="14_rw3u5"]

@@ -1,0 +1,11 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://ceh5tktdyj226"]
+
+[ext_resource type="Texture2D" uid="uid://c8oxe07ieq7y4" path="res://assets/textures/Rune2/base_color (48).png" id="1_psgpv"]
+[ext_resource type="Texture2D" uid="uid://dnskvuilbpnl8" path="res://assets/textures/Rune2/emission (9).png" id="2_yada5"]
+[ext_resource type="Texture2D" uid="uid://giues0yppk13" path="res://assets/textures/Rune2/ORMO (48).png" id="3_l8ugw"]
+
+[resource]
+albedo_texture = ExtResource("1_psgpv")
+orm_texture = ExtResource("3_l8ugw")
+emission_enabled = true
+emission_texture = ExtResource("2_yada5")

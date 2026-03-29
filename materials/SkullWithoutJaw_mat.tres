@@ -1,0 +1,8 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://colhsvxxj3661"]
+
+[ext_resource type="Texture2D" uid="uid://dcsf0ionvs2gl" path="res://assets/textures/SkullWithoutJaw/base_color (46).png" id="1_oelm4"]
+[ext_resource type="Texture2D" uid="uid://en6gr54q3s8" path="res://assets/textures/SkullWithoutJaw/ORMO (46).png" id="2_ydaca"]
+
+[resource]
+albedo_texture = ExtResource("1_oelm4")
+orm_texture = ExtResource("2_ydaca")

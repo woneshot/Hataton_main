@@ -1,0 +1,8 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://bylsrm5iybtqk"]
+
+[ext_resource type="Texture2D" uid="uid://c1mewy8cpmkp" path="res://assets/textures/SkullMikky/base_color (45).png" id="1_wa03u"]
+[ext_resource type="Texture2D" uid="uid://cq1v466qmfape" path="res://assets/textures/SkullMikky/ORMO (45).png" id="2_ecaxe"]
+
+[resource]
+albedo_texture = ExtResource("1_wa03u")
+orm_texture = ExtResource("2_ecaxe")
