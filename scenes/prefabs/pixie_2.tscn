@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_0trrn"]
 script = ExtResource("2_0trrn")
-condition_type = 2
+condition_type = 3
 condition_value = "defeated_vex"
 lines = Array[String](["Благодарю, за спасение нашего Короля!"])
 voice_lines = Array[AudioStream]([ExtResource("3_rldv6")])
@@ -18,7 +18,7 @@ metadata/_custom_type_script = "uid://ttk42w6474wt"
 
 [sub_resource type="Resource" id="Resource_8weiv"]
 script = ExtResource("2_0trrn")
-condition_type = 2
+condition_type = 3
 condition_value = "vex_attack"
 lines = Array[String](["Защищайте Короля!"])
 voice_lines = Array[AudioStream]([ExtResource("4_qrpxx")])
