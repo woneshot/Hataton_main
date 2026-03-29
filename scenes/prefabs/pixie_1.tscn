@@ -460,5 +460,5 @@ animation = &"run_right"
 stream = ExtResource("9_ocpux")
 bus = &"Sfx"
 
-[node name="SfxPlayer2" type="AudioStreamPlayer3D" parent="." unique_id=2052872383]
+[node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=2052872383]
 bus = &"Sfx"

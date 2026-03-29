@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://du0jmsq82uey"]
 
 [ext_resource type="PackedScene" uid="uid://cutnmp0xg5fx1" path="res://scenes/objects/Mushrooms/Poganka.tscn" id="1_lnrgy"]
-[ext_resource type="Script" path="res://scripts/objects/level.gd" id="1_wa3u7"]
+[ext_resource type="Script" uid="uid://yh85ytqjfifs" path="res://scripts/objects/level.gd" id="1_wa3u7"]
 [ext_resource type="PackedScene" uid="uid://b8lxnovkqkwqu" path="res://scenes/objects/Rocks/RockSmall.tscn" id="2_3y4bc"]
 [ext_resource type="PackedScene" uid="uid://d2wjlkuulf1c2" path="res://scenes/objects/Rocks/RockMid.tscn" id="3_htage"]
 [ext_resource type="PackedScene" uid="uid://d4jq553341tg" path="res://scenes/objects/Bones/Bone.tscn" id="6_3y4bc"]
@@ -14,18 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://ojr4fn3hm7dk" path="res://assets/FLOOR.jpeg" id="12_xsrrs"]
 [ext_resource type="Texture2D" uid="uid://c86pi6v6pteeg" path="res://assets/FLOOR_N.png" id="13_ajt3b"]
 [ext_resource type="PackedScene" uid="uid://l2qdkhoeonxj" path="res://scenes/objects/Rocks/RockBig.tscn" id="13_vyj73"]
-[ext_resource type="Script" path="res://scripts/objects/auto_grass.gd" id="14_tbso1"]
+[ext_resource type="Script" uid="uid://cxmw6hswtyt6g" path="res://scripts/objects/auto_grass.gd" id="14_tbso1"]
 [ext_resource type="PackedScene" uid="uid://bfotets2yv467" path="res://scenes/objects/Enviroment/Chest.tscn" id="14_xsrrs"]
 [ext_resource type="PackedScene" uid="uid://byejev5f40we3" path="res://scenes/objects/Enviroment/Kotel.tscn" id="15_ajt3b"]
-[ext_resource type="PackedScene" uid="uid://cu28pcygne4va" path="res://scenes/objects/Trees/Enter.tscn" id="15_heega"]
+[ext_resource type="PackedScene" uid="uid://ci8ky1tjwcx6w" path="res://scenes/objects/Trees/Enter.tscn" id="15_heega"]
 [ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="16_heega"]
 [ext_resource type="Material" uid="uid://drouv5vft42gd" path="res://materials/borovik_mat.tres" id="16_xsrrs"]
 [ext_resource type="PackedScene" uid="uid://cigbeho856dvr" path="res://scenes/prefabs/CameraRig.tscn" id="17_jkc3g"]
 [ext_resource type="PackedScene" uid="uid://672kylrnkbdi" path="res://scenes/objects/Enviroment/Grass.tscn" id="18_jkc3g"]
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="22_wa3u7"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/SceneTransition.tscn" id="23_tbso1"]
+[ext_resource type="PackedScene" uid="uid://phdfmw58m5ho" path="res://scenes/prefabs/SceneTransition.tscn" id="23_tbso1"]
 [ext_resource type="PackedScene" uid="uid://cuekfhmsyam7s" path="res://scenes/ui/screen_effects.tscn" id="24_mv2jo"]
 [ext_resource type="PackedScene" uid="uid://dxrfavi2pjo5s" path="res://scenes/levels/RatScene.tscn" id="24_wa3u7"]
+[ext_resource type="AudioStream" uid="uid://sdscmv8e7afv" path="res://assets/audio/music/forest/forest/forest.mp3" id="27_8nef3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vyj73"]
 albedo_color = Color(0.70792764, 0.45963377, 0.13657984, 1)
@@ -80,18 +81,18 @@ points = PackedVector3Array(-0.0093756365, -0.01933478, 0.0239215, 0.00057700137
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfypb"]
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wa3u7"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8nef3"]
 sky_top_color = Color(0.050980393, 0.03137255, 0.078431375, 1)
 sky_horizon_color = Color(0.14901961, 0.05882353, 0.03137255, 1)
 ground_bottom_color = Color(0.019607844, 0.019607844, 0.019607844, 1)
 ground_horizon_color = Color(0.101960786, 0.039215688, 0.019607844, 1)
 
-[sub_resource type="Sky" id="Sky_2ijbw"]
-sky_material = SubResource("ProceduralSkyMaterial_wa3u7")
+[sub_resource type="Sky" id="Sky_0c07m"]
+sky_material = SubResource("ProceduralSkyMaterial_8nef3")
 
-[sub_resource type="Environment" id="Environment_8nef3"]
+[sub_resource type="Environment" id="Environment_lsx27"]
 background_mode = 2
-sky = SubResource("Sky_2ijbw")
+sky = SubResource("Sky_0c07m")
 ambient_light_source = 3
 ambient_light_color = Color(0.078431375, 0.05882353, 0.12156863, 1)
 tonemap_mode = 3
@@ -108,12 +109,12 @@ fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.05882353, 0.050980393, 0.101960786, 1)
 fog_light_energy = 0.4
-fog_density = 0.015
+fog_density = 0.043
 fog_sky_affect = 0.3
 fog_height_density = 0.1
 fog_depth_end = 395.1
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.01
+volumetric_fog_density = 0.0302
 volumetric_fog_albedo = Color(0.078431375, 0.05882353, 0.101960786, 1)
 volumetric_fog_emission = Color(0.019607844, 0.011764706, 0.03137255, 1)
 volumetric_fog_emission_energy = 0.5
@@ -123,7 +124,7 @@ adjustment_brightness = 1.05
 adjustment_contrast = 1.05
 adjustment_saturation = 0.85
 
-[sub_resource type="Compositor" id="Compositor_0c07m"]
+[sub_resource type="Compositor" id="Compositor_5gggb"]
 
 [node name="StumpLevelBig" type="Node3D" unique_id=1097703287]
 script = ExtResource("1_wa3u7")
@@ -953,11 +954,16 @@ target_scene = ExtResource("24_wa3u7")
 
 [node name="ScreenEffects" parent="." unique_id=1867351135 instance=ExtResource("24_mv2jo")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=690861038]
-environment = SubResource("Environment_8nef3")
-compositor = SubResource("Compositor_0c07m")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2021584948]
+stream = ExtResource("27_8nef3")
+autoplay = true
+bus = &"Music"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=2112639416]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1095300778]
+environment = SubResource("Environment_lsx27")
+compositor = SubResource("Compositor_5gggb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1959918424]
 transform = Transform3D(0.70710677, 0.35355338, -0.61237246, 0, 0.86602545, 0.5, 0.70710677, -0.35355338, 0.61237246, 0, 6.6624274, 0)
 light_color = Color(1.649424, 1.8293494, 2.1399646, 1)
 light_energy = 0.5

@@ -1,7 +1,7 @@
 extends Node
 
 var music_bus: int
-var duck_db: float = -15.0
+var duck_db: float = -20.0
 var normal_db: float = -6.0
 
 func _ready():

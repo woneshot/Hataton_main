@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="40_empff"]
 [ext_resource type="Script" uid="uid://c2yspqbw3tt3v" path="res://scripts/objects/pixies.gd" id="43_7iaqa"]
 [ext_resource type="Script" uid="uid://cuju6wg3s2q7d" path="res://scripts/objects/smokr.gd" id="44_lkscn"]
+[ext_resource type="AudioStream" uid="uid://sdscmv8e7afv" path="res://assets/audio/music/forest/forest/forest.mp3" id="45_bodc2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rw3u5"]
 albedo_color = Color(0.29817647, 0.13689324, 0.020204976, 1)
@@ -922,7 +923,7 @@ shadow_bias = 0.05
 shadow_opacity = 0.9
 
 [node name="WolfBro" parent="." unique_id=1498679655 instance=ExtResource("28_rw3u5")]
-transform = Transform3D(-0.33127204, 0, 0.94353527, 0, 1, 0, -0.94353527, 0, -0.33127204, -11.421159, 0, -4.560444)
+transform = Transform3D(-0.075779304, 0, 0.99712455, 0, 1, 0, -0.99712455, 0, -0.075779304, -10.28275, 0, -4.906526)
 
 [node name="BoneNCol" parent="." unique_id=1496576196 instance=ExtResource("32_oc8jt")]
 transform = Transform3D(0.27546963, 0, 0.9613098, 0, 1, 0, -0.9613098, 0, 0.27546963, 0, 0, -10.937176)
@@ -1131,3 +1132,8 @@ transform = Transform3D(0.17999999, 0, 0, 0, 0.17999999, 0, 0, 0, 0.17999999, 5.
 [node name="GPUParticles3D" type="GPUParticles3D" parent="smoke" unique_id=922898341]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.511597, 37.9123, 47.381493)
 script = ExtResource("44_lkscn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1027170291]
+stream = ExtResource("45_bodc2")
+autoplay = true
+bus = &"Music"

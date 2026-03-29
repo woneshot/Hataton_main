@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://dkxaynfbuh8fk" path="res://scenes/objects/Bones/SkullWithoutJaw.tscn" id="23_s704v"]
 [ext_resource type="Texture2D" uid="uid://b8rxsy6johw3s" path="res://assets/sprites/penta.png" id="27_tbmve"]
 [ext_resource type="PackedScene" uid="uid://x10q6qkf3pef" path="res://scenes/prefabs/witch.tscn" id="28_s704v"]
+[ext_resource type="AudioStream" uid="uid://dk0k1nh8naix1" path="res://assets/audio/music/boss/boss.mp3" id="29_y1fno"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ji324"]
 albedo_texture = ExtResource("1_1qrmc")
@@ -418,3 +419,8 @@ texture = ExtResource("27_tbmve")
 [node name="Witch" parent="." unique_id=372944410 instance=ExtResource("28_s704v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.7125516)
 detection_range = 8.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1035204083]
+stream = ExtResource("29_y1fno")
+autoplay = true
+bus = &"Music"

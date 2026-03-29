@@ -18,7 +18,7 @@
 script = ExtResource("2_qse75")
 condition_type = 3
 condition_value = "defeated_vex"
-lines = Array[String](["Ты сделал достаточно. Я признаю тебя", "Как только ты покинешь мои владения, мои чары вступят в силу", "Заклятие отступит частично. Это все, что я могу сделать", "Это все, что я могу сделать"])
+lines = Array[String](["Ты сделал достаточно. Я признаю тебя", "Как только ты покинешь мои владения, мои чары вступят в силу", "Заклятие отступит частично", "Это все, что я могу сделать"])
 voice_lines = Array[AudioStream]([ExtResource("3_okcmy"), ExtResource("4_0pd0n"), ExtResource("5_mkd03"), ExtResource("6_vcvhe")])
 set_flags = Array[String](["level_completed1"])
 metadata/_custom_type_script = "uid://ttk42w6474wt"
@@ -146,6 +146,6 @@ shaded = true
 alpha_cut = 1
 texture_filter = 0
 sprite_frames = SubResource("SpriteFrames_jq2i2")
-animation = &"idle_down"
+animation = &"idle_up"
 
 [node name="SfxPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1503482870 groups=["interactable"]]

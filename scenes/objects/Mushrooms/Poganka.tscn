@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://cutnmp0xg5fx1"]
 
-[ext_resource type="Material" path="res://materials/poganka_mat.tres" id="1_n3h03"]
+[ext_resource type="Material" uid="uid://bbugoxts3g45i" path="res://materials/poganka_mat.tres" id="1_n3h03"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8uao"]
 

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://gmbyh8mbaebn"]
 
-[ext_resource type="Script" path="res://scripts/objects/level.gd" id="1_gk0wo"]
+[ext_resource type="Script" uid="uid://yh85ytqjfifs" path="res://scripts/objects/level.gd" id="1_gk0wo"]
 [ext_resource type="PackedScene" uid="uid://cutnmp0xg5fx1" path="res://scenes/objects/Mushrooms/Poganka.tscn" id="1_nx62o"]
 [ext_resource type="Script" uid="uid://6purojar8bge" path="res://scripts/objects/camera_rig.gd" id="1_v5fec"]
 [ext_resource type="PackedScene" uid="uid://b8lxnovkqkwqu" path="res://scenes/objects/Rocks/RockSmall.tscn" id="2_esma0"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ojr4fn3hm7dk" path="res://assets/FLOOR.jpeg" id="5_ppksh"]
 [ext_resource type="PackedScene" uid="uid://d4jq553341tg" path="res://scenes/objects/Bones/Bone.tscn" id="6_l6dvu"]
 [ext_resource type="Texture2D" uid="uid://c86pi6v6pteeg" path="res://assets/FLOOR_N.png" id="6_v5fec"]
-[ext_resource type="Script" path="res://scripts/objects/auto_grass.gd" id="7_r5wn2"]
+[ext_resource type="Script" uid="uid://cxmw6hswtyt6g" path="res://scripts/objects/auto_grass.gd" id="7_r5wn2"]
 [ext_resource type="PackedScene" uid="uid://bthiexl7k4a36" path="res://scenes/objects/Enviroment/House.tscn" id="7_t3aqv"]
 [ext_resource type="PackedScene" uid="uid://b1xmewe7vhjxm" path="res://scenes/objects/Trees/TreeNormal.tscn" id="8_fysms"]
 [ext_resource type="PackedScene" uid="uid://0ej7cjkqqui8" path="res://scenes/objects/Trees/Spruce.tscn" id="9_e84iw"]
@@ -21,12 +21,13 @@
 [ext_resource type="PackedScene" uid="uid://byejev5f40we3" path="res://scenes/objects/Enviroment/Kotel.tscn" id="15_ap3tq"]
 [ext_resource type="PackedScene" uid="uid://672kylrnkbdi" path="res://scenes/objects/Enviroment/Grass.tscn" id="16_e84iw"]
 [ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="17_e84iw"]
-[ext_resource type="PackedScene" path="res://scenes/prefabs/SceneTransition.tscn" id="19_cy82g"]
+[ext_resource type="PackedScene" uid="uid://phdfmw58m5ho" path="res://scenes/prefabs/SceneTransition.tscn" id="19_cy82g"]
 [ext_resource type="PackedScene" uid="uid://dg15p5tq81mgs" path="res://scenes/levels/StumpInside.tscn" id="20_lfypb"]
-[ext_resource type="PackedScene" uid="uid://cu28pcygne4va" path="res://scenes/objects/Trees/Enter.tscn" id="20_ppksh"]
+[ext_resource type="PackedScene" uid="uid://ci8ky1tjwcx6w" path="res://scenes/objects/Trees/Enter.tscn" id="20_ppksh"]
 [ext_resource type="PackedScene" uid="uid://4utgib0jkrcs" path="res://scenes/prefabs/guard.tscn" id="23_ap3tq"]
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="24_0vrmj"]
 [ext_resource type="PackedScene" uid="uid://cuekfhmsyam7s" path="res://scenes/ui/screen_effects.tscn" id="26_81xp3"]
+[ext_resource type="AudioStream" uid="uid://sdscmv8e7afv" path="res://assets/audio/music/forest/forest/forest.mp3" id="28_5f4ky"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0vrmj"]
 albedo_color = Color(0.70792764, 0.45963377, 0.13657984, 1)
@@ -82,18 +83,18 @@ points = PackedVector3Array(-0.0093756365, -0.01933478, 0.0239215, 0.00057700137
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfypb"]
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0vrmj"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5f4ky"]
 sky_top_color = Color(0.050980393, 0.03137255, 0.078431375, 1)
 sky_horizon_color = Color(0.14901961, 0.05882353, 0.03137255, 1)
 ground_bottom_color = Color(0.019607844, 0.019607844, 0.019607844, 1)
 ground_horizon_color = Color(0.101960786, 0.039215688, 0.019607844, 1)
 
-[sub_resource type="Sky" id="Sky_gk0wo"]
-sky_material = SubResource("ProceduralSkyMaterial_0vrmj")
+[sub_resource type="Sky" id="Sky_q7g3g"]
+sky_material = SubResource("ProceduralSkyMaterial_5f4ky")
 
-[sub_resource type="Environment" id="Environment_cy82g"]
+[sub_resource type="Environment" id="Environment_0bbfx"]
 background_mode = 2
-sky = SubResource("Sky_gk0wo")
+sky = SubResource("Sky_q7g3g")
 ambient_light_source = 3
 ambient_light_color = Color(0.078431375, 0.05882353, 0.12156863, 1)
 tonemap_mode = 3
@@ -110,12 +111,12 @@ fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.05882353, 0.050980393, 0.101960786, 1)
 fog_light_energy = 0.4
-fog_density = 0.015
+fog_density = 0.043
 fog_sky_affect = 0.3
 fog_height_density = 0.1
 fog_depth_end = 395.1
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.01
+volumetric_fog_density = 0.0302
 volumetric_fog_albedo = Color(0.078431375, 0.05882353, 0.101960786, 1)
 volumetric_fog_emission = Color(0.019607844, 0.011764706, 0.03137255, 1)
 volumetric_fog_emission_energy = 0.5
@@ -125,7 +126,7 @@ adjustment_brightness = 1.05
 adjustment_contrast = 1.05
 adjustment_saturation = 0.85
 
-[sub_resource type="Compositor" id="Compositor_lfypb"]
+[sub_resource type="Compositor" id="Compositor_q4y8v"]
 
 [node name="StumpLevelSmall" type="Node3D" unique_id=713548402]
 script = ExtResource("1_gk0wo")
@@ -371,11 +372,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8805294, 0.86918235, -16.78
 
 [node name="ScreenEffects" parent="." unique_id=1867351135 instance=ExtResource("26_81xp3")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=947750002]
-environment = SubResource("Environment_cy82g")
-compositor = SubResource("Compositor_lfypb")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=689505064]
+stream = ExtResource("28_5f4ky")
+autoplay = true
+bus = &"Music"
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=188939019]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=785106460]
+environment = SubResource("Environment_0bbfx")
+compositor = SubResource("Compositor_q4y8v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1768849437]
 transform = Transform3D(0.70710677, 0.35355338, -0.61237246, 0, 0.86602545, 0.5, 0.70710677, -0.35355338, 0.61237246, 0, 6.6624274, 0)
 light_color = Color(1.649424, 1.8293494, 2.1399646, 1)
 light_energy = 0.5

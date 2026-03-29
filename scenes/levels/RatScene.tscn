@@ -39,6 +39,8 @@
 [ext_resource type="PackedScene" uid="uid://ci8ky1tjwcx6w" path="res://scenes/objects/Trees/Enter.tscn" id="32_q7g3g"]
 [ext_resource type="PackedScene" uid="uid://cuekfhmsyam7s" path="res://scenes/ui/screen_effects.tscn" id="37_ix5yp"]
 [ext_resource type="PackedScene" uid="uid://phdfmw58m5ho" path="res://scenes/prefabs/SceneTransition.tscn" id="38_dmh13"]
+[ext_resource type="AudioStream" uid="uid://sdscmv8e7afv" path="res://assets/audio/music/forest/forest/forest.mp3" id="40_7gfaq"]
+[ext_resource type="PackedScene" uid="uid://liw84wqms3a7" path="res://scenes/levels/HouseOutside.tscn" id="40_hidw2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rn26d"]
 albedo_color = Color(0.3603736, 0.1989896, 0.064097874, 1)
@@ -98,12 +100,12 @@ sky_horizon_color = Color(0.14901961, 0.05882353, 0.03137255, 1)
 ground_bottom_color = Color(0.019607844, 0.019607844, 0.019607844, 1)
 ground_horizon_color = Color(0.101960786, 0.039215688, 0.019607844, 1)
 
-[sub_resource type="Sky" id="Sky_q7g3g"]
+[sub_resource type="Sky" id="Sky_k76de"]
 sky_material = SubResource("ProceduralSkyMaterial_q05cq")
 
 [sub_resource type="Environment" id="Environment_rn26d"]
 background_mode = 2
-sky = SubResource("Sky_q7g3g")
+sky = SubResource("Sky_k76de")
 ambient_light_source = 3
 ambient_light_color = Color(0.078431375, 0.05882353, 0.12156863, 1)
 tonemap_mode = 3
@@ -600,5 +602,11 @@ shadow_opacity = 0.9
 [node name="ScreenEffects" parent="." unique_id=1867351135 instance=ExtResource("37_ix5yp")]
 
 [node name="SceneTransition" parent="." unique_id=1645615911 instance=ExtResource("38_dmh13")]
-transform = Transform3D(2.6815333, 0, 1.7065405, 0, 1.3074598, 0, -0.42711225, 0, 10.714149, -1.2640439, 0.54536164, -14.26834)
+transform = Transform3D(2.6815333, 0, 1.7065405, 0, 2.429351, 0, -0.42711225, 0, 10.714149, -1.2640439, 0.54536164, -14.126311)
+target_scene = ExtResource("40_hidw2")
 required_flag = "level_completed"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1672146242]
+stream = ExtResource("40_7gfaq")
+autoplay = true
+bus = &"Music"

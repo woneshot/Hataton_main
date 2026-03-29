@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://phdfmw58m5ho" path="res://scenes/prefabs/SceneTransition.tscn" id="24_tnnun"]
 [ext_resource type="PackedScene" uid="uid://du0jmsq82uey" path="res://scenes/levels/StumpLevelBig.tscn" id="25_yj5xa"]
 [ext_resource type="PackedScene" uid="uid://cuekfhmsyam7s" path="res://scenes/ui/screen_effects.tscn" id="26_bbupe"]
+[ext_resource type="AudioStream" uid="uid://2yq8qy23ypvq" path="res://assets/audio/music/pixie/pixie/pixie.mp3" id="27_yj5xa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_june8"]
 albedo_color = Color(0.33550367, 0.16747612, 0.021100136, 1)
@@ -587,13 +588,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2259645, 0.49792385, 9.8142
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.168188, 0.47598267, 9.752035)
 
 [node name="SpawnPoint_3" type="Marker3D" parent="WaveSpawner" unique_id=327818954]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0905733, 0, 15.185938)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7145605, 0, 8.827618)
 
 [node name="SpawnPoint_4" type="Marker3D" parent="WaveSpawner" unique_id=265582226]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6884899, 0, 14.504316)
 
 [node name="SpawnPoint_5" type="Marker3D" parent="WaveSpawner" unique_id=1705675632]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.102376, 0, 15.368653)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.851269, 0, 14.589658)
 
 [node name="SceneTransition" parent="." unique_id=1645615911 instance=ExtResource("24_tnnun")]
 transform = Transform3D(2.1319802, 0, 0, 0, 1.905827, 0, 0, 0, 1, 0, 0.676137, 19.489523)
@@ -601,3 +602,8 @@ target_scene = ExtResource("25_yj5xa")
 required_flag = "level_completed1"
 
 [node name="ScreenEffects" parent="." unique_id=1867351135 instance=ExtResource("26_bbupe")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=650118542]
+stream = ExtResource("27_yj5xa")
+autoplay = true
+bus = &"Music"
