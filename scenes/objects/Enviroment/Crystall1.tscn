@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://3s2cbjijo1qq"]
 
+[ext_resource type="Material" uid="uid://bkpiy5ktffciu" path="res://materials/crystal1_mat.tres" id="1_kpdgi"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ljvgm"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xokjn"]
@@ -42,6 +44,7 @@ points = PackedVector3Array(0.00960873, 0.002535636, 0.011350257, -0.0058116447,
 [node name="Кристалл2" type="MeshInstance3D" parent="Кристалл" unique_id=1430100613]
 transform = Transform3D(8.941891, 0, 0, 0, -1.0659564e-06, 8.94189, 0, -8.94189, -1.0659564e-06, 0, 0, 0)
 mesh = SubResource("ArrayMesh_mgkn1")
+surface_material_override/0 = ExtResource("1_kpdgi")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Кристалл/Кристалл2" unique_id=1751014797]
 collision_layer = 2

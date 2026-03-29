@@ -1,0 +1,14 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://jilij08hfycm"]
+
+[ext_resource type="Texture2D" uid="uid://b6iw7gwcqg48q" path="res://assets/textures/Boiler/base_color (47).png" id="1_c1tkh"]
+[ext_resource type="Texture2D" uid="uid://sum52v3xg0i" path="res://assets/textures/Boiler/emission (8).png" id="2_p32sm"]
+[ext_resource type="Texture2D" uid="uid://djopya46udp57" path="res://assets/textures/Boiler/normal (2).png" id="3_7ybu6"]
+[ext_resource type="Texture2D" uid="uid://b5lxvvqijnj26" path="res://assets/textures/Boiler/ORMO (47).png" id="4_qameh"]
+
+[resource]
+albedo_texture = ExtResource("1_c1tkh")
+orm_texture = ExtResource("4_qameh")
+emission_enabled = true
+emission_texture = ExtResource("2_p32sm")
+normal_enabled = true
+normal_texture = ExtResource("3_7ybu6")

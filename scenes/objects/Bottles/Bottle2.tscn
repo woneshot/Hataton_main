@@ -1,5 +1,7 @@
 [gd_scene format=4 uid="uid://buyxed27r6b74"]
 
+[ext_resource type="Material" uid="uid://co7e2jhhfqbg6" path="res://materials/bottle2_mat.tres" id="1_jd8jn"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_243k1"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xowln"]
@@ -42,6 +44,7 @@ size = Vector3(0.07736272, 0.07736272, 0.053269405)
 [node name="колба2" type="MeshInstance3D" parent="Колба2" unique_id=717477782]
 transform = Transform3D(1.9082205, 0, 0, 0, -2.2747761e-07, 3.7602112, 0, -1.9082204, -4.4825214e-07, -6.300522e-10, 0.029726338, -3.47425e-11)
 mesh = SubResource("ArrayMesh_t1e84")
+surface_material_override/0 = ExtResource("1_jd8jn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Колба2/колба2" unique_id=692082869]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0015345812)

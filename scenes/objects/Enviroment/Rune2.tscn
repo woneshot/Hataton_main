@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://d1hiuehqeuc5"]
+
+[ext_resource type="PackedScene" uid="uid://gp56mlw73rcf" path="res://models/Enviroment/Руна2.fbx" id="1_61jpq"]
+[ext_resource type="Material" uid="uid://ceh5tktdyj226" path="res://materials/rune2_mat.tres" id="2_tch5l"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tch5l"]
+points = PackedVector3Array(0.0020564664, 0.015586212, -0.0054429593, 0.0023560803, 0.014423899, -0.0020394644, 0.02109723, 0.014876589, -0.0054429593, -0.020316735, 0.010160049, -0.0054429593, -0.020249475, 0.009071147, -0.0020394644, 0.0021848734, 0.011744464, 0.0013653631, 0.015526859, 0.011545649, 0.0013653631, 0.020540806, 0.013622517, -0.0020394644, 0.030978372, -0.0008788584, -0.0020394644, 0.03134525, -0.0008788584, -0.0054429593, -0.03111506, -0.0026284438, -0.0054429593, -0.030735958, -0.0026284438, -0.0020394644, -0.016042652, 0.007358266, 0.0013653631, 0.025181761, -0.0008788584, 0.0013653631, 0.025285708, -0.010636164, -0.0020394644, 0.025836019, -0.011890237, -0.0054429593, -0.018708603, -0.011917766, -0.0054429593, -0.018641343, -0.010828862, -0.0020394644, -0.014440635, -0.009115981, 0.0013653631, -0.022316199, -0.0009522671, 0.0013653631, 0.020271765, -0.008559295, 0.0013653631, 0.005321646, -0.011822945, 0.0013653631, 0.005492853, -0.014502381, -0.0020394644, 0.005193239, -0.015661635, -0.0054429593)
+
+[node name="Руна2" unique_id=904312412 instance=ExtResource("1_61jpq")]
+
+[node name="Руна2" parent="." index="0" unique_id=1150370193]
+surface_material_override/0 = ExtResource("2_tch5l")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Руна2" index="0" unique_id=1954060665]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Руна2/StaticBody3D" index="0" unique_id=1486469468]
+shape = SubResource("ConvexPolygonShape3D_tch5l")
