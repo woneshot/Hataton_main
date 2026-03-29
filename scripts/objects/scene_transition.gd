@@ -72,7 +72,8 @@ func _setup_portal_particles() -> void:
 	mat.scale_curve = scale_texture
 	
 	particles.process_material = mat
-	particles.amount = 48
+	particles.amount = 100
+	
 	particles.lifetime = 1.5
 	particles.explosiveness = 0.0
 	particles.randomness = 0.2

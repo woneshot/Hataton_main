@@ -6,16 +6,22 @@ func _ready():
 func _setup_fire() -> void:
 	var mat = ParticleProcessMaterial.new()
 	
-	# Форма — плоский диск у основания
-	mat.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_BOX
-	mat.emission_box_extents = Vector3(0.4, 0.05, 0.4)
+# Форма — кольцо вокруг котла
+	mat.emission_shape = ParticleProcessMaterial.EMISSION_SHAPE_RING
+	mat.emission_ring_radius = 3
 	
-	# Летят вверх хаотично
+	mat.emission_ring_inner_radius = 1
+	
+	
+	mat.emission_ring_height = 0.05
+	mat.emission_ring_axis = Vector3.UP
+	
+	# Летят во все стороны вверх
 	mat.direction = Vector3(0, 1, 0)
-	mat.spread = 25.0
-	mat.initial_velocity_min = 1.0
-	mat.initial_velocity_max = 2.5
-	mat.gravity = Vector3(0, 1.0, 0)  # Тянет вверх — огонь поднимается
+	mat.spread = 180.0  # ← Полусфера, огонь во все стороны
+	mat.initial_velocity_min = 0.5
+	mat.initial_velocity_max = 2.0
+	mat.gravity = Vector3(0, 2.0, 0)  # Тянет вверх сильнее
 	
 	# Турбулентность
 	mat.turbulence_enabled = true
@@ -52,7 +58,7 @@ func _setup_fire() -> void:
 	mat.scale_curve = scale_texture
 	
 	process_material = mat
-	amount = 40
+	amount = 60
 	lifetime = 1.0
 	explosiveness = 0.0
 	randomness = 0.3

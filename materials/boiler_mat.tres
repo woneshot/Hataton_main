@@ -11,5 +11,6 @@ orm_texture = ExtResource("4_qameh")
 emission_enabled = true
 emission_texture = ExtResource("2_p32sm")
 normal_enabled = true
+normal_scale = -4.36
 normal_texture = ExtResource("3_7ybu6")
 texture_filter = 0

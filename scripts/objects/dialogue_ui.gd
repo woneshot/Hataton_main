@@ -69,6 +69,10 @@ func set_dialog_source(source: Node3D) -> void:
 	voice_player = source.get_node_or_null("SfxPlayer")
 	if not voice_player:
 		voice_player = source.get_node_or_null("AudioStreamPlayer3D")
+	
+	# Направляем на шину Voice
+	if voice_player:
+		voice_player.bus = &"Voice"
 
 func _show_line() -> void:
 	if current_line_index >= lines.size():

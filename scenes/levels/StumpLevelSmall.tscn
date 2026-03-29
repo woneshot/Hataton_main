@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://6purojar8bge" path="res://scripts/objects/camera_rig.gd" id="1_v5fec"]
 [ext_resource type="PackedScene" uid="uid://b8lxnovkqkwqu" path="res://scenes/objects/Rocks/RockSmall.tscn" id="2_esma0"]
 [ext_resource type="PackedScene" uid="uid://d2wjlkuulf1c2" path="res://scenes/objects/Rocks/RockMid.tscn" id="3_l6dvu"]
-[ext_resource type="Texture2D" uid="uid://ck45m2lmntlys" path="res://assets/normal_maps/Hero/hero_slash_n.png" id="4_5f4ky"]
 [ext_resource type="Texture2D" uid="uid://ojr4fn3hm7dk" path="res://assets/FLOOR.jpeg" id="5_ppksh"]
 [ext_resource type="PackedScene" uid="uid://d4jq553341tg" path="res://scenes/objects/Bones/Bone.tscn" id="6_l6dvu"]
 [ext_resource type="Texture2D" uid="uid://c86pi6v6pteeg" path="res://assets/FLOOR_N.png" id="6_v5fec"]
@@ -23,7 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://672kylrnkbdi" path="res://scenes/objects/Enviroment/Grass.tscn" id="16_e84iw"]
 [ext_resource type="PackedScene" uid="uid://dcugkkcddu704" path="res://scenes/prefabs/player.tscn" id="17_e84iw"]
 [ext_resource type="PackedScene" uid="uid://phdfmw58m5ho" path="res://scenes/prefabs/SceneTransition.tscn" id="19_cy82g"]
-[ext_resource type="PackedScene" uid="uid://6tfyv4kn5i55" path="res://scenes/levels/StumpInside.tscn" id="20_lfypb"]
+[ext_resource type="PackedScene" uid="uid://dg15p5tq81mgs" path="res://scenes/levels/StumpInside.tscn" id="20_lfypb"]
 [ext_resource type="PackedScene" uid="uid://ci8ky1tjwcx6w" path="res://scenes/objects/Trees/Enter.tscn" id="20_ppksh"]
 [ext_resource type="PackedScene" uid="uid://4utgib0jkrcs" path="res://scenes/prefabs/guard.tscn" id="23_ap3tq"]
 [ext_resource type="PackedScene" uid="uid://c54n0240ee0st" path="res://scenes/ui/dialogue_ui.tscn" id="24_0vrmj"]
@@ -89,12 +88,12 @@ sky_horizon_color = Color(0.14901961, 0.05882353, 0.03137255, 1)
 ground_bottom_color = Color(0.019607844, 0.019607844, 0.019607844, 1)
 ground_horizon_color = Color(0.101960786, 0.039215688, 0.019607844, 1)
 
-[sub_resource type="Sky" id="Sky_2ijbw"]
+[sub_resource type="Sky" id="Sky_gk0wo"]
 sky_material = SubResource("ProceduralSkyMaterial_0vrmj")
 
 [sub_resource type="Environment" id="Environment_cy82g"]
 background_mode = 2
-sky = SubResource("Sky_2ijbw")
+sky = SubResource("Sky_gk0wo")
 ambient_light_source = 3
 ambient_light_color = Color(0.078431375, 0.05882353, 0.12156863, 1)
 tonemap_mode = 3
@@ -142,7 +141,6 @@ camera_angle = -20.0
 
 [node name="Player" parent="." unique_id=140876529 instance=ExtResource("17_e84iw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2465315, 10.264954, 0)
-norm_attack_2 = ExtResource("4_5f4ky")
 
 [node name="SceneTransition" parent="." unique_id=1645615911 groups=["interactable"] instance=ExtResource("19_cy82g")]
 transform = Transform3D(6.666303, 0, 0, 0, 3.3322558, 0, 0, 0, 2, -0.40571046, 0.27713323, -20.96393)
@@ -363,20 +361,6 @@ transform = Transform3D(0.11234042, 0.014007641, -2.0367015e-09, 0, -1.2142047e-
 mesh = SubResource("PlaneMesh_lfypb")
 surface_material_override/0 = SubResource("StandardMaterial3D_lfypb")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Scene" unique_id=947750002]
-environment = SubResource("Environment_cy82g")
-compositor = SubResource("Compositor_lfypb")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Scene" unique_id=188939019]
-transform = Transform3D(0.70710677, 0.35355335, -0.61237234, 0, 0.8660253, 0.49999997, 0.70710677, -0.35355335, 0.61237234, 0, 11.104045, 0)
-light_color = Color(1.649424, 1.8293494, 2.1399646, 1)
-light_energy = 0.5
-light_indirect_energy = 0.3
-light_bake_mode = 1
-shadow_enabled = true
-shadow_bias = 0.05
-shadow_opacity = 0.9
-
 [node name="Guard" parent="." unique_id=1396054506 instance=ExtResource("23_ap3tq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.388364, 0.86918235, -16.5711)
 
@@ -386,3 +370,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8805294, 0.86918235, -16.78
 [node name="DialogueUI" parent="." unique_id=742846960 instance=ExtResource("24_0vrmj")]
 
 [node name="ScreenEffects" parent="." unique_id=1867351135 instance=ExtResource("26_81xp3")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=947750002]
+environment = SubResource("Environment_cy82g")
+compositor = SubResource("Compositor_lfypb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=188939019]
+transform = Transform3D(0.70710677, 0.35355338, -0.61237246, 0, 0.86602545, 0.5, 0.70710677, -0.35355338, 0.61237246, 0, 6.6624274, 0)
+light_color = Color(1.649424, 1.8293494, 2.1399646, 1)
+light_energy = 0.5
+light_indirect_energy = 0.3
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 0.05
+shadow_opacity = 0.9
